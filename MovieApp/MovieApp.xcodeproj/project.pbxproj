@@ -21,6 +21,7 @@
 		BEDA1AF525264A38007A43AF /* MovieList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF425264A38007A43AF /* MovieList.swift */; };
 		BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF625264B0B007A43AF /* Urls.swift */; };
 		BEDA1AF9252658FB007A43AF /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */; };
+		BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AFA252659BB007A43AF /* DetailList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		BEDA1AF425264A38007A43AF /* MovieList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieList.swift; sourceTree = "<group>"; };
 		BEDA1AF625264B0B007A43AF /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
+		BEDA1AFA252659BB007A43AF /* DetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				BEDA1AF425264A38007A43AF /* MovieList.swift */,
+				BEDA1AFA252659BB007A43AF /* DetailList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */,
 				BEDA1AF9252658FB007A43AF /* DetailMovieViewController.swift in Sources */,
+				BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */,
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
 				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
 				BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */,

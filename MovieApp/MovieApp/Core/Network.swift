@@ -26,7 +26,7 @@ class NetworkManager {
                                
                                let decoder = JSONDecoder()
                                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                               let movies = try? decoder.decode(JSONModel.self, from: responceData)
+                               let movies = try? decoder.decode(MovieList.self, from: responceData)
                                print(movies)
                                completionHandler(movies?.results ?? [] )
                             print(movies?.results)
