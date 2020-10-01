@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var posterImage: UIImageView!
@@ -27,6 +28,8 @@ class MainTableViewCell: UITableViewCell {
             self.voteAverageLabel.text = String(result.voteAverage)
             self.overviewLabel.text = result.overview
             self.releaseDataLabel.text = result.releaseDate
+            let url = URL(string: Urls.baseImageUrl.rawValue + result.posterPath)
+            self.posterImage.kf.setImage(with: url)
         }
         
     }

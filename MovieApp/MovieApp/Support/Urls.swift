@@ -14,5 +14,6 @@ enum Urls: String {
     case api = "?api_key=f0a7305a79b10d017f80b53d6e7942ef&"
     case language = "language=en-US&page=1"
     case nowPlaying = "now_playing"
+    case baseImageUrl = "https://image.tmdb.org/t/p/w500"
     
 }
