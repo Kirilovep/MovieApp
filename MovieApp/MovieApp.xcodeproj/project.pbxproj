@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD3252645E0007A43AF /* AppDelegate.swift */; };
 		BEDA1AD6252645E0007A43AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */; };
-		BEDA1AD8252645E0007A43AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD7252645E0007A43AF /* ViewController.swift */; };
+		BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD7252645E0007A43AF /* MainViewController.swift */; };
 		BEDA1ADB252645E0007A43AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDA1AD9252645E0007A43AF /* Main.storyboard */; };
 		BEDA1ADD252645E1007A43AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDA1ADC252645E1007A43AF /* Assets.xcassets */; };
 		BEDA1AE0252645E1007A43AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDA1ADE252645E1007A43AF /* LaunchScreen.storyboard */; };
+		BEDA1AE925264756007A43AF /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AE725264756007A43AF /* MainTableViewCell.swift */; };
+		BEDA1AEA25264756007A43AF /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEDA1AE825264756007A43AF /* MainTableViewCell.xib */; };
+		BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AEB2526477A007A43AF /* Enums.swift */; };
+		BEDA1AF2252648AF007A43AF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF1252648AF007A43AF /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BEDA1AD0252645E0007A43AF /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDA1AD3252645E0007A43AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BEDA1AD7252645E0007A43AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BEDA1AD7252645E0007A43AF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BEDA1ADA252645E0007A43AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BEDA1ADC252645E1007A43AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEDA1ADF252645E1007A43AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEDA1AE1252645E1007A43AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEDA1AE725264756007A43AF /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		BEDA1AE825264756007A43AF /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		BEDA1AEB2526477A007A43AF /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		BEDA1AF1252648AF007A43AF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,59 @@
 		BEDA1AD2252645E0007A43AF /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
+				BEDA1AF3252648B3007A43AF /* Core */,
+				BEDA1AF02526479F007A43AF /* Support */,
+				BEDA1AEF2526478C007A43AF /* Controller */,
+				BEDA1AEE25264788007A43AF /* Model */,
+				BEDA1AED25264780007A43AF /* View */,
 				BEDA1AD3252645E0007A43AF /* AppDelegate.swift */,
 				BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */,
-				BEDA1AD7252645E0007A43AF /* ViewController.swift */,
 				BEDA1AD9252645E0007A43AF /* Main.storyboard */,
 				BEDA1ADC252645E1007A43AF /* Assets.xcassets */,
 				BEDA1ADE252645E1007A43AF /* LaunchScreen.storyboard */,
 				BEDA1AE1252645E1007A43AF /* Info.plist */,
 			);
 			path = MovieApp;
+			sourceTree = "<group>";
+		};
+		BEDA1AED25264780007A43AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEDA1AE725264756007A43AF /* MainTableViewCell.swift */,
+				BEDA1AE825264756007A43AF /* MainTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEDA1AEE25264788007A43AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BEDA1AEF2526478C007A43AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BEDA1AD7252645E0007A43AF /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BEDA1AF02526479F007A43AF /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				BEDA1AEB2526477A007A43AF /* Enums.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		BEDA1AF3252648B3007A43AF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BEDA1AF1252648AF007A43AF /* Network.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +179,7 @@
 			files = (
 				BEDA1AE0252645E1007A43AF /* LaunchScreen.storyboard in Resources */,
 				BEDA1ADD252645E1007A43AF /* Assets.xcassets in Resources */,
+				BEDA1AEA25264756007A43AF /* MainTableViewCell.xib in Resources */,
 				BEDA1ADB252645E0007A43AF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,8 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEDA1AD8252645E0007A43AF /* ViewController.swift in Sources */,
+				BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */,
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
+				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
+				BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */,
+				BEDA1AE925264756007A43AF /* MainTableViewCell.swift in Sources */,
 				BEDA1AD6252645E0007A43AF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
