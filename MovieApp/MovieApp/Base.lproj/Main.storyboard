@@ -40,6 +40,7 @@
                     <connections>
                         <outlet property="mainSegmentedControl" destination="JS1-ir-C9Q" id="Di7-bd-5fl"/>
                         <outlet property="mainTableView" destination="BN2-A6-MPb" id="azj-IF-dwW"/>
+                        <segue destination="Ep6-Xg-fqs" kind="show" identifier="segueToDetailView" id="Y1Z-4N-4jS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,6 +57,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aMc-ua-9Cn"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ONg-JS-6gD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="akU-k1-tQD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

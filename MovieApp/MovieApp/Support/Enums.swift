@@ -12,6 +12,11 @@ import Foundation
 enum Cells:String {
     case mainCellIdentefier = "mainCell"
     case mainCellNib = "MainTableViewCell"
+    
 }
 
+
+enum Segue: String {
+    case segueToDetailView = "segueToDetailView"
+}
 

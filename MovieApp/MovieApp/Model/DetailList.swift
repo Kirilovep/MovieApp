@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JSONModel: Codable {
+struct DetailList: Codable {
 let adult: Bool
 let backdropPath: String
 let budget: Int
