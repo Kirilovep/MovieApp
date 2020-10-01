@@ -45,8 +45,8 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCell.rawValue, for: indexPath)
-        cell.textLabel?.text = movieList[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCell.rawValue, for: indexPath) as! MainTableViewCell
+        cell.configure(movieList[indexPath.row])
         return cell
     }
     
