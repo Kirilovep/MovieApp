@@ -12,6 +12,8 @@ class MainViewController: UIViewController {
     
     //let networkManager = NetworkManager()
     var movieList: [Result] = []
+    
+    @IBOutlet weak var mainSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mainTableView: UITableView! {
         didSet {
             mainTableView.delegate = self
@@ -33,7 +35,9 @@ class MainViewController: UIViewController {
         }
     }
 
-
+    @IBAction func tappedSegmentedControl(_ sender: UISegmentedControl) {
+    }
+    
 }
 
 
