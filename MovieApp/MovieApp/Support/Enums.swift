@@ -10,7 +10,8 @@ import Foundation
 
 
 enum Cells:String {
-    case mainCell = "mainCell"
+    case mainCellIdentefier = "mainCell"
+    case mainCellNib = "MainTableViewCell"
 }
 
 

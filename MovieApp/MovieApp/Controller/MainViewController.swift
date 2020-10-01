@@ -10,37 +10,58 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    //let networkManager = NetworkManager()
+    
     var movieList: [Result] = []
     
+    //MARK:- IBOutlets-
     @IBOutlet weak var mainSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mainTableView: UITableView! {
         didSet {
             mainTableView.delegate = self
             mainTableView.dataSource = self
             
-            let nib = UINib(nibName: "MainTableViewCell", bundle: nil)
-            mainTableView.register(nib, forCellReuseIdentifier: Cells.mainCell.rawValue)
+            let nib = UINib(nibName: Cells.mainCellNib.rawValue, bundle: nil)
+            mainTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
         }
     }
-    
+    //MARK:- LifeCycles-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NetworkManager.manager.getRequest(Urls.nowPlaying.rawValue) { (results) in
-            DispatchQueue.main.async {
-                self.movieList = results
-                self.mainTableView.reloadData()
-            }
-        }
-    }
-
-    @IBAction func tappedSegmentedControl(_ sender: UISegmentedControl) {
+        requestMovie(Urls.nowPlayingMovie.rawValue)
+        
     }
     
+    //MARK:- IBActions-
+    @IBAction func tappedSegmentedControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            requestMovie(Urls.nowPlayingMovie.rawValue)
+        case 1:
+            requestMovie(Urls.topRatedMovie.rawValue)
+        case 2:
+            requestMovie(Urls.upcomingMovie.rawValue)
+        default:
+            break
+        }
+    }
+    
+
+
+    //MARK:- Private Func-
+
+private func requestMovie(_ filterForSearch: String) {
+    NetworkManager.manager.getRequest(filterForSearch) { (results) in
+        DispatchQueue.main.async {
+            self.movieList = results
+            self.mainTableView.reloadData()
+        }
+    }
 }
 
+}
 
+    //MARK:- Extenstions-
 
 
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {
@@ -49,7 +70,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCell.rawValue, for: indexPath) as! MainTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCellIdentefier.rawValue, for: indexPath) as! MainTableViewCell
         cell.configure(movieList[indexPath.row])
         return cell
     }
