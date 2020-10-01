@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+class NetworkManager {
+    
+    static let manager = NetworkManager()
+    
+    
+   
+    
+}

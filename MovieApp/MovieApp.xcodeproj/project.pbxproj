@@ -17,6 +17,7 @@
 		BEDA1AEA25264756007A43AF /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEDA1AE825264756007A43AF /* MainTableViewCell.xib */; };
 		BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AEB2526477A007A43AF /* Enums.swift */; };
 		BEDA1AF2252648AF007A43AF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF1252648AF007A43AF /* Network.swift */; };
+		BEDA1AF525264A38007A43AF /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF425264A38007A43AF /* MovieListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BEDA1AE825264756007A43AF /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		BEDA1AEB2526477A007A43AF /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		BEDA1AF1252648AF007A43AF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		BEDA1AF425264A38007A43AF /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		BEDA1AEE25264788007A43AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BEDA1AF425264A38007A43AF /* MovieListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
 				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
 				BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */,
+				BEDA1AF525264A38007A43AF /* MovieListModel.swift in Sources */,
 				BEDA1AE925264756007A43AF /* MainTableViewCell.swift in Sources */,
 				BEDA1AD6252645E0007A43AF /* SceneDelegate.swift in Sources */,
 			);
