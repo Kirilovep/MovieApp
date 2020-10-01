@@ -26,7 +26,7 @@ class NetworkManager {
                                
                                let decoder = JSONDecoder()
                                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                               let movies = try? decoder.decode(JSONModel.self, from: responceData)
+                               let movies = try? decoder.decode(MovieList.self, from: responceData)
                                print(movies)
                                completionHandler(movies?.results ?? [] )
                             print(movies?.results)
@@ -37,5 +37,31 @@ class NetworkManager {
                }
         
     }
+    
+    func requestDetailMovie(_ movieId: Int, _ completionHandler: @escaping (DetailList?) -> Void ) {
+                   
+        if let url = URL(string: Urls.baseUrl.rawValue + String(movieId) + Urls.api.rawValue + Urls.language.rawValue ) {
+                       URLSession.shared.dataTask(with: url) { (data, responce, error ) in
+                           
+                           if error != nil {
+                               print("error in request")
+                           } else {
+                               if let resp = responce as? HTTPURLResponse,
+                               resp.statusCode == 200,
+                                   let responceData = data {
+                                   
+                           let decoder = JSONDecoder()
+                                 decoder.keyDecodingStrategy = .convertFromSnakeCase
+                                 let movies = try? decoder.decode(DetailList.self, from: responceData)
+                    
+                                 completionHandler(movies)
+                                  
+                               }
+                           }
+                       }.resume()
+                   }
+           }
+    
+    
     
 }

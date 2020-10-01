@@ -58,6 +58,14 @@ private func requestMovie(_ filterForSearch: String) {
         }
     }
 }
+    
+    //MARK:- Segue -
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = mainTableView.indexPathForSelectedRow else { return }
+                   let movieDetails = movieList[indexPath.row]
+                   let detailVC = segue.destination as! DetailMovieViewController
+                   detailVC.detailResult = movieDetails
+    }
 
 }
 
@@ -75,5 +83,8 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
+    }
     
 }

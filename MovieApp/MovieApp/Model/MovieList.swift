@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct JSONModel: Codable {
+struct MovieList: Codable {
 let results: [Result]
 let page: Int
 let totalResults: Int
