@@ -9,7 +9,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    //let networkManager = NetworkManager()
+    var movieList: [Result] = []
     @IBOutlet weak var mainTableView: UITableView! {
         didSet {
             mainTableView.delegate = self
@@ -22,7 +24,13 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NetworkManager.manager.getRequest(Urls.nowPlaying.rawValue) { (results) in
+            DispatchQueue.main.async {
+                self.movieList = results
+                self.mainTableView.reloadData()
+            }
+        }
     }
 
 
@@ -33,11 +41,12 @@ class MainViewController: UIViewController {
 
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return movieList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCell.rawValue, for: indexPath)
+        cell.textLabel?.text = movieList[indexPath.row].title
         return cell
     }
     

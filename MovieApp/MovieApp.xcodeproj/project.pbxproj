@@ -18,6 +18,7 @@
 		BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AEB2526477A007A43AF /* Enums.swift */; };
 		BEDA1AF2252648AF007A43AF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF1252648AF007A43AF /* Network.swift */; };
 		BEDA1AF525264A38007A43AF /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF425264A38007A43AF /* MovieListModel.swift */; };
+		BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF625264B0B007A43AF /* Urls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BEDA1AEB2526477A007A43AF /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		BEDA1AF1252648AF007A43AF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		BEDA1AF425264A38007A43AF /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
+		BEDA1AF625264B0B007A43AF /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				BEDA1AEB2526477A007A43AF /* Enums.swift */,
+				BEDA1AF625264B0B007A43AF /* Urls.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */,
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
 				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
+				BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */,
 				BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */,
 				BEDA1AF525264A38007A43AF /* MovieListModel.swift in Sources */,
 				BEDA1AE925264756007A43AF /* MainTableViewCell.swift in Sources */,
