@@ -51,4 +51,29 @@ class NetworkManager {
                        }.resume()
                    }
            }
+    
+    
+    func requestCast(_ movieId: Int, _ completionHandler: @escaping ([Cast]) -> Void ) {
+                   
+        if let url = URL(string: "\(Urls.baseUrl.rawValue)\(movieId)\(Urls.credits.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
+            print(url)
+                       URLSession.shared.dataTask(with: url) { (data, responce, error ) in
+                           if error != nil {
+                               print("error in request")
+                           } else {
+                               if let resp = responce as? HTTPURLResponse,
+                               resp.statusCode == 200,
+                                   let responceData = data {
+                                   let decoder = JSONDecoder()
+                                 decoder.keyDecodingStrategy = .convertFromSnakeCase
+                                 let movies = try? decoder.decode(CastList.self, from: responceData)
+                                print(movies?.cast)
+                                completionHandler(movies?.cast ?? [])
+                                  
+                               }
+                           }
+                       }.resume()
+                   }
+           }
+
 }

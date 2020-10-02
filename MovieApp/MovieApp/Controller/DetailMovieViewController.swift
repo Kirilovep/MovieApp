@@ -13,7 +13,7 @@ class DetailMovieViewController: UIViewController {
     var detailResult: Result?
     var results: DetailList?
     let networkManager = NetworkManager()
-    
+    var detailCast: [Cast] = []
     
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -35,43 +35,60 @@ class DetailMovieViewController: UIViewController {
          override func viewDidLoad() {
                super.viewDidLoad()
 
-               guard let id = detailResult?.id else { return }
-               print(id)
                detailImageView.clipsToBounds = true
                detailImageView.layer.cornerRadius = 10
   
-               networkManager.requestDetailMovie(id) { (detailedMovie) in
-                   DispatchQueue.main.async {
-                    self.activityIndicator.startAnimating()
-                    self.results = detailedMovie
-                    self.titleLabel.text = self.results?.title
-                    self.voteAverageLabel.text = String(self.results!.voteAverage)
-                    self.dateLabel.text = self.results?.releaseDate
-                    self.overviewLabel.text = self.results?.overview
-                    self.budgetLabel.text = "\(self.results?.budget ?? 0)"
-                    guard let posterPath = self.results?.backdropPath else { return }
-                    let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
-                    self.detailImageView.kf.setImage(with: url)
-                    self.activityIndicator.stopAnimating()
-                   }
-               }
-               
+            
+               requestDetail()
+               requestCast()
              
                
            }
         
 
         
+   private func requestDetail() {
+        networkManager.requestDetailMovie(detailResult?.id ?? 0) { (detailedMovie) in
+            DispatchQueue.main.async {
+             self.activityIndicator.startAnimating()
+             self.results = detailedMovie
+             self.titleLabel.text = self.results?.title
+             self.voteAverageLabel.text = String(self.results!.voteAverage)
+             self.dateLabel.text = self.results?.releaseDate
+             self.overviewLabel.text = self.results?.overview
+             self.budgetLabel.text = "\(self.results?.budget ?? 0)"
+             guard let posterPath = self.results?.backdropPath else { return }
+             let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+             self.detailImageView.kf.setImage(with: url)
+             self.activityIndicator.stopAnimating()
+            }
+        }
+    }
+    
+    private func requestCast() {
+        networkManager.requestCast(detailResult?.id ?? 0) { (detailedCast) in
+            DispatchQueue.main.async {
+                self.detailCast = detailedCast
+                self.detailCollectionView.reloadData()
+            }
+        }
+    }
+    
     }
 
 
 extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        print(detailCast.count)
+         print(detailCast.count)
+         print(detailCast.count)
+         print(detailCast.count)
+        return detailCast.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.collectionCellIdentefier.rawValue, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.collectionCellIdentefier.rawValue, for: indexPath) as! DetailCollectionViewCell
+        cell.configure(detailCast[indexPath.row])
         return cell
     }
     
