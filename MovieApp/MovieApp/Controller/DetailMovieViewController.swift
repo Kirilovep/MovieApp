@@ -37,23 +37,21 @@ class DetailMovieViewController: UIViewController {
         didSet {
             crewCollectionView.delegate = self
             crewCollectionView.dataSource = self
-            let nib = UINib(nibName: Cells.crewCollectionCellNib.rawValue, bundle: nil)
-            crewCollectionView.register(nib, forCellWithReuseIdentifier: Cells.crewCollectionIdentefier.rawValue)
+            let crewNib = UINib(nibName: Cells.crewCollectionCellNib.rawValue, bundle: nil)
+            crewCollectionView.register(crewNib, forCellWithReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue)
         }
     }
-    
-    
          override func viewDidLoad() {
                super.viewDidLoad()
-
-             
+            
         detailImageView.clipsToBounds = true
         detailImageView.layer.cornerRadius = 10
   
                
-               requestDetail()
-               requestCast()
-               //load(url: url)
+                requestDetail()
+                requestCast()
+                requestCrew()
+               
                
            }
     //MARK:- Private func-
@@ -100,40 +98,32 @@ class DetailMovieViewController: UIViewController {
              }
          }
      }
-    
-//    func load(url : URL) {
-//        DispatchQueue.global().async { [weak self] in
-//            if let data = try? Data(contentsOf: url) {
-//            if let image = UIImage(data: data) {
-//                DispatchQueue.main.async {
-//                    self?.detailImageView.image = image
-//                    self?.detailView.backgroundColor = UIColor(patternImage: image)
-//
-//                }
-//            }
-//        }
-//    }
-//
-//    }
 }
 
     //MARK:- Configure collection view -
 extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == castCollectionView {
-             return detailCast.count
+            return detailCast.count
         } else {
             return detailCrew.count
         }
-       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let castCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.castCollectionCellIdentefier.rawValue, for: indexPath) as! CastCollectionViewCell
-        castCell.configure(detailCast[indexPath.row])
-        return castCell
-        
-        let crewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.castCollectionCellIdentefier.rawValue, for: indexPath) as! CrewCollectionViewCell
+       
+        if collectionView == castCollectionView {
+            let castCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.castCollectionCellIdentefier.rawValue, for: indexPath) as! CastCollectionViewCell
+            castCell.configure(detailCast[indexPath.row])
+            
+            return castCell
+            
+        } else {
+            let crewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue, for: indexPath) as! CrewCollectionViewCell
+            crewCell.configure(detailCrew[indexPath.row])
+            return crewCell
+        }
         
     }
     

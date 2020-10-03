@@ -33,22 +33,30 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cTt-ut-xrb">
+                        <rect key="frame" x="20" y="26" width="20" height="20"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="l7U-KY-9Gm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7tc-0v-T3G"/>
+                <constraint firstAttribute="trailing" secondItem="cTt-ut-xrb" secondAttribute="trailing" constant="20" id="BEd-eO-8b6"/>
                 <constraint firstAttribute="trailing" secondItem="Uzo-kQ-LqP" secondAttribute="trailing" id="Hgi-3R-GfQ"/>
                 <constraint firstItem="l7U-KY-9Gm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JRf-nz-YQ1"/>
                 <constraint firstItem="Uzo-kQ-LqP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="QyB-uz-Hmb"/>
+                <constraint firstItem="Uzo-kQ-LqP" firstAttribute="top" secondItem="cTt-ut-xrb" secondAttribute="bottom" constant="20" id="a4Y-H9-Y3e"/>
                 <constraint firstAttribute="bottom" secondItem="Uzo-kQ-LqP" secondAttribute="bottom" id="ehz-J8-EVL"/>
                 <constraint firstAttribute="trailing" secondItem="l7U-KY-9Gm" secondAttribute="trailing" id="g3P-Bu-whw"/>
                 <constraint firstItem="Uzo-kQ-LqP" firstAttribute="top" secondItem="l7U-KY-9Gm" secondAttribute="bottom" id="nFD-Mh-WY7"/>
+                <constraint firstItem="cTt-ut-xrb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="26" id="oB0-F9-tN1"/>
+                <constraint firstItem="cTt-ut-xrb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="vTj-r4-K0n"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="467" height="301"/>
             <connections>
                 <outlet property="characterImage" destination="l7U-KY-9Gm" id="WtP-xk-wgn"/>
                 <outlet property="fullName" destination="Uzo-kQ-LqP" id="KnD-dU-KzK"/>
+                <outlet property="indicatorImage" destination="cTt-ut-xrb" id="wcw-6c-d4X"/>
             </connections>
             <point key="canvasLocation" x="-78.260869565217391" y="85.714285714285708"/>
         </collectionViewCell>

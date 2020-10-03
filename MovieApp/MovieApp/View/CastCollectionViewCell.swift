@@ -10,6 +10,7 @@ import UIKit
 
 class CastCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var indicatorImage: UIActivityIndicatorView!
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var characterImage: UIImageView!
     override func awakeFromNib() {
@@ -21,10 +22,12 @@ class CastCollectionViewCell: UICollectionViewCell {
     
     func configure(_ cast: Cast) {
         DispatchQueue.main.async {
+            self.indicatorImage.startAnimating()
             self.fullName.text = cast.name
             guard let profilePath = cast.profilePath else { return }
             let url = URL(string: Urls.baseImageUrl.rawValue + profilePath)
             self.characterImage.kf.setImage(with: url)
+            self.indicatorImage.stopAnimating()
             
         }
     }

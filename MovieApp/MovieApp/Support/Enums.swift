@@ -14,7 +14,7 @@ enum Cells:String {
     case mainCellNib = "MainTableViewCell"
     case castCollectionCellIdentefier = "collectionCell"
     case castCollectionCellNib = "CastCollectionViewCell"
-    case crewCollectionIdentefier = "CrewCollectionCell"
+    case crewCollectionCellIdentifier = "crewCell"
     case crewCollectionCellNib = "CrewCollectionViewCell"
 }
 
