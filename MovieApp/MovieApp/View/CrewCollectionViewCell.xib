@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CrewCollectionCell" id="692-L6-sKa" customClass="CastCollectionViewCell" customModule="MovieApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="60" height="90"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iu5-bI-X8Q">
+                        <rect key="frame" x="0.0" y="0.0" width="60" height="66"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="BZg-Gk-cvm"/>
+                            <constraint firstAttribute="height" constant="66" id="Diz-sK-L63"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Gael García Bernal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VdO-H2-uiT">
+                        <rect key="frame" x="0.0" y="66" width="60" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="5Gc-fZ-7o8"/>
+                            <constraint firstAttribute="width" constant="60" id="mrC-M4-fLi"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="iu5-bI-X8Q" firstAttribute="leading" secondItem="692-L6-sKa" secondAttribute="leading" id="5SC-il-lle"/>
+                <constraint firstAttribute="trailing" secondItem="VdO-H2-uiT" secondAttribute="trailing" id="5bJ-lS-Xjo"/>
+                <constraint firstAttribute="bottom" secondItem="VdO-H2-uiT" secondAttribute="bottom" id="6PC-GA-DoO"/>
+                <constraint firstAttribute="trailing" secondItem="iu5-bI-X8Q" secondAttribute="trailing" id="R4x-5I-Lo8"/>
+                <constraint firstItem="VdO-H2-uiT" firstAttribute="top" secondItem="iu5-bI-X8Q" secondAttribute="bottom" id="TUy-xV-eaY"/>
+                <constraint firstItem="VdO-H2-uiT" firstAttribute="leading" secondItem="692-L6-sKa" secondAttribute="leading" id="WJ0-JG-e2f"/>
+                <constraint firstItem="iu5-bI-X8Q" firstAttribute="top" secondItem="692-L6-sKa" secondAttribute="top" id="jpu-Yx-zH8"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="xRp-rE-QO7"/>
+            <size key="customSize" width="467" height="301"/>
+            <point key="canvasLocation" x="100" y="108"/>
+        </collectionViewCell>
+    </objects>
+</document>

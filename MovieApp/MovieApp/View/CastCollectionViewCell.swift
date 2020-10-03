@@ -8,14 +8,14 @@
 
 import UIKit
 
-class DetailCollectionViewCell: UICollectionViewCell {
+class CastCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var characterImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        characterImage.clipsToBounds = true
+        //characterImage.clipsToBounds = true
     }
 
     

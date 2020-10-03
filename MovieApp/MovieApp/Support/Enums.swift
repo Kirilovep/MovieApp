@@ -12,8 +12,10 @@ import Foundation
 enum Cells:String {
     case mainCellIdentefier = "mainCell"
     case mainCellNib = "MainTableViewCell"
-    case collectionCellIdentefier = "collectionCell"
-    case collectionCellNib = "DetailCollectionViewCell"
+    case castCollectionCellIdentefier = "collectionCell"
+    case castCollectionCellNib = "CastCollectionViewCell"
+    case crewCollectionIdentefier = "CrewCollectionCell"
+    case crewCollectionCellNib = "CrewCollectionViewCell"
 }
 
 enum Segue: String {
