@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
-class DetailMovieViewController: UIViewController {
+class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
 
     var detailResult: Result?
     var results: DetailList?
     let networkManager = NetworkManager()
     var detailCast: [Cast] = []
     var detailCrew: [Crew] = []
+    var videos: [Video] = []
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -41,14 +44,27 @@ class DetailMovieViewController: UIViewController {
             crewCollectionView.register(crewNib, forCellWithReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue)
         }
     }
-    @IBOutlet weak var videoCollectionView: UICollectionView!
+    @IBOutlet weak var videoCollectionView: UICollectionView! {
+        didSet {
+            videoCollectionView.delegate = self
+            videoCollectionView.dataSource = self
+            let videoNib = UINib(nibName: Cells.videoColectionCellNib.rawValue, bundle: nil)
+            videoCollectionView.register(videoNib, forCellWithReuseIdentifier: Cells.videoCollectionCellIdentifier.rawValue)
+        }
+    }
     override func viewDidLoad() {
                super.viewDidLoad()
             
         detailImageView.clipsToBounds = true
         detailImageView.layer.cornerRadius = 10
   
-               
+        networkManager.requestVideos(detailResult?.id ?? 0) { (videos) in
+            DispatchQueue.main.async {
+                self.videos = videos
+                self.videoCollectionView.reloadData()
+                
+            }
+        }
                 requestDetail()
                 requestCast()
                 requestCrew()
@@ -106,8 +122,10 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == castCollectionView {
             return detailCast.count
-        } else {
+        } else if collectionView == crewCollectionView{
             return detailCrew.count
+        } else {
+            return videos.count
         }
         
     }
@@ -120,15 +138,39 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
             
             return castCell
             
-        } else {
+        } else if collectionView == crewCollectionView {
             let crewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue, for: indexPath) as! CrewCollectionViewCell
            crewCell.configure(detailCrew[indexPath.row])
             return crewCell
+        } else {
+            let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.videoCollectionCellIdentifier.rawValue, for: indexPath) as! VideoCollectionViewCell
+            videoCell.configure(videos[indexPath.row])
+            return videoCell
         }
         
-    }
+    
     
     
 }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        if collectionView == videoCollectionView {
+            guard let url = URL(string: Urls.youTube.rawValue + videos[indexPath.row].key!) else { return}
+                
+               
+            let player = AVPlayer(url: url)
+            let avPlayerViewController = AVPlayerViewController()
+                avPlayerViewController.delegate = self
+            avPlayerViewController.player = player
+            present(avPlayerViewController, animated: true) {
+                avPlayerViewController.player?.play()
+                }
+            
+            
+        }
+        
+    }
 
+
+}

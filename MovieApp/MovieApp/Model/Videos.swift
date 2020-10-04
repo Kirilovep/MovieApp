@@ -16,3 +16,8 @@ struct Video: Codable {
     let size: Int?
     let site: String?
 }
+
+struct VideosResponse: Codable {
+    let id: Int?
+    let results: [Video]?
+}
