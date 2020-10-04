@@ -10,11 +10,12 @@ import UIKit
 
 class CrewCollectionViewCell: UICollectionViewCell {
 
-    let image = #imageLiteral(resourceName: "noImage")
+    let Secondimage = #imageLiteral(resourceName: "defaultuser")
     
     @IBOutlet weak var indicatorImage: UIActivityIndicatorView!
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var jobLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -24,17 +25,22 @@ class CrewCollectionViewCell: UICollectionViewCell {
     func configure(_ crew: Crew) {
         DispatchQueue.main.async {
             self.indicatorImage.startAnimating()
-            self.nameLabel.text = crew.job
-            guard let profilePath = crew.profilePath else { return }
-            let url = URL(string: Urls.baseImageUrl.rawValue + profilePath)
-            if crew.profilePath == nil {
-                self.characterImage.image = self.image
-            } else {
-                self.characterImage.kf.setImage(with: url)
-            }
-            
+            self.nameLabel.text = crew.name
+            self.jobLabel.text = crew.job
+          if let profilePath = crew.profilePath {
+                           let url = URL(string: Urls.baseImageUrl.rawValue + profilePath )
+                           self.characterImage.kf.setImage(with: url)
+                       } else {
+                           self.characterImage.image = UIImage(named: Images.imageForPeople.rawValue)
+                       }
             self.indicatorImage.stopAnimating()
         }
     }
 
+    
+ 
 }
+
+
+
+

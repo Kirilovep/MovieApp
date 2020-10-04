@@ -22,3 +22,7 @@ enum Segue: String {
     case segueToDetailView = "segueToDetailView"
 }
 
+
+enum Images: String {
+    case imageForPeople = "defaultuser"
+}

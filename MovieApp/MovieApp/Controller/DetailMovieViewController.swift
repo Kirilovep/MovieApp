@@ -121,7 +121,7 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
             
         } else {
             let crewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue, for: indexPath) as! CrewCollectionViewCell
-            crewCell.configure(detailCrew[indexPath.row])
+           crewCell.configure(detailCrew[indexPath.row])
             return crewCell
         }
         
