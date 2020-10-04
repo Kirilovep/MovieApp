@@ -41,7 +41,8 @@ class DetailMovieViewController: UIViewController {
             crewCollectionView.register(crewNib, forCellWithReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue)
         }
     }
-         override func viewDidLoad() {
+    @IBOutlet weak var videoCollectionView: UICollectionView!
+    override func viewDidLoad() {
                super.viewDidLoad()
             
         detailImageView.clipsToBounds = true
