@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		575952C124F9FB3D3C8548F0 /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E40A758DE56BFD6E50C596D /* Pods_MovieApp.framework */; };
+		BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4831222528F4990056766E /* CrewCollectionViewCell.swift */; };
+		BE4831252528F4990056766E /* CrewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE4831232528F4990056766E /* CrewCollectionViewCell.xib */; };
+		BE52F8FF2527B1BA00A65BCE /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */; };
+		BE52F9002527B1BA00A65BCE /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */; };
+		BE52F9022527B2E000A65BCE /* CastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F9012527B2E000A65BCE /* CastList.swift */; };
 		BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD3252645E0007A43AF /* AppDelegate.swift */; };
 		BEDA1AD6252645E0007A43AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */; };
 		BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD7252645E0007A43AF /* MainViewController.swift */; };
@@ -28,6 +33,11 @@
 		07B718B68D240D2DB7A5A088 /* Pods-MovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.debug.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6E40A758DE56BFD6E50C596D /* Pods_MovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FC5E4DB2FE5D799F7477D0 /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
+		BE4831222528F4990056766E /* CrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE4831232528F4990056766E /* CrewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrewCollectionViewCell.xib; sourceTree = "<group>"; };
+		BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
+		BE52F9012527B2E000A65BCE /* CastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastList.swift; sourceTree = "<group>"; };
 		BEDA1AD0252645E0007A43AF /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDA1AD3252645E0007A43AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +126,10 @@
 			children = (
 				BEDA1AE725264756007A43AF /* MainTableViewCell.swift */,
 				BEDA1AE825264756007A43AF /* MainTableViewCell.xib */,
+				BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */,
+				BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */,
+				BE4831222528F4990056766E /* CrewCollectionViewCell.swift */,
+				BE4831232528F4990056766E /* CrewCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -124,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				BEDA1AF425264A38007A43AF /* MovieList.swift */,
+				BE52F9012527B2E000A65BCE /* CastList.swift */,
 				BEDA1AFA252659BB007A43AF /* DetailList.swift */,
 			);
 			path = Model;
@@ -219,6 +234,8 @@
 				BEDA1ADD252645E1007A43AF /* Assets.xcassets in Resources */,
 				BEDA1AEA25264756007A43AF /* MainTableViewCell.xib in Resources */,
 				BEDA1ADB252645E0007A43AF /* Main.storyboard in Resources */,
+				BE52F9002527B1BA00A65BCE /* CastCollectionViewCell.xib in Resources */,
+				BE4831252528F4990056766E /* CrewCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE52F8FF2527B1BA00A65BCE /* CastCollectionViewCell.swift in Sources */,
 				BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */,
 				BEDA1AF9252658FB007A43AF /* DetailMovieViewController.swift in Sources */,
+				BE52F9022527B2E000A65BCE /* CastList.swift in Sources */,
 				BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */,
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
+				BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */,
 				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
 				BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */,
 				BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */,
@@ -428,6 +448,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B52CZDFQ2;
 				INFOPLIST_FILE = MovieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,6 +468,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9B52CZDFQ2;
 				INFOPLIST_FILE = MovieApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

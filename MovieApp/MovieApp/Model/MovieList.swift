@@ -32,4 +32,5 @@ let title: String
 let voteAverage: Double
 let overview: String
 let releaseDate: String
+
 }

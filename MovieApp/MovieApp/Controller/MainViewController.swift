@@ -45,16 +45,13 @@ class MainViewController: UIViewController {
             break
         }
     }
-    
-
-
     //MARK:- Private Func-
 
 private func requestMovie(_ filterForSearch: String) {
-    NetworkManager.manager.getRequest(filterForSearch) { (results) in
+    NetworkManager.manager.getRequest(filterForSearch)  { [weak self] (results) in
         DispatchQueue.main.async {
-            self.movieList = results
-            self.mainTableView.reloadData()
+            self?.movieList = results
+            self?.mainTableView.reloadData()
         }
     }
 }
@@ -70,8 +67,6 @@ private func requestMovie(_ filterForSearch: String) {
 }
 
     //MARK:- Extenstions-
-
-
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count

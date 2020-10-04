@@ -20,7 +20,6 @@ let originalTitle: String
 let overview: String
 let popularity: Double
 let posterPath: String
-let productionCompanies: [ProductionCompany]
 let releaseDate: String
 let revenue: Int
 let runtime: Int
@@ -30,13 +29,4 @@ let title: String
 let video: Bool
 let voteAverage: Double
 let voteCount: Int
-}
-
-struct ProductionCompany: Codable {
-let id: Int
-let logoPath: String
-let name: String
-let originCountry: String
-
-
 }

@@ -17,5 +17,6 @@ enum Urls: String {
     case baseImageUrl = "https://image.tmdb.org/t/p/w500"
     case topRatedMovie = "top_rated"
     case upcomingMovie = "upcoming"
+    case credits = "/credits"
     
 }
