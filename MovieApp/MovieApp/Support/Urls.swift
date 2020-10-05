@@ -18,5 +18,7 @@ enum Urls: String {
     case topRatedMovie = "top_rated"
     case upcomingMovie = "upcoming"
     case credits = "/credits"
+    case videos = "/videos"
+    case youTube = "https://www.youtube.com/watch?v="
     
 }

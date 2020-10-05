@@ -13,6 +13,9 @@
 		BE52F8FF2527B1BA00A65BCE /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */; };
 		BE52F9002527B1BA00A65BCE /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */; };
 		BE52F9022527B2E000A65BCE /* CastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F9012527B2E000A65BCE /* CastList.swift */; };
+		BE6D54CA252A85B7005A90B0 /* Videos.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D54C9252A85B7005A90B0 /* Videos.swift */; };
+		BE6D54CD252A8817005A90B0 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6D54CB252A8817005A90B0 /* VideoCollectionViewCell.swift */; };
+		BE6D54CE252A8817005A90B0 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6D54CC252A8817005A90B0 /* VideoCollectionViewCell.xib */; };
 		BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD3252645E0007A43AF /* AppDelegate.swift */; };
 		BEDA1AD6252645E0007A43AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */; };
 		BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AD7252645E0007A43AF /* MainViewController.swift */; };
@@ -27,6 +30,7 @@
 		BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF625264B0B007A43AF /* Urls.swift */; };
 		BEDA1AF9252658FB007A43AF /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */; };
 		BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AFA252659BB007A43AF /* DetailList.swift */; };
+		BEF822B5252A9B69008BF172 /* YouTubeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF822B4252A9B69008BF172 /* YouTubeNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,9 @@
 		BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE52F9012527B2E000A65BCE /* CastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastList.swift; sourceTree = "<group>"; };
+		BE6D54C9252A85B7005A90B0 /* Videos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Videos.swift; sourceTree = "<group>"; };
+		BE6D54CB252A8817005A90B0 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		BE6D54CC252A8817005A90B0 /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
 		BEDA1AD0252645E0007A43AF /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDA1AD3252645E0007A43AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +61,7 @@
 		BEDA1AF625264B0B007A43AF /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		BEDA1AFA252659BB007A43AF /* DetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailList.swift; sourceTree = "<group>"; };
+		BEF822B4252A9B69008BF172 /* YouTubeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,8 @@
 				BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */,
 				BE4831222528F4990056766E /* CrewCollectionViewCell.swift */,
 				BE4831232528F4990056766E /* CrewCollectionViewCell.xib */,
+				BE6D54CB252A8817005A90B0 /* VideoCollectionViewCell.swift */,
+				BE6D54CC252A8817005A90B0 /* VideoCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -140,6 +150,7 @@
 				BEDA1AF425264A38007A43AF /* MovieList.swift */,
 				BE52F9012527B2E000A65BCE /* CastList.swift */,
 				BEDA1AFA252659BB007A43AF /* DetailList.swift */,
+				BE6D54C9252A85B7005A90B0 /* Videos.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				BEDA1AF1252648AF007A43AF /* Network.swift */,
+				BEF822B4252A9B69008BF172 /* YouTubeNetwork.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 				BEDA1ADD252645E1007A43AF /* Assets.xcassets in Resources */,
 				BEDA1AEA25264756007A43AF /* MainTableViewCell.xib in Resources */,
 				BEDA1ADB252645E0007A43AF /* Main.storyboard in Resources */,
+				BE6D54CE252A8817005A90B0 /* VideoCollectionViewCell.xib in Resources */,
 				BE52F9002527B1BA00A65BCE /* CastCollectionViewCell.xib in Resources */,
 				BE4831252528F4990056766E /* CrewCollectionViewCell.xib in Resources */,
 			);
@@ -291,7 +304,10 @@
 				BE52F8FF2527B1BA00A65BCE /* CastCollectionViewCell.swift in Sources */,
 				BEDA1AD8252645E0007A43AF /* MainViewController.swift in Sources */,
 				BEDA1AF9252658FB007A43AF /* DetailMovieViewController.swift in Sources */,
+				BE6D54CD252A8817005A90B0 /* VideoCollectionViewCell.swift in Sources */,
+				BE6D54CA252A85B7005A90B0 /* Videos.swift in Sources */,
 				BE52F9022527B2E000A65BCE /* CastList.swift in Sources */,
+				BEF822B5252A9B69008BF172 /* YouTubeNetwork.swift in Sources */,
 				BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */,
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
 				BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */,
