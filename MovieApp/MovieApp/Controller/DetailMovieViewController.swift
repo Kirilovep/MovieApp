@@ -9,15 +9,16 @@
 import UIKit
 import AVKit
 import AVFoundation
-
+import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
 
     var detailResult: Result?
-    var results: DetailList?
-    let networkManager = NetworkManager()
-    var detailCast: [Cast] = []
-    var detailCrew: [Crew] = []
-    var videos: [Video] = []
+    private let extractor = LinkExtractor()
+    private var results: DetailList?
+    private let networkManager = NetworkManager()
+    private var detailCast: [Cast] = []
+    private var detailCrew: [Crew] = []
+    private var videos: [Video] = []
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -98,12 +99,13 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
                 self.voteAverageLabel.text = String(self.results!.voteAverage)
                 self.dateLabel.text = self.results?.releaseDate
                 self.overviewLabel.text = self.results?.overview
-                guard let runTime = self.results?.runtime else { return }
+                guard
+                    let runTime = self.results?.runtime,
+                    let posterPath = self.results?.backdropPath,
+                    let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                else { return }
                 self.runTimeLabel.text = "\(runTime) minutes"
                 self.languageLabel.text = self.results?.originalLanguage
-                guard let posterPath = self.results?.backdropPath else { return }
-                guard let url = URL(string: Urls.baseImageUrl.rawValue + posterPath) else { return}
-                //self.load(url: url)
                 self.detailImageView.kf.setImage(with: url)
                 if self.results?.budget == 0 {
                                     self.budgetLabel.text = "No budget information"
@@ -156,21 +158,15 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == videoCollectionView {
-            guard let url = URL(string: Urls.youTube.rawValue + videos[indexPath.row].key!) else { return}
-                
-               
-            let player = AVPlayer(url: url)
-            let avPlayerViewController = AVPlayerViewController()
-                avPlayerViewController.delegate = self
-            avPlayerViewController.player = player
-            present(avPlayerViewController, animated: true) {
-                avPlayerViewController.player?.play()
+            extractor.getUrlFromKey(key: videos[indexPath.row].key) { [weak self] (url) in
+                guard let self = self else { return }
+                let player = AVPlayer(url: url)
+                let avPlayerViewController = AVPlayerViewController()
+                avPlayerViewController.player = player
+                self.present(avPlayerViewController, animated: true) {
+                    avPlayerViewController.player?.play()
                 }
-            
-            
+            }
         }
-        
     }
-
-
 }

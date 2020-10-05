@@ -30,6 +30,7 @@
 		BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF625264B0B007A43AF /* Urls.swift */; };
 		BEDA1AF9252658FB007A43AF /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */; };
 		BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDA1AFA252659BB007A43AF /* DetailList.swift */; };
+		BEF822B5252A9B69008BF172 /* YouTubeNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF822B4252A9B69008BF172 /* YouTubeNetwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		BEDA1AF625264B0B007A43AF /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
 		BEDA1AFA252659BB007A43AF /* DetailList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailList.swift; sourceTree = "<group>"; };
+		BEF822B4252A9B69008BF172 /* YouTubeNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeNetwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				BEDA1AF1252648AF007A43AF /* Network.swift */,
+				BEF822B4252A9B69008BF172 /* YouTubeNetwork.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				BE6D54CD252A8817005A90B0 /* VideoCollectionViewCell.swift in Sources */,
 				BE6D54CA252A85B7005A90B0 /* Videos.swift in Sources */,
 				BE52F9022527B2E000A65BCE /* CastList.swift in Sources */,
+				BEF822B5252A9B69008BF172 /* YouTubeNetwork.swift in Sources */,
 				BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */,
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
 				BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */,
