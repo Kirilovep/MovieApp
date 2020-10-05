@@ -22,6 +22,7 @@ enum Cells:String {
 
 enum Segue: String {
     case segueToDetailView = "segueToDetailView"
+    case segueToPerson = "segueToPerson"
 }
 
 

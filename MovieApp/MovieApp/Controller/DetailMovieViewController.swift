@@ -19,6 +19,8 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     private var detailCast: [Cast] = []
     private var detailCrew: [Crew] = []
     private var videos: [Video] = []
+    
+    //MARK:- IBOutlets-
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -53,6 +55,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             videoCollectionView.register(videoNib, forCellWithReuseIdentifier: Cells.videoCollectionCellIdentifier.rawValue)
         }
     }
+    //MARK:- lifecycle-
     override func viewDidLoad() {
                super.viewDidLoad()
             
@@ -116,7 +119,18 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
               self.activityIndicator.stopAnimating()
              }
          }
-     }
+    }
+    
+    //MARK:- Segue -
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == Segue.segueToPerson.rawValue {
+//            print(сollectionView.indexPathsForSelectedItems?[0])
+//        }
+////        let indexPath = castCollectionView.indexPathsForSelectedItems?[0] {
+////        let detailVC = segue.destination as! PeopleViewController
+////            detailVC.detailedInfo = detailCast[indexPath.row]  }
+//
+//    }
 }
 
     //MARK:- Configure collection view -
@@ -149,12 +163,7 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
             videoCell.configure(videos[indexPath.row])
             return videoCell
         }
-        
-    
-    
-    
 }
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == videoCollectionView {
@@ -167,6 +176,10 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
                     avPlayerViewController.player?.play()
                 }
             }
+        } else if collectionView == castCollectionView {
+            let desVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
+            desVC.detailedInfo = detailCast[indexPath.row]
+            navigationController?.pushViewController(desVC, animated: true)
         }
     }
 }

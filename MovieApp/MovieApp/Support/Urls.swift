@@ -11,6 +11,7 @@ import Foundation
 
 enum Urls: String {
     case baseUrl = "https://api.themoviedb.org/3/movie/"
+    case baseUrlPerson = "https://api.themoviedb.org/3/person/"
     case api = "?api_key=f0a7305a79b10d017f80b53d6e7942ef&"
     case language = "language=en-US&page=1"
     case nowPlayingMovie   = "now_playing"

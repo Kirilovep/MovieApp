@@ -313,6 +313,7 @@
                         <outlet property="titleLabel" destination="Ra7-hq-UUy" id="8eb-So-T9N"/>
                         <outlet property="videoCollectionView" destination="mYo-rh-lmj" id="bJ4-If-Th0"/>
                         <outlet property="voteAverageLabel" destination="qvy-NZ-D04" id="aqH-7j-Jd8"/>
+                        <segue destination="xPk-Be-1wx" kind="show" identifier="segueToPerson" id="TOW-eZ-Stq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgI-zW-xKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -322,7 +323,7 @@
         <!--People View Controller-->
         <scene sceneID="JYw-om-DoL">
             <objects>
-                <viewController id="xPk-Be-1wx" customClass="PeopleViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PeopleViewController" id="xPk-Be-1wx" customClass="PeopleViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rYq-2G-can">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -479,15 +480,14 @@
                     <navigationItem key="navigationItem" id="ic3-H3-vg2"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
-                        <outlet property="biographyLabel" destination="HWh-dD-CiD" id="2rg-Lw-CMC"/>
-                        <outlet property="birthdayLabel" destination="w1f-s2-3Bw" id="ImI-sH-Pkz"/>
-                        <outlet property="characterImage" destination="CbZ-Nz-DS6" id="KpZ-Zm-ir9"/>
-                        <outlet property="detailView" destination="n8e-DJ-pDH" id="QOd-cT-nUd"/>
-                        <outlet property="imagesCollectionView" destination="gsm-UK-F6g" id="Nnh-D4-zb6"/>
-                        <outlet property="knowsForLabel" destination="KsX-EM-QUe" id="Rqo-Pj-ExB"/>
-                        <outlet property="moviesTableView" destination="mbd-hn-aZn" id="Ejn-eg-q99"/>
-                        <outlet property="nameLabel" destination="ecx-Hv-jGO" id="gdM-Vi-Mup"/>
-                        <outlet property="placeOfBirthdayLabel" destination="Yjo-eB-PJA" id="diK-po-CL6"/>
+                        <outlet property="biographyLabel" destination="HWh-dD-CiD" id="89x-49-nyr"/>
+                        <outlet property="birthdayLabel" destination="Yjo-eB-PJA" id="bdM-Qd-mGW"/>
+                        <outlet property="characterImage" destination="CbZ-Nz-DS6" id="dfb-EZ-N5l"/>
+                        <outlet property="imagesCollectionView" destination="gsm-UK-F6g" id="NHN-Ca-6Yi"/>
+                        <outlet property="knowsForLabel" destination="KsX-EM-QUe" id="YHx-4I-ItG"/>
+                        <outlet property="moviesTableView" destination="mbd-hn-aZn" id="HJc-9S-HBu"/>
+                        <outlet property="nameLabel" destination="ecx-Hv-jGO" id="2Zq-xz-p1c"/>
+                        <outlet property="placeOfBirthdayLabel" destination="Yjo-eB-PJA" id="eOh-i2-Hu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM6-qG-rsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
