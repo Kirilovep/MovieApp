@@ -332,7 +332,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-DJ-pDH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="783.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="754"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CbZ-Nz-DS6">
                                                 <rect key="frame" x="8" y="0.0" width="185" height="240"/>
@@ -384,25 +384,21 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-dD-CiD" customClass="ExpandableLabel" customModule="ExpandableLabel">
-                                                <rect key="frame" x="8" y="359" width="363" height="92"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="92" id="GvN-nr-E2v"/>
-                                                    <constraint firstAttribute="width" constant="363" id="xEk-wN-sNc"/>
-                                                </constraints>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWh-dD-CiD" customClass="ExpandableLabel" customModule="ExpandableLabel">
+                                                <rect key="frame" x="8" y="359.33333333333331" width="398" height="62.333333333333314"/>
                                                 <string key="text">American film actor Joaquin Rafael Phoenix, born Joaquin Rafael Bottom has ventured behind the camera, directing music videos as well as producing movies and television shows. Phoenix recorded an album, the soundtrack to “Walk the Line”</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MOVIES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNW-mr-v1c">
-                                                <rect key="frame" x="8" y="514.66666666666663" width="64" height="21"/>
+                                                <rect key="frame" x="8" y="485" width="64" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mbd-hn-aZn">
-                                                <rect key="frame" x="8" y="543.66666666666663" width="398" height="90"/>
+                                                <rect key="frame" x="8" y="514" width="398" height="90"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="398" id="B0C-Kg-pDh"/>
@@ -442,7 +438,7 @@
                                             <constraint firstAttribute="trailing" secondItem="mbd-hn-aZn" secondAttribute="trailing" constant="8" id="Qhp-w9-YbE"/>
                                             <constraint firstItem="HWh-dD-CiD" firstAttribute="top" secondItem="27M-gi-bru" secondAttribute="bottom" constant="8" id="RBS-EW-RXj"/>
                                             <constraint firstItem="Yjo-eB-PJA" firstAttribute="top" secondItem="w1f-s2-3Bw" secondAttribute="bottom" constant="8" id="VUd-VK-bs8"/>
-                                            <constraint firstAttribute="trailing" secondItem="HWh-dD-CiD" secondAttribute="trailing" constant="43" id="VyI-tk-HVL"/>
+                                            <constraint firstAttribute="trailing" secondItem="HWh-dD-CiD" secondAttribute="trailing" constant="8" id="VyI-tk-HVL"/>
                                             <constraint firstItem="RNW-mr-v1c" firstAttribute="leading" secondItem="n8e-DJ-pDH" secondAttribute="leading" constant="8" id="YGy-PW-MIh"/>
                                             <constraint firstItem="mbd-hn-aZn" firstAttribute="leading" secondItem="n8e-DJ-pDH" secondAttribute="leading" constant="8" id="Yfd-sW-2Hj"/>
                                             <constraint firstItem="mCh-1A-zEe" firstAttribute="top" secondItem="CbZ-Nz-DS6" secondAttribute="bottom" constant="31" id="Zbl-vQ-3st"/>
