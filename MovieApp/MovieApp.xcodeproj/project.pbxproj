@@ -10,6 +10,7 @@
 		575952C124F9FB3D3C8548F0 /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E40A758DE56BFD6E50C596D /* Pods_MovieApp.framework */; };
 		BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4831222528F4990056766E /* CrewCollectionViewCell.swift */; };
 		BE4831252528F4990056766E /* CrewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE4831232528F4990056766E /* CrewCollectionViewCell.xib */; };
+		BE49C9E4252B3F3300F21686 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE49C9E3252B3F3300F21686 /* PeopleViewController.swift */; };
 		BE52F8FF2527B1BA00A65BCE /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */; };
 		BE52F9002527B1BA00A65BCE /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */; };
 		BE52F9022527B2E000A65BCE /* CastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F9012527B2E000A65BCE /* CastList.swift */; };
@@ -39,6 +40,7 @@
 		A1FC5E4DB2FE5D799F7477D0 /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		BE4831222528F4990056766E /* CrewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE4831232528F4990056766E /* CrewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrewCollectionViewCell.xib; sourceTree = "<group>"; };
+		BE49C9E3252B3F3300F21686 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE52F9012527B2E000A65BCE /* CastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastList.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				BEDA1AD7252645E0007A43AF /* MainViewController.swift */,
 				BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */,
+				BE49C9E3252B3F3300F21686 /* PeopleViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				BEDA1AFB252659BB007A43AF /* DetailList.swift in Sources */,
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
 				BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */,
+				BE49C9E4252B3F3300F21686 /* PeopleViewController.swift in Sources */,
 				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
 				BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */,
 				BEDA1AEC2526477A007A43AF /* Enums.swift in Sources */,
