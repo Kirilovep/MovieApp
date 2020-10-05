@@ -129,6 +129,8 @@ class NetworkManager {
                                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                                    let movies = try? decoder.decode(People.self, from: responceData)
                                    completionHandler(movies)
+                                print(movies)
+                                    
                                  }
                              }
                          }.resume()

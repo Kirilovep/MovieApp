@@ -12,7 +12,7 @@ class PeopleViewController: UIViewController {
     
     var personInfo: People?
     var detailedInfo: Cast?
-    
+    private let networkManager = NetworkManager()
     //MARK:- IBOutlets-
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -28,9 +28,19 @@ class PeopleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        parseInfo()
+        
         DispatchQueue.main.async {
             self.nameLabel.text = self.detailedInfo?.name
             self.setImage()
+            self.birthdayLabel.text = self.personInfo?.birthday
+            self.placeOfBirthdayLabel.text = self.personInfo?.placeOfBirth
+            self.knowsForLabel.text = self.personInfo?.knownForDepartment
+            self.biographyLabel.text = self.personInfo?.biography
+            self.biographyLabel.numberOfLines = 2
+            self.biographyLabel.lineBreakMode = .byWordWrapping
+            self.biographyLabel.sizeToFit()
+            
 
         }
         
@@ -43,6 +53,11 @@ class PeopleViewController: UIViewController {
             self.characterImage.kf.setImage(with: url)
         } else {
             self.characterImage.image = UIImage(named: Images.imageForPeople.rawValue)
+        }
+    }
+    private func parseInfo() {
+        networkManager.requestPeople(detailedInfo?.id ?? 0) { (infoPeople) in
+            self.personInfo = infoPeople
         }
     }
     
