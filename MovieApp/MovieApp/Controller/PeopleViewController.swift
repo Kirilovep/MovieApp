@@ -8,6 +8,8 @@
 
 import UIKit
 import Kingfisher
+import ExpandableLabel
+
 class PeopleViewController: UIViewController {
     
     var personInfo: People?
@@ -20,7 +22,7 @@ class PeopleViewController: UIViewController {
     @IBOutlet weak var placeOfBirthdayLabel: UILabel!
     @IBOutlet weak var imagesCollectionView: UICollectionView!
     @IBOutlet weak var knowsForLabel: UILabel!
-    @IBOutlet weak var biographyLabel: UILabel!
+    @IBOutlet weak var biographyLabel: ExpandableLabel!
     @IBOutlet weak var moviesTableView: UITableView!
     
     
@@ -30,23 +32,31 @@ class PeopleViewController: UIViewController {
 
         parseInfo()
         
+        
+        
         DispatchQueue.main.async {
             self.nameLabel.text = self.detailedInfo?.name
             self.setImage()
             self.birthdayLabel.text = self.personInfo?.birthday
             self.placeOfBirthdayLabel.text = self.personInfo?.placeOfBirth
             self.knowsForLabel.text = self.personInfo?.knownForDepartment
-            self.biographyLabel.text = self.personInfo?.biography
-            self.biographyLabel.numberOfLines = 2
-            self.biographyLabel.lineBreakMode = .byWordWrapping
-            self.biographyLabel.sizeToFit()
+            self.biographyLabel.shouldCollapse = true
+            self.biographyLabel.numberOfLines = 4
+            self.biographyLabel.collapsedAttributedLink = NSAttributedString(
+                string: "Show more", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+            )
+            self.biographyLabel.expandedAttributedLink = NSAttributedString(
+                string: "Show less", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+            )
+             self.biographyLabel.text = self.personInfo?.biography
+            
             
 
         }
         
     }
     
-    
+    //MARK:- Private methods-
     private func setImage() {
         if let profilePath = self.detailedInfo?.profilePath {
             let url = URL(string: Urls.baseImageUrl.rawValue + profilePath )

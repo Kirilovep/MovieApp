@@ -128,7 +128,10 @@ class NetworkManager {
                                      let decoder = JSONDecoder()
                                    decoder.keyDecodingStrategy = .convertFromSnakeCase
                                    let movies = try? decoder.decode(People.self, from: responceData)
-                                   completionHandler(movies)
+                                    
+                                 completionHandler(movies)
+                                    
+                                   
                                 print(movies)
                                     
                                  }
