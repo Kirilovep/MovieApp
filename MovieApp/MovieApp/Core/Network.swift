@@ -97,20 +97,6 @@ class NetworkManager {
     func requestVideos(_ movieId: Int, _ completionHandler: @escaping ([Video]) -> Void ) {
                       
            if let url = URL(string: "\(Urls.baseUrl.rawValue)\(movieId)\(Urls.videos.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
-            print(url)
                           URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                               if error != nil {
                                   print("error in request")
@@ -128,5 +114,25 @@ class NetworkManager {
                           }.resume()
                       }
               }
+    
+    func requestPeople(_ personId: Int, _ completionHandler: @escaping (People?) -> Void ) {
+                     
+          if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
+                         URLSession.shared.dataTask(with: url) { (data, responce, error ) in
+                             if error != nil {
+                                 print("error in request")
+                             } else {
+                                 if let resp = responce as? HTTPURLResponse,
+                                 resp.statusCode == 200,
+                                     let responceData = data {
+                                     let decoder = JSONDecoder()
+                                   decoder.keyDecodingStrategy = .convertFromSnakeCase
+                                   let movies = try? decoder.decode(People.self, from: responceData)
+                                   completionHandler(movies)
+                                 }
+                             }
+                         }.resume()
+                     }
+             }
 
 }

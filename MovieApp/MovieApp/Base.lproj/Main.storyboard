@@ -313,6 +313,7 @@
                         <outlet property="titleLabel" destination="Ra7-hq-UUy" id="8eb-So-T9N"/>
                         <outlet property="videoCollectionView" destination="mYo-rh-lmj" id="bJ4-If-Th0"/>
                         <outlet property="voteAverageLabel" destination="qvy-NZ-D04" id="aqH-7j-Jd8"/>
+                        <segue destination="xPk-Be-1wx" kind="show" identifier="segueToPerson" id="TOW-eZ-Stq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgI-zW-xKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -322,7 +323,7 @@
         <!--People View Controller-->
         <scene sceneID="JYw-om-DoL">
             <objects>
-                <viewController id="xPk-Be-1wx" customClass="PeopleViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PeopleViewController" id="xPk-Be-1wx" customClass="PeopleViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rYq-2G-can">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -389,7 +390,7 @@
                                                     <constraint firstAttribute="height" constant="235" id="GvN-nr-E2v"/>
                                                     <constraint firstAttribute="width" constant="398" id="xEk-wN-sNc"/>
                                                 </constraints>
-                                                <mutableString key="text">Christopher \"Chris\" Tucker (born August 31, 1971) is an American actor and comedian, best known for his roles as Detective James Carter in the Rush Hour trilogy and Smokey in the 1995 film Friday.  Tucker was born in Atlanta, Georgia, the youngest son of Mary Louise and Norris Tucker. Tucker was raised in Decatur, Georgia. After graduating from Columbia High School, he moved to Los Angeles to pursue a career in comedy and movies. In 1992, Tucker was a frequent performer on Def Comedy Jam. He made his cinematic debut in House Party 3, and gained greater film recognition alongside rapper Ice Cube in the 1995 film Friday. In 1997, he co-starred with Charlie Sheen in Money Talks, and alongside Bruce Willis in The Fifth Element. Tucker did not reprise his role of Smokey in Next Friday (2000) because he had become a born-again Christian after filming Money Talks (1997).He later starred in the 1998 martial arts action comedy Rush Hour and its sequels, Rush Hour 2 and Rush Hour 3, in which he played James Carter, an abrasive wise-cracking detective.  Tucker is good friends with fellow Rush Hour star Jackie Chan, and was also close friends with the late singer Michael Jackson, introducing and dancing with him at his 30th Anniversary Special, appearing in Jackson's video \"You Rock My World\" from his 2001 album Invincible and attending Jackson's memorial service. A friend of Bill Clinton, Tucker has traveled with the former President overseas, though he endorsed Barack Obama rather than Hillary Clinton in the 2008 primaries. On February 13, 2009, Tucker participated in the NBA All-Star Weekend's Celebrity Game.",</mutableString>
+                                                <string key="text">Christopher \"Chris\" Tucker (born August 31, 1971) is an American actor and comedian, best known for his roles as Detective James Carter in the Rush Hour trilogy and Smokey in the 1995 film Friday.  Tucker was born in Atlanta, Georgia, the youngest son of Mary Louise and Norris Tucker. Tucker was raised in Decatur, Georgia. After graduating from Columbia High School, he moved to Los Angeles to pursue a career in comedy and movies. In 1992, Tucker was a frequent performer on Def Comedy Jam. He made his cinematic debut in House Party 3, and gained greater film recognition alongside rapper Ice Cube in the 1995 film Friday. In 1997, he co-starred with Charlie Sheen in Money Talks, and alongside Bruce Willis in The Fifth Element. Tucker did not reprise his role of Smokey in Next Friday (2000) because he had become a born-again Christian after filming Money Talks (1997).He later starred in the 1998 martial arts action comedy Rush Hour and its sequels, Rush Hour 2 and Rush Hour 3, in which he played James Carter, an abrasive wise-cracking detective.  Tucker is good friends with fellow Rush Hour star Jackie Chan, and was also close friends with the late singer Michael Jackson, introducing and dancing with him at his 30th Anniversary Special, appearing in Jackson's video \"You Rock My World\" from his 2001 album Invincible and attending Jackson's memorial service. A friend of Bill Clinton, Tucker has traveled with the former President overseas, though he endorsed Barack Obama rather than Hillary Clinton in the 2008 primaries. On February 13, 2009, Tucker participated in the NBA All-Star Weekend's Celebrity Game.",</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -479,7 +480,14 @@
                     <navigationItem key="navigationItem" id="ic3-H3-vg2"/>
                     <size key="freeformSize" width="414" height="1000"/>
                     <connections>
-                        <outlet property="detailView" destination="n8e-DJ-pDH" id="QOd-cT-nUd"/>
+                        <outlet property="biographyLabel" destination="HWh-dD-CiD" id="89x-49-nyr"/>
+                        <outlet property="birthdayLabel" destination="Yjo-eB-PJA" id="bdM-Qd-mGW"/>
+                        <outlet property="characterImage" destination="CbZ-Nz-DS6" id="dfb-EZ-N5l"/>
+                        <outlet property="imagesCollectionView" destination="gsm-UK-F6g" id="NHN-Ca-6Yi"/>
+                        <outlet property="knowsForLabel" destination="KsX-EM-QUe" id="YHx-4I-ItG"/>
+                        <outlet property="moviesTableView" destination="mbd-hn-aZn" id="HJc-9S-HBu"/>
+                        <outlet property="nameLabel" destination="ecx-Hv-jGO" id="2Zq-xz-p1c"/>
+                        <outlet property="placeOfBirthdayLabel" destination="Yjo-eB-PJA" id="eOh-i2-Hu9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM6-qG-rsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
