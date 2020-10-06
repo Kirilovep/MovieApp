@@ -407,7 +407,7 @@
                                             </tableView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gsm-UK-F6g">
                                                 <rect key="frame" x="213" y="103.33333333333331" width="188" height="97"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" red="0.90980392156862744" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="97" id="col-Xb-Q28"/>
                                                     <constraint firstAttribute="width" constant="188" id="nOQ-2e-VcV"/>
