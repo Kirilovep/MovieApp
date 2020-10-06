@@ -58,22 +58,12 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     //MARK:- lifecycle-
     override func viewDidLoad() {
                super.viewDidLoad()
-            
-        detailImageView.clipsToBounds = true
-        detailImageView.layer.cornerRadius = 10
-  
-        networkManager.requestVideos(detailResult?.id ?? 0) { (videos) in
-            DispatchQueue.main.async {
-                self.videos = videos
-                self.videoCollectionView.reloadData()
-                
-            }
-        }
+        
                 requestDetail()
                 requestCast()
                 requestCrew()
-               
-               
+                requestVideos()
+                
            }
     //MARK:- Private func-
     private func requestCast() {
@@ -84,7 +74,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
                }
            }
        }
-    
     private func requestCrew() {
         networkManager.requestCrew(detailResult?.id ?? 0) { (detailedCrew) in
             DispatchQueue.main.async {
@@ -95,34 +84,45 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func requestDetail() {
          networkManager.requestDetailMovie(detailResult?.id ?? 0) { (detailedMovie) in
-             DispatchQueue.main.async {
-                self.activityIndicator.startAnimating()
-                self.results = detailedMovie
-                self.titleLabel.text = self.results?.title
-                if self.results?.voteAverage ?? 0 >= 5.0 {
-                    self.voteAverageLabel.textColor = .green
-                } else {
-                    self.voteAverageLabel.textColor = .orange
-                }
-                self.voteAverageLabel.text = String(self.results!.voteAverage)
-                self.dateLabel.text = self.results?.releaseDate
-                self.overviewLabel.text = self.results?.overview
-                guard
-                    let runTime = self.results?.runtime,
-                    let posterPath = self.results?.backdropPath,
-                    let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
-                else { return }
-                self.runTimeLabel.text = "\(runTime) minutes"
-                self.languageLabel.text = self.results?.originalLanguage
-                self.detailImageView.kf.setImage(with: url)
-                if self.results?.budget == 0 {
-                                    self.budgetLabel.text = "No budget information"
-                                } else {
-                                    self.budgetLabel.text = "\(self.results!.budget)$"
-                                }
-              self.activityIndicator.stopAnimating()
-             }
+            self.results = detailedMovie
+            self.updateView()
          }
+    }
+    private func requestVideos() {
+              networkManager.requestVideos(detailResult?.id ?? 0) { (videos) in
+                         DispatchQueue.main.async {
+                             self.videos = videos
+                             self.videoCollectionView.reloadData()
+                }
+        }
+    }
+    private func updateView() {
+        DispatchQueue.main.async {
+                  self.activityIndicator.startAnimating()
+                  self.titleLabel.text = self.results?.title
+                  if self.results?.voteAverage ?? 0 >= 5.0 {
+                      self.voteAverageLabel.textColor = .green
+                  } else {
+                      self.voteAverageLabel.textColor = .orange
+                  }
+                  self.voteAverageLabel.text = String(self.results!.voteAverage)
+                  self.dateLabel.text = self.results?.releaseDate
+                  self.overviewLabel.text = self.results?.overview
+                  guard
+                      let runTime = self.results?.runtime,
+                      let posterPath = self.results?.backdropPath,
+                      let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                  else { return }
+                  self.runTimeLabel.text = "\(runTime) minutes"
+                  self.languageLabel.text = self.results?.originalLanguage
+                  self.detailImageView.kf.setImage(with: url)
+                  if self.results?.budget == 0 {
+                                      self.budgetLabel.text = "No budget information"
+                                  } else {
+                                      self.budgetLabel.text = "\(self.results!.budget)$"
+                                  }
+                self.activityIndicator.stopAnimating()
+               }
     }
 }
 

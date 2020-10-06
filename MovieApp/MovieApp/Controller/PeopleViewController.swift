@@ -53,15 +53,8 @@ class PeopleViewController: UIViewController {
         super.viewDidLoad()
         parseInfo()
         parseImages()
-        networkManager.requestMoviesForPeople(detailedInfo?.id ?? 0) { (moviesForPeople) in
-            DispatchQueue.main.async {
-                 self.moviesForPeople = moviesForPeople
-                 self.tableViewHeight.constant = CGFloat(moviesForPeople.count * 70)
-                 self.moviesTableView.reloadData()
-            }
-           
-            
-        }
+        parseMovies()
+       
     }
     
     //MARK:- Private methods-
@@ -79,17 +72,23 @@ class PeopleViewController: UIViewController {
             self.updateView()
         }
     }
-    
     private func parseImages() {
         networkManager.requestPersonImages(detailedInfo?.id ?? 0) { (images) in
             self.personImages = images
             DispatchQueue.main.async {
                 self.imagesCollectionView.reloadData()
             }
-            
         }
     }
-    
+    private func parseMovies() {
+        networkManager.requestMoviesForPeople(detailedInfo?.id ?? 0) { (moviesForPeople) in
+                   DispatchQueue.main.async {
+                        self.moviesForPeople = moviesForPeople
+                        self.tableViewHeight.constant = CGFloat(moviesForPeople.count * 70)
+                        self.moviesTableView.reloadData()
+                   }
+               }
+    }
     private func updateView() {
         DispatchQueue.main.async {
                 self.activityIndicator.startAnimating()
@@ -115,39 +114,26 @@ class PeopleViewController: UIViewController {
                 self.activityIndicator.stopAnimating()
               }
     }
-    
 }
-
-
 //MARK:- Configure collectionView -
 extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return personImages.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.imageCollectionCellIdentifier.rawValue, for: indexPath) as! ImageCollectionViewCell
         cell.configure(personImages[indexPath.row])
-        
-        
         return cell
-        
     }
-    
-    
 }
 //MARK:- Configure tableView -
 extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesForPeople.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.moviesCellIdentifier.rawValue, for: indexPath) as! MoviesTableViewCell
         cell.configure(moviesForPeople[indexPath.row])
-        
         return cell
     }
-    
-    
 }
