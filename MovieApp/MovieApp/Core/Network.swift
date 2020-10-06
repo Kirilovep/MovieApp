@@ -138,7 +138,7 @@ class NetworkManager {
     
     func requestPersonImages(_ personId: Int, _ completionHandler: @escaping ([Profile]) -> Void ) {
                
-        if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.images.rawValue)\(Urls.api.rawValue)" ) {
+        if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.images.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue))" ) {
                    URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                        if error != nil {
                            print("error in request")
@@ -151,13 +151,28 @@ class NetworkManager {
                              let movies = try? decoder.decode(ImageProfile.self, from: responceData)
                               
                             completionHandler(movies?.profiles ?? [])
-                            print(movies)
-                            print(movies)
-                            print(movies)
-                            print(movies)
-                            print(movies)
-                            print(movies)
-                            print(movies)
+                           }
+                       }
+                   }.resume()
+               }
+       }
+    
+    
+    func requestMoviesForPeople(_ personId: Int, _ completionHandler: @escaping ([CastForPeople]) -> Void ) {
+               
+        if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.movieCredits.rawValue)\(Urls.api.rawValue)" ) {
+                   URLSession.shared.dataTask(with: url) { (data, responce, error ) in
+                       if error != nil {
+                           print("error in request")
+                       } else {
+                           if let resp = responce as? HTTPURLResponse,
+                           resp.statusCode == 200,
+                               let responceData = data {
+                               let decoder = JSONDecoder()
+                             decoder.keyDecodingStrategy = .convertFromSnakeCase
+                             let movies = try? decoder.decode(MoviesForPeople.self, from: responceData)
+                              
+                            completionHandler(movies?.cast ?? [] )
                            }
                        }
                    }.resume()
@@ -168,7 +183,4 @@ class NetworkManager {
 
 
 
-//"https://api.themoviedb.org/3/person/89888?api_key=f0a7305a79b10d017f80b53d6e7942ef&language=en-US&page=1"
-//"https://api.themoviedb.org/3/person/65/images?api_key=f0a7305a79b10d017f80b53d6e7942ef"
-//"https://api.themoviedb.org/3/person/122503/images?api_key=f0a7305a79b10d017f80b53d6e7942ef&"
 

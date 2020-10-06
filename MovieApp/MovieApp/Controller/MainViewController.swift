@@ -80,6 +80,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
+         tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

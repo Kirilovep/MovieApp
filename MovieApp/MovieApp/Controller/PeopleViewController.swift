@@ -15,9 +15,11 @@ class PeopleViewController: UIViewController {
     var personInfo: People?
     var detailedInfo: Cast?
     var personImages: [Profile] = []
+    var moviesForPeople: [CastForPeople] = []
     private let networkManager = NetworkManager()
     
     //MARK:- IBOutlets-
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
@@ -33,7 +35,16 @@ class PeopleViewController: UIViewController {
     }
     @IBOutlet weak var knowsForLabel: UILabel!
     @IBOutlet weak var biographyLabel: ExpandableLabel!
-    @IBOutlet weak var moviesTableView: UITableView!
+    @IBOutlet weak var moviesTableView: UITableView! {
+        didSet {
+            moviesTableView.delegate = self
+            moviesTableView.dataSource = self
+            
+            let nib = UINib(nibName: Cells.moviesTableViewCellNib.rawValue, bundle: nil)
+            moviesTableView.register(nib, forCellReuseIdentifier: Cells.moviesCellIdentifier.rawValue)
+            
+        }
+    }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
@@ -42,6 +53,15 @@ class PeopleViewController: UIViewController {
         super.viewDidLoad()
         parseInfo()
         parseImages()
+        networkManager.requestMoviesForPeople(detailedInfo?.id ?? 0) { (moviesForPeople) in
+            DispatchQueue.main.async {
+                 self.moviesForPeople = moviesForPeople
+                 self.tableViewHeight.constant = CGFloat(moviesForPeople.count * 70)
+                 self.moviesTableView.reloadData()
+            }
+           
+            
+        }
     }
     
     //MARK:- Private methods-
@@ -93,16 +113,13 @@ class PeopleViewController: UIViewController {
                 self.biographyLabel.text = self.personInfo?.biography
                 self.setImage()
                 self.activityIndicator.stopAnimating()
-                  
-                  
-
               }
     }
     
 }
 
 
-
+//MARK:- Configure collectionView -
 extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return personImages.count
@@ -115,6 +132,21 @@ extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         return cell
         
+    }
+    
+    
+}
+//MARK:- Configure tableView -
+extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return moviesForPeople.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.moviesCellIdentifier.rawValue, for: indexPath) as! MoviesTableViewCell
+        cell.configure(moviesForPeople[indexPath.row])
+        
+        return cell
     }
     
     
