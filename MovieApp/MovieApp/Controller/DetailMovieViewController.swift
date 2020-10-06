@@ -115,22 +115,10 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
                                 } else {
                                     self.budgetLabel.text = "\(self.results!.budget)$"
                                 }
-                //view.backgroundColor = UIColor(patternImage: UIImage)
               self.activityIndicator.stopAnimating()
              }
          }
     }
-    
-    //MARK:- Segue -
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == Segue.segueToPerson.rawValue {
-//            print(сollectionView.indexPathsForSelectedItems?[0])
-//        }
-////        let indexPath = castCollectionView.indexPathsForSelectedItems?[0] {
-////        let detailVC = segue.destination as! PeopleViewController
-////            detailVC.detailedInfo = detailCast[indexPath.row]  }
-//
-//    }
 }
 
     //MARK:- Configure collection view -

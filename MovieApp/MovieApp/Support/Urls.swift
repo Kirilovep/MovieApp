@@ -21,5 +21,6 @@ enum Urls: String {
     case credits = "/credits"
     case videos = "/videos"
     case youTube = "https://www.youtube.com/watch?v="
+    case images = "/images"
     
 }
