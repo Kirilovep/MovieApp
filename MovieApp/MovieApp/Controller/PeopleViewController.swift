@@ -56,7 +56,7 @@ class PeopleViewController: UIViewController {
     private func parseInfo() {
         networkManager.requestPeople(detailedInfo?.id ?? 0) { (infoPeople) in
             self.personInfo = infoPeople
-            self.configureView()
+            self.updateView()
         }
     }
     
@@ -70,24 +70,29 @@ class PeopleViewController: UIViewController {
         }
     }
     
-    private func configureView() {
+    private func updateView() {
         DispatchQueue.main.async {
-                  self.activityIndicator.startAnimating()
-                  self.nameLabel.text = self.detailedInfo?.name
-                  self.birthdayLabel.text = self.personInfo?.birthday
-                  self.placeOfBirthdayLabel.text = self.personInfo?.placeOfBirth
-                  self.knowsForLabel.text = self.personInfo?.knownForDepartment
-                  self.biographyLabel.shouldCollapse = true
-                  self.biographyLabel.numberOfLines = 4
-                  self.biographyLabel.collapsedAttributedLink = NSAttributedString(
+                self.activityIndicator.startAnimating()
+                self.nameLabel.text = self.detailedInfo?.name
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                if let birthday = self.personInfo?.birthday, let date = dateFormatter.date(from: birthday) {
+                    dateFormatter.dateFormat = "MMMM dd, yyyy"
+                    self.birthdayLabel.text = dateFormatter.string(from: date)
+                  }
+                self.placeOfBirthdayLabel.text = self.personInfo?.placeOfBirth
+                self.knowsForLabel.text = self.personInfo?.knownForDepartment
+                self.biographyLabel.shouldCollapse = true
+                self.biographyLabel.numberOfLines = 4
+                self.biographyLabel.collapsedAttributedLink = NSAttributedString(
                       string: "Show more", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
                   )
-                  self.biographyLabel.expandedAttributedLink = NSAttributedString(
+                self.biographyLabel.expandedAttributedLink = NSAttributedString(
                       string: "Show less", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
                   )
-                   self.biographyLabel.text = self.personInfo?.biography
-                  self.setImage()
-                  self.activityIndicator.stopAnimating()
+                self.biographyLabel.text = self.personInfo?.biography
+                self.setImage()
+                self.activityIndicator.stopAnimating()
                   
                   
 

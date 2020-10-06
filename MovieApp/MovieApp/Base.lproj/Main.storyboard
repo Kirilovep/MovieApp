@@ -486,7 +486,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="WFm-Gl-GK9" id="XiQ-jK-Ya0"/>
                         <outlet property="biographyLabel" destination="HWh-dD-CiD" id="FB2-PP-d1z"/>
-                        <outlet property="birthdayLabel" destination="Yjo-eB-PJA" id="bdM-Qd-mGW"/>
+                        <outlet property="birthdayLabel" destination="w1f-s2-3Bw" id="UKp-Nt-wF7"/>
                         <outlet property="characterImage" destination="CbZ-Nz-DS6" id="dfb-EZ-N5l"/>
                         <outlet property="imagesCollectionView" destination="gsm-UK-F6g" id="NHN-Ca-6Yi"/>
                         <outlet property="knowsForLabel" destination="KsX-EM-QUe" id="YHx-4I-ItG"/>
