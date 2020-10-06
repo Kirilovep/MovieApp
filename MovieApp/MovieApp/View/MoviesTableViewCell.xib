@@ -24,7 +24,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWE: Edge: A Decade of Decadence" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Xw-GR-CUJ">
-                        <rect key="frame" x="121" y="4" width="139" height="31.5"/>
+                        <rect key="frame" x="118" y="4" width="139" height="31.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="139" id="umg-jP-GR2"/>
                         </constraints>
@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX7-Qy-QFW">
-                        <rect key="frame" x="121" y="43" width="118" height="17"/>
+                        <rect key="frame" x="118" y="43" width="118" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="118" id="MYi-e0-HML"/>
                         </constraints>
@@ -52,9 +52,9 @@
                     <constraint firstItem="DX7-Qy-QFW" firstAttribute="top" secondItem="2Xw-GR-CUJ" secondAttribute="bottom" constant="7.5" id="EPd-ou-8yG"/>
                     <constraint firstItem="yVP-iL-Th9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bQk-hg-Hbk"/>
                     <constraint firstItem="yVP-iL-Th9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e8S-iy-4gq"/>
-                    <constraint firstItem="2Xw-GR-CUJ" firstAttribute="leading" secondItem="yVP-iL-Th9" secondAttribute="trailing" constant="8" id="ftc-LE-2HB"/>
+                    <constraint firstItem="2Xw-GR-CUJ" firstAttribute="leading" secondItem="yVP-iL-Th9" secondAttribute="trailing" constant="5" id="ftc-LE-2HB"/>
                     <constraint firstItem="2Xw-GR-CUJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hSd-sJ-b0T"/>
-                    <constraint firstItem="DX7-Qy-QFW" firstAttribute="leading" secondItem="yVP-iL-Th9" secondAttribute="trailing" constant="8" id="oC4-mv-alH"/>
+                    <constraint firstItem="DX7-Qy-QFW" firstAttribute="leading" secondItem="yVP-iL-Th9" secondAttribute="trailing" constant="5" id="oC4-mv-alH"/>
                     <constraint firstItem="lIq-Hh-zZO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="oa2-lC-6C6"/>
                     <constraint firstItem="lIq-Hh-zZO" firstAttribute="centerY" secondItem="2Xw-GR-CUJ" secondAttribute="centerY" id="pXA-4M-wSc"/>
                     <constraint firstAttribute="bottom" secondItem="yVP-iL-Th9" secondAttribute="bottom" id="tek-uX-d7b"/>

@@ -99,6 +99,11 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
                 self.activityIndicator.startAnimating()
                 self.results = detailedMovie
                 self.titleLabel.text = self.results?.title
+                if self.results?.voteAverage ?? 0 >= 5.0 {
+                    self.voteAverageLabel.textColor = .green
+                } else {
+                    self.voteAverageLabel.textColor = .orange
+                }
                 self.voteAverageLabel.text = String(self.results!.voteAverage)
                 self.dateLabel.text = self.results?.releaseDate
                 self.overviewLabel.text = self.results?.overview
