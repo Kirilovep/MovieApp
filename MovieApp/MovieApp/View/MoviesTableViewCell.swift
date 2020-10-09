@@ -21,14 +21,14 @@ class MoviesTableViewCell: UITableViewCell {
 
    
     
-    func configure(_ movies: CastForPeople) {
+    func configure(_ movies: PersonMovie) {
         DispatchQueue.main.async {
             self.titleLabel.text = movies.title
-            if movies.voteAverage >= 5.0 {
-                self.voteAverageLabel.textColor = .green
-            } else {
-                self.voteAverageLabel.textColor = .orange
-            }
+//            if movies.voteAverage >= 5.0 {
+//                self.voteAverageLabel.textColor = .green
+//            } else {
+//                self.voteAverageLabel.textColor = .orange
+//            }
             self.voteAverageLabel.text = "\(movies.voteAverage)"
             self.characterLabel.text = "as \(movies.character)"
             if let posterPath = movies.posterPath {

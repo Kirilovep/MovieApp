@@ -17,7 +17,7 @@ class PeopleViewController: UIViewController {
     var detailId = 0
     var detailPhoto:String?
     var personImages: [Profile] = []
-    var moviesForPeople: [CastForPeople] = []
+    var moviesForPeople: [PersonMovie] = []
     private let networkManager = NetworkManager()
     
     //MARK:- IBOutlets-
@@ -84,11 +84,12 @@ class PeopleViewController: UIViewController {
         }
     }
     private func parseMovies() {
-        networkManager.requestMoviesForPeople(detailId) { (moviesForPeople) in
+        networkManager.requestMoviesForPeople(detailId) { (moviesСast, moviesCrew) in
                    DispatchQueue.main.async {
-                        self.moviesForPeople = moviesForPeople
-                        self.tableViewHeight.constant = CGFloat(moviesForPeople.count * 70)
-                        self.moviesTableView.reloadData()
+                    self.moviesForPeople = moviesСast ?? []
+                    self.moviesForPeople.append(contentsOf: moviesCrew ?? [])
+                    self.tableViewHeight.constant = CGFloat(moviesСast!.count * 70)
+                    self.moviesTableView.reloadData()
                    }
                }
     }

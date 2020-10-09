@@ -54,30 +54,18 @@ private func requestMovie(_ filterForSearch: String) {
             self?.mainTableView.reloadData()
         }
     }
+    }
 }
-    
-    //MARK:- Segue -
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let indexPath = mainTableView.indexPathForSelectedRow else { return }
-//                   let movieDetails = movieList[indexPath.row]
-//                   let detailVC = segue.destination as! DetailMovieViewController
-//                   detailVC.detailResult = movieDetails
-//    }
-
-}
-
     //MARK:- Extenstions-
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCellIdentefier.rawValue, for: indexPath) as! MainTableViewCell
         cell.configure(movieList[indexPath.row])
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
         desVC.detailResult = movieList[indexPath.row]
