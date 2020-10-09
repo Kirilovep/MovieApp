@@ -14,6 +14,8 @@ class PeopleViewController: UIViewController {
     
     var personInfo: People?
     var detailedInfo: Cast?
+    var detailId = 0
+    var detailPhoto:String?
     var personImages: [Profile] = []
     var moviesForPeople: [CastForPeople] = []
     private let networkManager = NetworkManager()
@@ -51,6 +53,7 @@ class PeopleViewController: UIViewController {
     //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setPersonInformation(hidden: true)
         parseInfo()
         parseImages()
         parseMovies()
@@ -60,20 +63,20 @@ class PeopleViewController: UIViewController {
     //MARK:- Private methods-
     private func setImage() {
         if let profilePath = self.detailedInfo?.profilePath {
-            let url = URL(string: Urls.baseImageUrl.rawValue + profilePath )
+            let url = URL(string: Urls.baseImageUrl.rawValue + detailPhoto! )
             self.characterImage.kf.setImage(with: url)
         } else {
             self.characterImage.image = UIImage(named: Images.imageForPeople.rawValue)
         }
     }
     private func parseInfo() {
-        networkManager.requestPeople(detailedInfo?.id ?? 0) { (infoPeople) in
+        networkManager.requestPeople(detailId) { (infoPeople) in
             self.personInfo = infoPeople
             self.updateView()
         }
     }
     private func parseImages() {
-        networkManager.requestPersonImages(detailedInfo?.id ?? 0) { (images) in
+        networkManager.requestPersonImages(detailId) { (images) in
             self.personImages = images
             DispatchQueue.main.async {
                 self.imagesCollectionView.reloadData()
@@ -81,7 +84,7 @@ class PeopleViewController: UIViewController {
         }
     }
     private func parseMovies() {
-        networkManager.requestMoviesForPeople(detailedInfo?.id ?? 0) { (moviesForPeople) in
+        networkManager.requestMoviesForPeople(detailId) { (moviesForPeople) in
                    DispatchQueue.main.async {
                         self.moviesForPeople = moviesForPeople
                         self.tableViewHeight.constant = CGFloat(moviesForPeople.count * 70)
@@ -92,7 +95,8 @@ class PeopleViewController: UIViewController {
     private func updateView() {
         DispatchQueue.main.async {
                 self.activityIndicator.startAnimating()
-                self.nameLabel.text = self.detailedInfo?.name
+                self.setPersonInformation(hidden: false)
+                self.nameLabel.text = self.personInfo?.name
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 if let birthday = self.personInfo?.birthday, let date = dateFormatter.date(from: birthday) {
@@ -114,6 +118,16 @@ class PeopleViewController: UIViewController {
                 self.activityIndicator.stopAnimating()
               }
     }
+    
+    
+    private func setPersonInformation(hidden isHidden: Bool) {
+        nameLabel.isHidden = isHidden
+        knowsForLabel.isHidden = isHidden
+        placeOfBirthdayLabel.isHidden = isHidden
+        biographyLabel.isHidden = isHidden
+        birthdayLabel.isHidden = isHidden
+        characterImage.isHidden = isHidden
+       }
 }
 //MARK:- Configure collectionView -
 extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
