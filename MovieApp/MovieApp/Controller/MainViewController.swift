@@ -57,12 +57,12 @@ private func requestMovie(_ filterForSearch: String) {
 }
     
     //MARK:- Segue -
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = mainTableView.indexPathForSelectedRow else { return }
-                   let movieDetails = movieList[indexPath.row]
-                   let detailVC = segue.destination as! DetailMovieViewController
-                   detailVC.detailResult = movieDetails
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let indexPath = mainTableView.indexPathForSelectedRow else { return }
+//                   let movieDetails = movieList[indexPath.row]
+//                   let detailVC = segue.destination as! DetailMovieViewController
+//                   detailVC.detailResult = movieDetails
+//    }
 
 }
 
@@ -79,7 +79,11 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
+        let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
+        desVC.detailResult = movieList[indexPath.row]
+        navigationController?.pushViewController(desVC, animated: true)
+        
+        //performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
          tableView.deselectRow(at: indexPath, animated: true)
     }
     
