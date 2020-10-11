@@ -60,6 +60,8 @@ private func requestMovie(_ filterForSearch: String) {
         }
     }
     }
+    
+ 
 }
     //MARK:- Extenstions-
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {

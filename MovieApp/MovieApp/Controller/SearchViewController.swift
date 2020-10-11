@@ -32,27 +32,24 @@ class SearchViewController: UIViewController {
     //MARK:- lifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
-
        
-        
-        
     }
     
 
   //MARK:- private func-
-    
     private func searchMovie(_ quary: String) {
         networkManager.searchRequest(quary) { (searchResults) in
             DispatchQueue.main.async {
                 self.searchResultsMovies = searchResults
                 self.searchTableView.reloadData()
             }
-            
         }
-        
+    }
+    private func configureView(){
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.title = "Search Movie"
     }
 }
-
 //MARK:- configure tableView-
 
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
@@ -84,7 +81,9 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchResultsMovies = []
         searchTableView.reloadData()
-                  
+        if searchBar.text?.isEmpty == true {
+            view.endEditing(true)
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
