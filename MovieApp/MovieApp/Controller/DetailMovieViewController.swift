@@ -69,7 +69,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
            }
     //MARK:- Private func-
     private func requestCast() {
-           networkManager.requestCast(detailResult?.id ?? 0) { (detailedCast) in
+        networkManager.requestCast(detailId ?? 0) { (detailedCast) in
                DispatchQueue.main.async {
                    self.detailCast = detailedCast
                    self.castCollectionView.reloadData()
@@ -77,7 +77,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
            }
        }
     private func requestCrew() {
-        networkManager.requestCrew(detailResult?.id ?? 0) { (detailedCrew) in
+        networkManager.requestCrew(detailId ?? 0) { (detailedCrew) in
             DispatchQueue.main.async {
                 self.detailCrew = detailedCrew
                 self.crewCollectionView.reloadData()
@@ -85,13 +85,13 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         }
     }
     private func requestDetail() {
-         networkManager.requestDetailMovie(detailResult?.id ?? 0) { (detailedMovie) in
+         networkManager.requestDetailMovie(detailId ?? 0) { (detailedMovie) in
             self.results = detailedMovie
             self.updateView()
          }
     }
     private func requestVideos() {
-              networkManager.requestVideos(detailResult?.id ?? 0) { (videos) in
+              networkManager.requestVideos(detailId ?? 0) { (videos) in
                          DispatchQueue.main.async {
                              self.videos = videos
                              self.videoCollectionView.reloadData()
