@@ -27,6 +27,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var voteAverageLabel: UILabel!
     @IBOutlet weak var runTimeLabel: UILabel!
+    @IBOutlet weak var releasedLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var budgetLabel: UILabel!
@@ -98,26 +99,27 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func updateView() {
         DispatchQueue.main.async {
-                  self.activityIndicator.startAnimating()
-                  self.titleLabel.text = self.results?.title
+                self.activityIndicator.startAnimating()
+                self.titleLabel.text = self.results?.title
                   if self.results?.voteAverage ?? 0 >= 5.0 {
                       self.voteAverageLabel.textColor = .green
                   } else {
                       self.voteAverageLabel.textColor = .orange
                   }
-                  self.voteAverageLabel.text = String(self.results!.voteAverage)
-                  self.dateLabel.text = self.results?.releaseDate
-                  self.overviewLabel.text = self.results?.overview
+                self.voteAverageLabel.text = String(self.results!.voteAverage)
+                self.dateLabel.text = self.results?.releaseDate
+                self.releasedLabel.text = self.results?.releaseDate
+                self.overviewLabel.text = self.results?.overview
                   guard
                       let runTime = self.results?.runtime,
                       let posterPath = self.results?.backdropPath,
                       let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
                   else { return }
-                  self.runTimeLabel.text = "\(runTime) minutes"
-                  self.languageLabel.text = self.results?.originalLanguage
-                  self.detailImageView.kf.setImage(with: url)
+                self.runTimeLabel.text = "\(runTime) minutes"
+                self.languageLabel.text = self.results?.originalLanguage
+                self.detailImageView.kf.setImage(with: url)
                   if self.results?.budget == 0 {
-                                      self.budgetLabel.text = "No budget information"
+                                      self.budgetLabel.text = "Information is coming soon"
                                   } else {
                                       self.budgetLabel.text = "\(self.results!.budget)$"
                                   }
