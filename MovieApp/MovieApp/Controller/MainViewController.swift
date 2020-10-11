@@ -29,12 +29,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         requestMovie(Urls.nowPlayingMovie.rawValue)
-        networkManager.searchRequest("Terminator") { (searchResults) in
-            self.movieList = searchResults
-            
-        }
-        
-        
     }
     
     //MARK:- IBActions-

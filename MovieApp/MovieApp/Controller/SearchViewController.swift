@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
         didSet {
             searchTableView.delegate = self
             searchTableView.dataSource = self
-            
+            searchTableView.tableFooterView = UIView()
             let nib = UINib(nibName: Cells.mainCellNib.rawValue, bundle: nil)
             searchTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
         }
@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
     //MARK:- lifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       configureView()
     }
     
 

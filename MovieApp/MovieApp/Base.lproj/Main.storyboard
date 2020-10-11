@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="y2j-NF-BrE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7JQ-nC-HTx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -51,12 +51,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1920.289855072464" y="-150"/>
+            <point key="canvasLocation" x="2830.434782608696" y="-150"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="GqC-Ed-Vfx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BiR-hj-cgP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="tat-bi-b7P"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="35w-b5-SJ6">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -64,12 +65,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="g3r-zU-rqc"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="RXg-9G-RFO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edk-kT-9hl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100.00000000000001" y="-150"/>
+            <point key="canvasLocation" x="1987" y="-150"/>
         </scene>
         <!--Detail Movie View Controller-->
         <scene sceneID="yBm-mq-w21">
@@ -349,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgI-zW-xKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676.811594202899" y="-82.700892857142847"/>
+            <point key="canvasLocation" x="3586.9565217391305" y="-82.700892857142847"/>
         </scene>
         <!--People View Controller-->
         <scene sceneID="JYw-om-DoL">
@@ -532,7 +533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM6-qG-rsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3436.2318840579715" y="-116.51785714285714"/>
+            <point key="canvasLocation" x="4346.376811594203" y="-116.51785714285714"/>
         </scene>
         <!--Search Movies-->
         <scene sceneID="Ibq-ey-03l">
@@ -570,31 +571,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtH-Kx-lGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4179.7101449275369" y="-150"/>
+            <point key="canvasLocation" x="5089.8550724637689" y="-150"/>
         </scene>
         <!--Tab Bar Controller-->
-        <scene sceneID="6K8-je-8bz">
+        <scene sceneID="uWh-Zp-Tam">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="y2j-NF-BrE" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7JQ-nC-HTx" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="UE1-Eg-4qr"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CvQ-Ii-PW5">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TEZ-lT-qHi">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="9FC-7L-0WE"/>
-                        <segue destination="cHa-eY-oca" kind="relationship" relationship="viewControllers" id="uhN-cA-kFm"/>
+                        <segue destination="BiR-hj-cgP" kind="relationship" relationship="viewControllers" id="okb-ZK-v4z"/>
+                        <segue destination="cHa-eY-oca" kind="relationship" relationship="viewControllers" id="5tS-U0-DzI"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zq3-AF-Hl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zle-XA-feV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010.144927536232" y="-150"/>
+            <point key="canvasLocation" x="1158" y="-153"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="9FC-7L-0WE"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="video" catalog="system" width="128" height="83"/>
     </resources>
