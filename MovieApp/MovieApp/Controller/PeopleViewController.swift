@@ -13,7 +13,8 @@ import ExpandableLabel
 class PeopleViewController: UIViewController {
     
     var personInfo: People?
-    var detailedInfo: Cast?
+    var detailedInfoCast: Cast?
+    var detailedInfoCrew: Crew?
     var detailId = 0
     var detailPhoto:String?
     var personImages: [Profile] = []
@@ -62,8 +63,11 @@ class PeopleViewController: UIViewController {
     
     //MARK:- Private methods-
     private func setImage() {
-        if let profilePath = self.detailedInfo?.profilePath {
-            let url = URL(string: Urls.baseImageUrl.rawValue + detailPhoto! )
+        if let profilePathCast = self.detailedInfoCast?.profilePath {
+            let url = URL(string: Urls.baseImageUrl.rawValue + profilePathCast )
+            self.characterImage.kf.setImage(with: url)
+        } else if let profilePathCrew = self.detailedInfoCrew?.profilePath {
+            let url = URL(string: Urls.baseImageUrl.rawValue + profilePathCrew)
             self.characterImage.kf.setImage(with: url)
         } else {
             self.characterImage.image = UIImage(named: Images.imageForPeople.rawValue)
@@ -89,21 +93,29 @@ class PeopleViewController: UIViewController {
                     self.moviesForPeople = moviesСast ?? []
                     self.moviesForPeople.append(contentsOf: moviesCrew ?? [])
                     self.tableViewHeight.constant = CGFloat(moviesСast!.count * 70)
+                    self.tableViewHeight.constant = CGFloat(moviesCrew!.count * 70)
                     self.moviesTableView.reloadData()
                    }
                }
     }
     private func updateView() {
         DispatchQueue.main.async {
-                self.activityIndicator.startAnimating()
-                self.setPersonInformation(hidden: false)
-                self.nameLabel.text = self.personInfo?.name
+            self.activityIndicator.startAnimating()
+            self.setPersonInformation(hidden: false)
+            if let infoPeopleCast = self.detailedInfoCast {
+                self.nameLabel.text = infoPeopleCast.name
+
+            } else if let infoPeopleCrew = self.detailedInfoCrew {
+                self.nameLabel.text = infoPeopleCrew.name
+            }
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd"
                 if let birthday = self.personInfo?.birthday, let date = dateFormatter.date(from: birthday) {
                     dateFormatter.dateFormat = "MMMM dd, yyyy"
                     self.birthdayLabel.text = dateFormatter.string(from: date)
-                  }
+                } else {
+                    self.birthdayLabel.text = "Not available"
+            }
                 self.placeOfBirthdayLabel.text = self.personInfo?.placeOfBirth
                 self.knowsForLabel.text = self.personInfo?.knownForDepartment
                 self.biographyLabel.shouldCollapse = true
@@ -116,6 +128,7 @@ class PeopleViewController: UIViewController {
                   )
                 self.biographyLabel.text = self.personInfo?.biography
                 self.setImage()
+                //self.parseMovies()
                 self.activityIndicator.stopAnimating()
               }
     }

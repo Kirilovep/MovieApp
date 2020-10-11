@@ -8,15 +8,12 @@
 
 import Foundation
 
-
 struct MoviesForPeople: Codable {
     let cast: [PersonMovie]
     let crew: [PersonMovie]
     let id: Int
-
 }
 
-// MARK: - Cast
 struct PersonMovie: Codable {
     let job: String?
     let character: String?
@@ -25,5 +22,4 @@ struct PersonMovie: Codable {
     let title: String?
     let posterPath: String?
     let id: Int?
-
 }

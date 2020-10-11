@@ -160,16 +160,17 @@ class NetworkManager {
                            resp.statusCode == 200,
                                let responceData = data {
                                let decoder = JSONDecoder()
-                             //decoder.keyDecodingStrategy = .convertFromSnakeCase
+                             decoder.keyDecodingStrategy = .convertFromSnakeCase
                              let movies = try? decoder.decode(MoviesForPeople.self, from: responceData)
-                              
-                            completionHandler(movies?.cast, movies?.crew)
+                            
+                                completionHandler(movies?.cast, movies?.crew)
+                            
+                            
                            }
                        }
                    }.resume()
                }
        }
-
 }
 
 

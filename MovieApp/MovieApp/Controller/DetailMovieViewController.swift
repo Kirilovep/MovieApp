@@ -171,13 +171,13 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
             }
         } else if collectionView == castCollectionView {
             let desVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
-            desVC.detailedInfo = detailCast[indexPath.row]
+            desVC.detailedInfoCast = detailCast[indexPath.row]
             desVC.detailId = detailCast[indexPath.row].id
             desVC.detailPhoto = detailCast[indexPath.row].profilePath
             navigationController?.pushViewController(desVC, animated: true)
         } else if collectionView == crewCollectionView {
             let desVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
-            desVC.detailedInfo = detailCast[indexPath.row]
+            desVC.detailedInfoCrew = detailCrew[indexPath.row]
             desVC.detailId = detailCrew[indexPath.row].id
              desVC.detailPhoto = detailCrew[indexPath.row].profilePath
             navigationController?.pushViewController(desVC, animated: true)

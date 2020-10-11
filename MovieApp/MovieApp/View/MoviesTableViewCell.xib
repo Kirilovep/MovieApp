@@ -38,7 +38,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX7-Qy-QFW">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Character" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DX7-Qy-QFW">
                         <rect key="frame" x="118" y="43" width="118" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="118" id="MYi-e0-HML"/>
@@ -47,10 +47,18 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pz-7w-ams">
+                        <rect key="frame" x="118" y="65" width="152" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DX7-Qy-QFW" firstAttribute="top" secondItem="2Xw-GR-CUJ" secondAttribute="bottom" constant="7.5" id="EPd-ou-8yG"/>
+                    <constraint firstAttribute="trailing" secondItem="5pz-7w-ams" secondAttribute="trailing" constant="50" id="JEb-fn-cLw"/>
                     <constraint firstItem="yVP-iL-Th9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bQk-hg-Hbk"/>
+                    <constraint firstItem="5pz-7w-ams" firstAttribute="leading" secondItem="yVP-iL-Th9" secondAttribute="trailing" constant="5" id="cOx-va-tdn"/>
                     <constraint firstItem="yVP-iL-Th9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e8S-iy-4gq"/>
                     <constraint firstItem="2Xw-GR-CUJ" firstAttribute="leading" secondItem="yVP-iL-Th9" secondAttribute="trailing" constant="5" id="ftc-LE-2HB"/>
                     <constraint firstItem="2Xw-GR-CUJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="hSd-sJ-b0T"/>
@@ -59,6 +67,7 @@
                     <constraint firstItem="lIq-Hh-zZO" firstAttribute="centerY" secondItem="2Xw-GR-CUJ" secondAttribute="centerY" id="pXA-4M-wSc"/>
                     <constraint firstAttribute="bottom" secondItem="yVP-iL-Th9" secondAttribute="bottom" id="tek-uX-d7b"/>
                     <constraint firstAttribute="trailing" secondItem="lIq-Hh-zZO" secondAttribute="trailing" constant="11" id="up8-HS-wim"/>
+                    <constraint firstItem="5pz-7w-ams" firstAttribute="top" secondItem="DX7-Qy-QFW" secondAttribute="bottom" constant="5" id="xst-fD-jDi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -67,6 +76,7 @@
                 <outlet property="movieImage" destination="yVP-iL-Th9" id="TfZ-WT-D5E"/>
                 <outlet property="titleLabel" destination="2Xw-GR-CUJ" id="kag-bO-sfz"/>
                 <outlet property="voteAverageLabel" destination="lIq-Hh-zZO" id="37S-pQ-3V4"/>
+                <outlet property="yearLabel" destination="5pz-7w-ams" id="ytN-Z7-1wH"/>
             </connections>
             <point key="canvasLocation" x="-233.33333333333334" y="86.049107142857139"/>
         </tableViewCell>
