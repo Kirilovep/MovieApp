@@ -167,7 +167,7 @@ extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
+        let desVC = storyboard?.instantiateViewController(withIdentifier: "DetailMovieViewController") as! DetailMovieViewController
         desVC.detailId = moviesForPeople[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
         

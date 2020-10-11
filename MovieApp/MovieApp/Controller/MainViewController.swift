@@ -68,7 +68,6 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
-        desVC.detailResult = movieList[indexPath.row]
         desVC.detailId = movieList[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
         

@@ -12,83 +12,7 @@ import AVFoundation
 import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
 
-    var detailResult: Result?
-    var detailId: Int? {
-        didSet {
-  print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            
-          
-        }
-    }
+    var detailId: Int? 
     private let extractor = LinkExtractor()
     private var results: DetailList?
     private let networkManager = NetworkManager()
@@ -192,20 +116,17 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
                 guard let runTime = self.results?.runtime  else { return }
                 self.runTimeLabel.text = "\(runTime) minutes"
                 self.languageLabel.text = self.results?.originalLanguage
-            
             if let posterPath = self.results?.backdropPath {
                  let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
                  self.detailImageView.kf.setImage(with: url)
             } else {
                 self.detailImageView.image = UIImage(named: Images.noPoster.rawValue)
             }
-                               
-               
-                  if self.results?.budget == 0 {
-                                      self.budgetLabel.text = "Information is coming soon"
-                                  } else {
-                                      self.budgetLabel.text = "\(self.results!.budget)$"
-                                  }
+            if self.results?.budget == 0 {
+                self.budgetLabel.text = "Information is coming soon"
+            } else {
+                self.budgetLabel.text = "\(self.results!.budget)$"
+            }
                 self.activityIndicator.stopAnimating()
                }
     }

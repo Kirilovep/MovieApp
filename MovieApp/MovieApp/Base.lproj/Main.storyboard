@@ -532,5 +532,35 @@
             </objects>
             <point key="canvasLocation" x="2526.0869565217395" y="-116.51785714285714"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="Ibq-ey-03l">
+            <objects>
+                <viewController id="cHa-eY-oca" customClass="SearchViewController" customModule="MovieApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tha-AV-dJs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BY1-1f-g7a">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="BY1-1f-g7a" firstAttribute="top" secondItem="tha-AV-dJs" secondAttribute="top" id="1bE-qU-uTY"/>
+                            <constraint firstItem="BY1-1f-g7a" firstAttribute="trailing" secondItem="HEJ-6T-rd2" secondAttribute="trailing" id="DFL-Ca-zhP"/>
+                            <constraint firstItem="BY1-1f-g7a" firstAttribute="leading" secondItem="HEJ-6T-rd2" secondAttribute="leading" id="ljq-Ib-DhU"/>
+                            <constraint firstAttribute="bottom" secondItem="BY1-1f-g7a" secondAttribute="bottom" id="uav-7I-koa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HEJ-6T-rd2"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchTableView" destination="BY1-1f-g7a" id="R08-zd-qHc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZtH-Kx-lGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3363.7681159420295" y="-146.65178571428569"/>
+        </scene>
     </scenes>
 </document>
