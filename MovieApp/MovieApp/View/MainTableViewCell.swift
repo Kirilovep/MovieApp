@@ -25,6 +25,11 @@ class MainTableViewCell: UITableViewCell {
     func configure(_ result: Result) {
         DispatchQueue.main.async {
             self.titleLabel.text = result.title
+            if result.voteAverage >= 5.0 {
+                self.voteAverageLabel.textColor = .green
+            } else {
+                self.voteAverageLabel.textColor = .orange
+            }
             self.voteAverageLabel.text = String(result.voteAverage)
             self.overviewLabel.text = result.overview
             self.releaseDataLabel.text = result.releaseDate

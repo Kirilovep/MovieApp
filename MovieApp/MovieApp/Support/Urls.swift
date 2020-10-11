@@ -21,5 +21,12 @@ enum Urls: String {
     case credits = "/credits"
     case videos = "/videos"
     case youTube = "https://www.youtube.com/watch?v="
+    case images = "/images"
+    case movieCredits = "/movie_credits"
     
 }
+
+enum VideoUrls:String {
+       case baseurl = "https://img.youtube.com/vi/"
+       case lasturl = "/0.jpg"
+   }

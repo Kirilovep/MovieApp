@@ -9,17 +9,11 @@
 import Foundation
 
 struct People: Codable {
-let birthday: String
-let knownForDepartment: String
-let id: Int
-let name: String
-let alsoKnownAs: [String]
-let gender: Int
-let biography: String
-let popularity: Double
-let placeOfBirth: String
-let profilePath: String
-let adult: Bool
-let imdbId: String
-let homepage: String
+    let birthday: String
+    let id: Int
+    let name: String
+    let biography: String
+    let placeOfBirth: String?
+    let profilePath: String?
+    let knownForDepartment: String?
 }

@@ -18,6 +18,10 @@ enum Cells:String {
     case crewCollectionCellNib = "CrewCollectionViewCell"
     case videoCollectionCellIdentifier = "videoCell"
     case videoColectionCellNib = "VideoCollectionViewCell"
+    case imageCollectionCellIdentifier = "imageCollectionCell"
+    case imageCollectionNib = "ImageCollectionViewCell"
+    case moviesCellIdentifier = "movieCell"
+    case moviesTableViewCellNib = "MoviesTableViewCell"
 }
 
 enum Segue: String {
@@ -28,4 +32,5 @@ enum Segue: String {
 
 enum Images: String {
     case imageForPeople = "defaultuser"
+    case noPoster = "noImage"
 }

@@ -1,22 +1,26 @@
 PODS:
+  - ExpandableLabel (0.5.2)
   - Kingfisher (5.15.1):
     - Kingfisher/Core (= 5.15.1)
   - Kingfisher/Core (5.15.1)
   - YoutubeDirectLinkExtractor (0.3.1)
 
 DEPENDENCIES:
+  - ExpandableLabel
   - Kingfisher (~> 5.0)
   - YoutubeDirectLinkExtractor
 
 SPEC REPOS:
   trunk:
+    - ExpandableLabel
     - Kingfisher
     - YoutubeDirectLinkExtractor
 
 SPEC CHECKSUMS:
+  ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
   Kingfisher: 3260a05e78a17fdbeb2f14dd8e66ffc768491231
   YoutubeDirectLinkExtractor: de7abd36c0e3bb120b9b372f36450fbf9b51c01e
 
-PODFILE CHECKSUM: 08844e0e43eda1372aae48e4e04a3c7da8dbdabe
+PODFILE CHECKSUM: 34abdd494eca32542eb3930d4d47dae20f4af35b
 
 COCOAPODS: 1.9.3
