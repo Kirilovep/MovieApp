@@ -13,7 +13,82 @@ import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
 
     var detailResult: Result?
-    var detailId: Int?
+    var detailId: Int? {
+        didSet {
+  print(detailId)
+     print(detailId)
+     print(detailId)
+     print(detailId)
+     print(detailId)
+     print(detailId)
+     print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+               print(detailId)
+            
+          
+        }
+    }
     private let extractor = LinkExtractor()
     private var results: DetailList?
     private let networkManager = NetworkManager()
@@ -102,23 +177,30 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         DispatchQueue.main.async {
                 self.activityIndicator.startAnimating()
                 self.titleLabel.text = self.results?.title
+            if let voteAverage = self.results?.voteAverage {
+                self.voteAverageLabel.text = "\(voteAverage)"
+            }
                   if self.results?.voteAverage ?? 0 >= 5.0 {
                       self.voteAverageLabel.textColor = .green
                   } else {
                       self.voteAverageLabel.textColor = .orange
                   }
-                self.voteAverageLabel.text = String(self.results!.voteAverage)
+            
                 self.dateLabel.text = self.results?.releaseDate
                 self.releasedLabel.text = self.results?.releaseDate
                 self.overviewLabel.text = self.results?.overview
-                  guard
-                      let runTime = self.results?.runtime,
-                      let posterPath = self.results?.backdropPath,
-                      let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
-                  else { return }
+                guard let runTime = self.results?.runtime  else { return }
                 self.runTimeLabel.text = "\(runTime) minutes"
                 self.languageLabel.text = self.results?.originalLanguage
-                self.detailImageView.kf.setImage(with: url)
+            
+            if let posterPath = self.results?.backdropPath {
+                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                 self.detailImageView.kf.setImage(with: url)
+            } else {
+                self.detailImageView.image = UIImage(named: Images.noPoster.rawValue)
+            }
+                               
+               
                   if self.results?.budget == 0 {
                                       self.budgetLabel.text = "Information is coming soon"
                                   } else {
