@@ -32,7 +32,6 @@ class SearchViewController: UIViewController {
     //MARK:- lifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
-       configureView()
     }
     
 
@@ -44,10 +43,6 @@ class SearchViewController: UIViewController {
                 self.searchTableView.reloadData()
             }
         }
-    }
-    private func configureView(){
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.topItem?.title = "Search Movie"
     }
 }
 //MARK:- configure tableView-
@@ -61,6 +56,15 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCellIdentefier.rawValue, for: indexPath) as! MainTableViewCell
         cell.configure(searchResultsMovies[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
+        desVC.detailId = searchResultsMovies[indexPath.row].id
+        navigationController?.pushViewController(desVC, animated: true)
+        
+        //performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
+         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
@@ -83,6 +87,8 @@ extension SearchViewController: UISearchBarDelegate {
         searchTableView.reloadData()
         if searchBar.text?.isEmpty == true {
             view.endEditing(true)
+        } else {
+            searchBar.text? = ""
         }
     }
     
