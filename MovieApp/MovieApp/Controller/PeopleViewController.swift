@@ -12,13 +12,14 @@ import ExpandableLabel
 
 class PeopleViewController: UIViewController {
     
-    var personInfo: People?
+   
     var detailedInfoCast: Cast?
     var detailedInfoCrew: Crew?
     var detailId = 0
     var detailPhoto:String?
-    var personImages: [Profile] = []
-    var moviesForPeople: [PersonMovie] = []
+    private var personInfo: People?
+    private var personImages: [Profile] = []
+    private var moviesForPeople: [PersonMovie] = []
     private let networkManager = NetworkManager()
     
     //MARK:- IBOutlets-
@@ -54,6 +55,7 @@ class PeopleViewController: UIViewController {
     //MARK:- Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
         setPersonInformation(hidden: true)
         parseInfo()
         parseImages()
@@ -167,7 +169,7 @@ extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let desVC = storyboard?.instantiateViewController(withIdentifier: "DetailMovieViewController") as! DetailMovieViewController
+        let desVC = storyboard?.instantiateViewController(withIdentifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
         desVC.detailId = moviesForPeople[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
         

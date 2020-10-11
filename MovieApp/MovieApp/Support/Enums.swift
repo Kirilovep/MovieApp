@@ -34,3 +34,9 @@ enum Images: String {
     case imageForPeople = "defaultuser"
     case noPoster = "noImage"
 }
+
+
+enum ViewControllers: String {
+    case DetailMovieVCIdentifier = "DetailMovieViewController"
+    case PeopleVCIdentifier = "PeopleViewController"
+}

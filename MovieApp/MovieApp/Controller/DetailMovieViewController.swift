@@ -59,13 +59,18 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     //MARK:- lifecycle-
     override func viewDidLoad() {
                super.viewDidLoad()
-        
+         navigationController?.navigationBar.prefersLargeTitles = false
                 requestDetail()
                 requestCast()
                 requestCrew()
                 requestVideos()
                 
            }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     //MARK:- Private func-
     private func requestCast() {
         networkManager.requestCast(detailId ?? 0) { (detailedCast) in
@@ -178,13 +183,13 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
                 }
             }
         } else if collectionView == castCollectionView {
-            let desVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.PeopleVCIdentifier.rawValue) as! PeopleViewController
             desVC.detailedInfoCast = detailCast[indexPath.row]
             desVC.detailId = detailCast[indexPath.row].id
             desVC.detailPhoto = detailCast[indexPath.row].profilePath
             navigationController?.pushViewController(desVC, animated: true)
         } else if collectionView == crewCollectionView {
-            let desVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.PeopleVCIdentifier.rawValue) as! PeopleViewController
             desVC.detailedInfoCrew = detailCrew[indexPath.row]
             desVC.detailId = detailCrew[indexPath.row].id
              desVC.detailPhoto = detailCrew[indexPath.row].profilePath

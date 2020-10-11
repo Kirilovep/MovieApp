@@ -27,8 +27,12 @@ class MainViewController: UIViewController {
     //MARK:- LifeCycles-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         requestMovie(Urls.nowPlayingMovie.rawValue)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     //MARK:- IBActions-
@@ -68,7 +72,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
+        let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
         desVC.detailId = movieList[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
         
