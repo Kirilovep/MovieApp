@@ -9,23 +9,85 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
-    @IBOutlet weak var searchTableView: UITableView!
+    
+    private var networkManager = NetworkManager()
+    private var quary = ""
+    private var searchResultsMovies: [Result] = []
+    //MARK:- IBOutlets-
+    @IBOutlet weak var searchTableView: UITableView! {
+        didSet {
+            searchTableView.delegate = self
+            searchTableView.dataSource = self
+            
+            let nib = UINib(nibName: Cells.mainCellNib.rawValue, bundle: nil)
+            searchTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
+        }
+    }
+    @IBOutlet weak var movieSearchBar: UISearchBar! {
+        didSet {
+            movieSearchBar.delegate = self
+            movieSearchBar.showsCancelButton = true
+        }
+    }
+    //MARK:- lifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       
+        
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+  //MARK:- private func-
+    
+    private func searchMovie(_ quary: String) {
+        networkManager.searchRequest(quary) { (searchResults) in
+            DispatchQueue.main.async {
+                self.searchResultsMovies = searchResults
+                self.searchTableView.reloadData()
+            }
+            
+        }
+        
     }
-    */
+}
 
+//MARK:- configure tableView-
+
+extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       return searchResultsMovies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCellIdentefier.rawValue, for: indexPath) as! MainTableViewCell
+        cell.configure(searchResultsMovies[indexPath.row])
+        return cell
+    }
+    
+    
+}
+//MARK:- configure searchBar -
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let searchQuary = searchBar.text else { return }
+        quary = searchQuary
+        searchMovie(quary)
+        
+        if searchBar.text?.isEmpty == true {
+            searchResultsMovies = []
+            searchTableView.reloadData()
+        }
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchResultsMovies = []
+        searchTableView.reloadData()
+                  
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+    }
 }

@@ -545,6 +545,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BY1-1f-g7a">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="UFC-y0-vHH">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -559,6 +564,7 @@
                     <tabBarItem key="tabBarItem" systemItem="search" id="GH8-Et-pLF"/>
                     <navigationItem key="navigationItem" id="1Xd-wV-8e6"/>
                     <connections>
+                        <outlet property="movieSearchBar" destination="UFC-y0-vHH" id="e60-dA-aWk"/>
                         <outlet property="searchTableView" destination="BY1-1f-g7a" id="R08-zd-qHc"/>
                     </connections>
                 </viewController>
