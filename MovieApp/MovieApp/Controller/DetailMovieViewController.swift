@@ -13,6 +13,7 @@ import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
 
     var detailResult: Result?
+    var detailId: Int?
     private let extractor = LinkExtractor()
     private var results: DetailList?
     private let networkManager = NetworkManager()
