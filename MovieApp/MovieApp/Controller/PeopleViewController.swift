@@ -165,4 +165,13 @@ extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
         cell.configure(moviesForPeople[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
+        desVC.detailId = moviesForPeople[indexPath.row].id
+        navigationController?.pushViewController(desVC, animated: true)
+        
+        //performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
+         tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
