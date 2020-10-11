@@ -99,7 +99,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func updateView() {
         DispatchQueue.main.async {
-                self.activityIndicator.startAnimating()
+                 self.activityIndicator.startAnimating()
                 self.titleLabel.text = self.results?.title
             if let voteAverage = self.results?.voteAverage {
                 self.voteAverageLabel.text = "\(voteAverage)"
@@ -125,11 +125,13 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             if self.results?.budget == 0 {
                 self.budgetLabel.text = "Information is coming soon"
             } else {
-                self.budgetLabel.text = "\(self.results!.budget)$"
+                self.budgetLabel.text = "\(self.results!.budget ?? 0)$"
             }
-                self.activityIndicator.stopAnimating()
+                   self.activityIndicator.stopAnimating()
                }
+     
     }
+    
 }
 
     //MARK:- Configure collection view -

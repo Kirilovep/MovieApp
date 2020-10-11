@@ -300,8 +300,8 @@
                                             <constraint firstItem="CkQ-0z-MB4" firstAttribute="centerY" secondItem="TuV-nf-sVI" secondAttribute="centerY" id="zJF-dQ-Wxr"/>
                                         </constraints>
                                     </view>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1AP-Vg-0VO">
-                                        <rect key="frame" x="188.5" y="99" width="37" height="37"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1AP-Vg-0VO">
+                                        <rect key="frame" x="197" y="107.5" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -441,8 +441,8 @@
                                                 </collectionViewFlowLayout>
                                                 <cells/>
                                             </collectionView>
-                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="WFm-Gl-GK9">
-                                                <rect key="frame" x="197" y="272" width="20" height="20"/>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="WFm-Gl-GK9">
+                                                <rect key="frame" x="197" y="255" width="20" height="37"/>
                                             </activityIndicatorView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mbd-hn-aZn">
                                                 <rect key="frame" x="5" y="514.5" width="401" height="139"/>
@@ -465,7 +465,7 @@
                                             <constraint firstItem="KsX-EM-QUe" firstAttribute="top" secondItem="mCh-1A-zEe" secondAttribute="bottom" constant="8" id="8oB-cB-9vv"/>
                                             <constraint firstItem="RNW-mr-v1c" firstAttribute="top" secondItem="HWh-dD-CiD" secondAttribute="bottom" constant="63.333333333333371" id="AJd-T2-Ett"/>
                                             <constraint firstItem="CbZ-Nz-DS6" firstAttribute="leading" secondItem="n8e-DJ-pDH" secondAttribute="leading" constant="8" id="Ag4-V4-8ux"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KsX-EM-QUe" secondAttribute="trailing" constant="317" id="EX5-HV-TOD"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="KsX-EM-QUe" secondAttribute="trailing" constant="317" id="EX5-HV-TOD"/>
                                             <constraint firstItem="mbd-hn-aZn" firstAttribute="leading" secondItem="n8e-DJ-pDH" secondAttribute="leading" constant="5" id="FvQ-gE-UkI"/>
                                             <constraint firstItem="27M-gi-bru" firstAttribute="leading" secondItem="n8e-DJ-pDH" secondAttribute="leading" constant="8" id="HYY-dK-GNY"/>
                                             <constraint firstItem="ecx-Hv-jGO" firstAttribute="top" secondItem="n8e-DJ-pDH" secondAttribute="top" constant="8" id="LAP-ih-Bvj"/>
@@ -483,7 +483,7 @@
                                             <constraint firstItem="KsX-EM-QUe" firstAttribute="leading" secondItem="n8e-DJ-pDH" secondAttribute="leading" constant="8" id="glM-0L-8OR"/>
                                             <constraint firstItem="Yjo-eB-PJA" firstAttribute="leading" secondItem="CbZ-Nz-DS6" secondAttribute="trailing" constant="20" id="ku6-Ib-4Je"/>
                                             <constraint firstAttribute="trailing" secondItem="Yjo-eB-PJA" secondAttribute="trailing" constant="8" id="lxf-b4-Q9g"/>
-                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="27M-gi-bru" secondAttribute="trailing" constant="328" id="nJz-jW-uWN"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="27M-gi-bru" secondAttribute="trailing" constant="328" id="nJz-jW-uWN"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="RNW-mr-v1c" secondAttribute="trailing" constant="20" symbolic="YES" id="rGu-eW-Klc"/>
                                             <constraint firstAttribute="trailing" secondItem="w1f-s2-3Bw" secondAttribute="trailing" constant="50" id="scV-9C-2ZJ"/>
                                             <constraint firstItem="WFm-Gl-GK9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mCh-1A-zEe" secondAttribute="trailing" constant="107.33333333333333" id="tKV-Hl-GL4"/>
