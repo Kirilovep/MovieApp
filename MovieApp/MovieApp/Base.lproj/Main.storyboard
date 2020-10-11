@@ -41,7 +41,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Movies" id="1YU-sY-LJO"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="video" catalog="system" id="AdM-ww-MYu"/>
+                    <navigationItem key="navigationItem" id="1YU-sY-LJO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mainSegmentedControl" destination="JS1-ir-C9Q" id="Di7-bd-5fl"/>
                         <outlet property="mainTableView" destination="BN2-A6-MPb" id="azj-IF-dwW"/>
@@ -49,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1010.144927536232" y="-150"/>
+            <point key="canvasLocation" x="1920.289855072464" y="-150"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GqC-Ed-Vfx">
@@ -62,7 +64,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bPk-fi-j2T"/>
+                        <segue destination="y2j-NF-BrE" kind="relationship" relationship="rootViewController" id="bPk-fi-j2T"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="edk-kT-9hl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -347,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgI-zW-xKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1766.6666666666667" y="-82.366071428571431"/>
+            <point key="canvasLocation" x="2676.811594202899" y="-82.700892857142847"/>
         </scene>
         <!--People View Controller-->
         <scene sceneID="JYw-om-DoL">
@@ -530,7 +532,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM6-qG-rsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526.0869565217395" y="-116.51785714285714"/>
+            <point key="canvasLocation" x="3436.2318840579715" y="-116.51785714285714"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="Ibq-ey-03l">
@@ -554,13 +556,37 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HEJ-6T-rd2"/>
                     </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="GH8-Et-pLF"/>
+                    <navigationItem key="navigationItem" id="1Xd-wV-8e6"/>
                     <connections>
                         <outlet property="searchTableView" destination="BY1-1f-g7a" id="R08-zd-qHc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtH-Kx-lGS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3363.7681159420295" y="-146.65178571428569"/>
+            <point key="canvasLocation" x="4179.7101449275369" y="-150"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6K8-je-8bz">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="y2j-NF-BrE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="UE1-Eg-4qr"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CvQ-Ii-PW5">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="mPt-tk-uAv"/>
+                        <segue destination="cHa-eY-oca" kind="relationship" relationship="viewControllers" id="I5o-qh-WHA"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zq3-AF-Hl6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1010.144927536232" y="-150"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="video" catalog="system" width="128" height="83"/>
+    </resources>
 </document>

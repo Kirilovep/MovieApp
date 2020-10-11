@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     
     
     var movieList: [Result] = []
-    
+    var networkManager = NetworkManager()
     //MARK:- IBOutlets-
     @IBOutlet weak var mainSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mainTableView: UITableView! {
@@ -29,6 +29,11 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         requestMovie(Urls.nowPlayingMovie.rawValue)
+        networkManager.searchRequest("Terminator") { (searchResults) in
+            self.movieList = searchResults
+            
+        }
+        
         
     }
     

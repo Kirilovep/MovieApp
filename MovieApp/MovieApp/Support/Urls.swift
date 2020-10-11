@@ -23,7 +23,10 @@ enum Urls: String {
     case youTube = "https://www.youtube.com/watch?v="
     case images = "/images"
     case movieCredits = "/movie_credits"
-    
+    case baseSearchUrsl = "https://api.themoviedb.org/3/search/movie"
+    case languageSearch = "language=en-US&"
+    case search = "query="
+    case page = "&page=1"
 }
 
 enum VideoUrls:String {

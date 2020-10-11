@@ -18,9 +18,9 @@ struct MovieList: Codable {
 
 
 struct Result: Codable {
-    let posterPath: String
+    let posterPath: String?
     let id: Int
-    let backdropPath: String
+    let backdropPath: String?
     let originalLanguage: String
     let originalTitle: String
     let title: String

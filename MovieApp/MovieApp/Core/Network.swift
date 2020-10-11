@@ -171,6 +171,25 @@ class NetworkManager {
                    }.resume()
                }
        }
+    
+    func searchRequest(_ query: String,_ completionHandler: @escaping ([Result]) -> Void ) {
+        if let url = URL(string: Urls.baseSearchUrsl.rawValue + Urls.api.rawValue + Urls.languageSearch.rawValue + Urls.search.rawValue + query + Urls.page.rawValue) {
+         URLSession.shared.dataTask(with: url) { (data, responce, error ) in
+                        if error != nil {
+                            print("error in request")
+                        } else {
+                            if let resp = responce as? HTTPURLResponse,
+                            resp.statusCode == 200,
+                                let responceData = data {
+                                let decoder = JSONDecoder()
+                                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                                let movies = try? decoder.decode(MovieList.self, from: responceData)
+                                completionHandler(movies?.results ?? [] )
+                            }
+                        }
+                    }.resume()
+                }
+     }
 }
 
 
