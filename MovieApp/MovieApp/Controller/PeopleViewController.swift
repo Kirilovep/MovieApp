@@ -92,11 +92,12 @@ class PeopleViewController: UIViewController {
                    DispatchQueue.main.async {
                     self.moviesForPeople = moviesСast ?? []
                     self.moviesForPeople.append(contentsOf: moviesCrew ?? [])
-                    self.tableViewHeight.constant = CGFloat(moviesСast!.count * 70)
-                    self.tableViewHeight.constant = CGFloat(moviesCrew!.count * 70)
+                    if let castCount = moviesСast?.count,let crewCount = moviesCrew?.count {
+                         self.tableViewHeight.constant = CGFloat((castCount + crewCount) * 70)
                     self.moviesTableView.reloadData()
                    }
                }
+    }
     }
     private func updateView() {
         DispatchQueue.main.async {

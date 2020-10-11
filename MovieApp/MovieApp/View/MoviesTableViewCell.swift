@@ -41,7 +41,9 @@ class MoviesTableViewCell: UITableViewCell {
             }
             if let characterName = movies.character {
                 self.characterLabel.text = "as \(characterName)"
-            }
+            } else if let job = movies.job {
+                self.characterLabel.text = "Job: \(job)"
+                }
             if let posterPath = movies.posterPath {
                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
                 self.movieImage.kf.setImage(with: url)

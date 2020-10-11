@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ud-uM-kmP">
-                        <rect key="frame" x="128" y="53" width="263" height="72"/>
+                        <rect key="frame" x="128" y="53" width="268" height="72"/>
                         <string key="text">A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
@@ -43,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-qc-LLf">
-                        <rect key="frame" x="364" y="10" width="27" height="21"/>
+                        <rect key="frame" x="369" y="10" width="27" height="21"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -56,10 +56,10 @@
                     <constraint firstItem="8ud-uM-kmP" firstAttribute="leading" secondItem="x11-ch-GOP" secondAttribute="trailing" constant="8" id="TRg-o2-obI"/>
                     <constraint firstItem="seh-Kw-W5E" firstAttribute="leading" secondItem="x11-ch-GOP" secondAttribute="trailing" constant="8" id="Uqu-Ev-Hfx"/>
                     <constraint firstItem="x11-ch-GOP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ZFg-Dt-oPp"/>
-                    <constraint firstAttribute="trailing" secondItem="8ud-uM-kmP" secondAttribute="trailing" constant="35" id="Zlf-hw-OEm"/>
+                    <constraint firstAttribute="trailing" secondItem="8ud-uM-kmP" secondAttribute="trailing" constant="30" id="Zlf-hw-OEm"/>
                     <constraint firstItem="MaC-mu-Sfl" firstAttribute="centerY" secondItem="Eb8-qc-LLf" secondAttribute="centerY" id="dHd-Wl-fGM"/>
                     <constraint firstAttribute="bottom" secondItem="8ud-uM-kmP" secondAttribute="bottom" constant="10" id="hf1-Uf-YaF"/>
-                    <constraint firstAttribute="trailing" secondItem="Eb8-qc-LLf" secondAttribute="trailing" constant="35" id="iFG-SB-dkH"/>
+                    <constraint firstAttribute="trailing" secondItem="Eb8-qc-LLf" secondAttribute="trailing" constant="30" id="iFG-SB-dkH"/>
                     <constraint firstAttribute="trailing" secondItem="MaC-mu-Sfl" secondAttribute="trailing" constant="85" id="lRc-eS-nUv"/>
                     <constraint firstItem="Eb8-qc-LLf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="otE-Jx-hgT"/>
                     <constraint firstItem="seh-Kw-W5E" firstAttribute="top" secondItem="MaC-mu-Sfl" secondAttribute="bottom" id="tmU-XP-Eqn"/>
