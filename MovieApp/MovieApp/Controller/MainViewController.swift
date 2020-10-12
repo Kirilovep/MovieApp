@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
     //MARK:- Private Func-
 
 private func requestMovie(_ filterForSearch: String) {
-    NetworkManager.manager.getRequest(filterForSearch)  { [weak self] (results) in
+    networkManager.getRequest(filterForSearch)  { [weak self] (results) in
         DispatchQueue.main.async {
             self?.movieList = results
             self?.mainTableView.reloadData()

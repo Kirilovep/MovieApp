@@ -27,6 +27,7 @@ enum Urls: String {
     case languageSearch = "language=en-US&"
     case search = "query="
     case page = "&page=1"
+    case firstPage = "&page="
 }
 
 enum VideoUrls:String {

@@ -47,7 +47,8 @@ class SearchViewController: UIViewController {
 }
 //MARK:- configure tableView-
 
-extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
+extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return searchResultsMovies.count
     }
@@ -66,8 +67,6 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource {
         //performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
          tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
 }
 //MARK:- configure searchBar -
 extension SearchViewController: UISearchBarDelegate {
@@ -89,6 +88,7 @@ extension SearchViewController: UISearchBarDelegate {
             view.endEditing(true)
         } else {
             searchBar.text? = ""
+            view.endEditing(true)
         }
     }
     
