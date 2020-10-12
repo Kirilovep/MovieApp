@@ -1,5 +1,6 @@
 # MovieApp
- App for searching movies 
+ App for searching movies <br />
+ [Use API](https://developers.themoviedb.org/3/getting-started/introduction)
 ## Features:
   - List of Top Rated, Upcoming, Now Playing movies.
   - Search.
