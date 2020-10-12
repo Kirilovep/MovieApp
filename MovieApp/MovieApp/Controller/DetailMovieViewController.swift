@@ -12,83 +12,7 @@ import AVFoundation
 import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
 
-    var detailResult: Result?
-    var detailId: Int? {
-        didSet {
-  print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-     print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-               print(detailId)
-            
-          
-        }
-    }
+    var detailId: Int? 
     private let extractor = LinkExtractor()
     private var results: DetailList?
     private let networkManager = NetworkManager()
@@ -135,13 +59,18 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     //MARK:- lifecycle-
     override func viewDidLoad() {
                super.viewDidLoad()
-        
+         navigationController?.navigationBar.prefersLargeTitles = false
                 requestDetail()
                 requestCast()
                 requestCrew()
                 requestVideos()
                 
            }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     //MARK:- Private func-
     private func requestCast() {
         networkManager.requestCast(detailId ?? 0) { (detailedCast) in
@@ -175,7 +104,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func updateView() {
         DispatchQueue.main.async {
-                self.activityIndicator.startAnimating()
+                 self.activityIndicator.startAnimating()
                 self.titleLabel.text = self.results?.title
             if let voteAverage = self.results?.voteAverage {
                 self.voteAverageLabel.text = "\(voteAverage)"
@@ -192,23 +121,22 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
                 guard let runTime = self.results?.runtime  else { return }
                 self.runTimeLabel.text = "\(runTime) minutes"
                 self.languageLabel.text = self.results?.originalLanguage
-            
             if let posterPath = self.results?.backdropPath {
                  let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
                  self.detailImageView.kf.setImage(with: url)
             } else {
                 self.detailImageView.image = UIImage(named: Images.noPoster.rawValue)
             }
-                               
-               
-                  if self.results?.budget == 0 {
-                                      self.budgetLabel.text = "Information is coming soon"
-                                  } else {
-                                      self.budgetLabel.text = "\(self.results!.budget)$"
-                                  }
-                self.activityIndicator.stopAnimating()
+            if self.results?.budget == 0 {
+                self.budgetLabel.text = "Information is coming soon"
+            } else {
+                self.budgetLabel.text = "\(self.results!.budget ?? 0)$"
+            }
+                   self.activityIndicator.stopAnimating()
                }
+     
     }
+    
 }
 
     //MARK:- Configure collection view -
@@ -255,13 +183,13 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
                 }
             }
         } else if collectionView == castCollectionView {
-            let desVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.PeopleVCIdentifier.rawValue) as! PeopleViewController
             desVC.detailedInfoCast = detailCast[indexPath.row]
             desVC.detailId = detailCast[indexPath.row].id
             desVC.detailPhoto = detailCast[indexPath.row].profilePath
             navigationController?.pushViewController(desVC, animated: true)
         } else if collectionView == crewCollectionView {
-            let desVC = storyboard?.instantiateViewController(identifier: "PeopleViewController") as! PeopleViewController
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.PeopleVCIdentifier.rawValue) as! PeopleViewController
             desVC.detailedInfoCrew = detailCrew[indexPath.row]
             desVC.detailId = detailCrew[indexPath.row].id
              desVC.detailPhoto = detailCrew[indexPath.row].profilePath

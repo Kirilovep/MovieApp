@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     
     
     var movieList: [Result] = []
-    
+    var networkManager = NetworkManager()
     //MARK:- IBOutlets-
     @IBOutlet weak var mainSegmentedControl: UISegmentedControl!
     @IBOutlet weak var mainTableView: UITableView! {
@@ -27,9 +27,12 @@ class MainViewController: UIViewController {
     //MARK:- LifeCycles-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         requestMovie(Urls.nowPlayingMovie.rawValue)
-        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     //MARK:- IBActions-
@@ -48,13 +51,15 @@ class MainViewController: UIViewController {
     //MARK:- Private Func-
 
 private func requestMovie(_ filterForSearch: String) {
-    NetworkManager.manager.getRequest(filterForSearch)  { [weak self] (results) in
+    networkManager.getRequest(filterForSearch)  { [weak self] (results) in
         DispatchQueue.main.async {
             self?.movieList = results
             self?.mainTableView.reloadData()
         }
     }
     }
+    
+ 
 }
     //MARK:- Extenstions-
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {
@@ -67,8 +72,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let desVC = storyboard?.instantiateViewController(identifier: "DetailMovieViewController") as! DetailMovieViewController
-        desVC.detailResult = movieList[indexPath.row]
+        let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
         desVC.detailId = movieList[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
         

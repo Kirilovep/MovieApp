@@ -33,8 +33,13 @@ class MainTableViewCell: UITableViewCell {
             self.voteAverageLabel.text = String(result.voteAverage)
             self.overviewLabel.text = result.overview
             self.releaseDataLabel.text = result.releaseDate
-            let url = URL(string: Urls.baseImageUrl.rawValue + result.posterPath)
-            self.posterImage.kf.setImage(with: url)
+            if let posterPath = result.posterPath {
+                let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                self.posterImage.kf.setImage(with: url)
+            } else {
+                self.posterImage.image = UIImage(named: Images.noPoster.rawValue)
+            }
+            
         }
         
     }

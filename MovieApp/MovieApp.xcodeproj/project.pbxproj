@@ -12,6 +12,7 @@
 		BE4831252528F4990056766E /* CrewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE4831232528F4990056766E /* CrewCollectionViewCell.xib */; };
 		BE49C9E4252B3F3300F21686 /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE49C9E3252B3F3300F21686 /* PeopleViewController.swift */; };
 		BE49C9E6252B40FB00F21686 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE49C9E5252B40FB00F21686 /* People.swift */; };
+		BE4F88C3253364C100709EBB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4F88C2253364C100709EBB /* SearchViewController.swift */; };
 		BE52F8FF2527B1BA00A65BCE /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */; };
 		BE52F9002527B1BA00A65BCE /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */; };
 		BE52F9022527B2E000A65BCE /* CastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F9012527B2E000A65BCE /* CastList.swift */; };
@@ -49,6 +50,7 @@
 		BE4831232528F4990056766E /* CrewCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CrewCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE49C9E3252B3F3300F21686 /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
 		BE49C9E5252B40FB00F21686 /* People.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
+		BE4F88C2253364C100709EBB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE52F9012527B2E000A65BCE /* CastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastList.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				BEDA1AD7252645E0007A43AF /* MainViewController.swift */,
 				BEDA1AF8252658FB007A43AF /* DetailMovieViewController.swift */,
 				BE49C9E3252B3F3300F21686 /* PeopleViewController.swift */,
+				BE4F88C2253364C100709EBB /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				BEDA1AD4252645E0007A43AF /* AppDelegate.swift in Sources */,
 				BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */,
 				BE49C9E4252B3F3300F21686 /* PeopleViewController.swift in Sources */,
+				BE4F88C3253364C100709EBB /* SearchViewController.swift in Sources */,
 				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
 				BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */,
 				BECE7A6E252CAAC500FFDD06 /* PersonImages.swift in Sources */,
