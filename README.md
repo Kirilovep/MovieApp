@@ -1,27 +1,24 @@
 # MovieApp
  App for searching movies <br />
- [Use API](https://developers.themoviedb.org/3/getting-started/introduction)
+ [Use API](https://rickandmortyapi.com/documentation/#introduction)
 ## Features:
-  - List of Top Rated, Upcoming, Now Playing movies.
-  - Search.
-  - Detailed screen of the movie with overview, videos, cast and crew.
-  - Detailed screen of the person with overview, images, credits.
+  - List all characters.
+  - Detailed character screen.
   
 ## Screenshots
 <table>
   <tr>
   </tr>
   <tr>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/62143581/95756302-4a942e00-0cae-11eb-9af8-b603af578c2f.png"></td>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/62143581/95756314-4e27b500-0cae-11eb-82c3-d5ab74337efe.png"></td>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/62143581/95756319-4ec04b80-0cae-11eb-901d-7bd1683c107a.png"></td>
-		<td valign="top"><img src="https://user-images.githubusercontent.com/62143581/95756321-4f58e200-0cae-11eb-9e39-b608a08766e5.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/62143581/97105082-347c6980-16c1-11eb-91a6-b60fed5777ce.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/62143581/97105084-37775a00-16c1-11eb-9d08-a43a99d3d688.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/62143581/97105085-380ff080-16c1-11eb-820c-03a5895a7796.png"></td>
+		<td valign="top"><img src="https://user-images.githubusercontent.com/62143581/97105086-38a88700-16c1-11eb-819d-1e60e403413a.png"></td>
   </tr>
  </table>
 
 ## Libraries
  - Kingfisher
- - YoutubeDirectLinkExtractor
- - ExpandableLabel
+
 
   
