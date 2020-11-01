@@ -63,7 +63,7 @@
 		BECE7A69252CA6B000FFDD06 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		BECE7A6A252CA6B000FFDD06 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		BECE7A6D252CAAC500FFDD06 /* PersonImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImages.swift; sourceTree = "<group>"; };
-		BEDA1AD0252645E0007A43AF /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEDA1AD0252645E0007A43AF /* MovieSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDA1AD3252645E0007A43AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BEDA1AD7252645E0007A43AF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		BEDA1AD1252645E0007A43AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BEDA1AD0252645E0007A43AF /* MovieApp.app */,
+				BEDA1AD0252645E0007A43AF /* MovieSearcher.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 			);
 			name = MovieApp;
 			productName = MovieApp;
-			productReference = BEDA1AD0252645E0007A43AF /* MovieApp.app */;
+			productReference = BEDA1AD0252645E0007A43AF /* MovieSearcher.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -506,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kyrylovep.MovieApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MovieSearcher;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -526,7 +526,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Kyrylovep.MovieApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = MovieSearcher;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

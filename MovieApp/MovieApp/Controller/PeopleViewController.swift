@@ -46,6 +46,7 @@ class PeopleViewController: UIViewController {
             
             let nib = UINib(nibName: Cells.moviesTableViewCellNib.rawValue, bundle: nil)
             moviesTableView.register(nib, forCellReuseIdentifier: Cells.moviesCellIdentifier.rawValue)
+            moviesTableView.rowHeight = 100
             
         }
     }

@@ -21,7 +21,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MXQ-Bi-qPv">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="120"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="qHN-tn-bYx"/>
                                 </constraints>
@@ -31,6 +31,9 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CFK-Ks-Sqm">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="90"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="irY-2b-xam"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -45,23 +48,22 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JOKER - Teaser Trailer number a lot" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcS-Uy-W2K">
                                 <rect key="frame" x="0.0" y="90" width="159" height="30"/>
+                                <color key="backgroundColor" red="0.90980392160000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.90980392156862744" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bcS-Uy-W2K" secondAttribute="trailing" constant="20" id="8Sx-LU-63F"/>
                             <constraint firstAttribute="bottom" secondItem="MXQ-Bi-qPv" secondAttribute="bottom" constant="10" id="AzC-yg-hX4"/>
                             <constraint firstItem="ffd-Ab-5wr" firstAttribute="top" secondItem="gZn-8V-7QW" secondAttribute="top" id="O0t-29-eYp"/>
                             <constraint firstItem="ffd-Ab-5wr" firstAttribute="leading" secondItem="gZn-8V-7QW" secondAttribute="leading" id="PwZ-r1-c7R"/>
-                            <constraint firstAttribute="height" constant="130" id="Q8v-Hj-GhT"/>
                             <constraint firstAttribute="bottom" secondItem="bcS-Uy-W2K" secondAttribute="bottom" constant="10" id="dnR-KK-Afz"/>
                             <constraint firstItem="bcS-Uy-W2K" firstAttribute="top" secondItem="ffd-Ab-5wr" secondAttribute="bottom" id="jR6-EB-5hU"/>
                             <constraint firstItem="MXQ-Bi-qPv" firstAttribute="leading" secondItem="gZn-8V-7QW" secondAttribute="leading" id="n3k-uK-kAy"/>
                             <constraint firstItem="MXQ-Bi-qPv" firstAttribute="top" secondItem="gZn-8V-7QW" secondAttribute="top" id="qXi-oR-b9F"/>
-                            <constraint firstAttribute="width" constant="179" id="v4B-Zg-RLV"/>
                             <constraint firstItem="bcS-Uy-W2K" firstAttribute="leading" secondItem="gZn-8V-7QW" secondAttribute="leading" id="zwk-UC-uZi"/>
                         </constraints>
                     </view>

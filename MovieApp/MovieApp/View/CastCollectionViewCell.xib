@@ -17,16 +17,11 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dLN-nw-THB">
-                        <rect key="frame" x="0.0" y="0.0" width="90" height="76"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="76" id="gmt-QK-oe5"/>
-                            <constraint firstAttribute="width" constant="90" id="peW-Nv-RFq"/>
-                        </constraints>
+                        <rect key="frame" x="0.0" y="0.0" width="90" height="116"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Gael García Bernal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvT-Pz-LIL">
-                        <rect key="frame" x="0.0" y="76" width="90" height="24"/>
+                        <rect key="frame" x="0.0" y="116" width="90" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="KEv-SP-nEr"/>
                             <constraint firstAttribute="height" constant="24" id="Wym-GP-mZA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -34,10 +29,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ekz-t2-JYZ">
-                        <rect key="frame" x="26.5" y="19.5" width="37" height="37"/>
+                        <rect key="frame" x="26.5" y="39.5" width="37" height="37"/>
                     </activityIndicatorView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIP-Bp-YRz">
-                        <rect key="frame" x="0.0" y="101" width="90" height="51"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lIP-Bp-YRz">
+                        <rect key="frame" x="0.0" y="140" width="90" height="12"/>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -47,10 +42,8 @@
             <constraints>
                 <constraint firstItem="dLN-nw-THB" firstAttribute="top" secondItem="V4R-wn-x9s" secondAttribute="top" id="2Lt-yo-MbV"/>
                 <constraint firstItem="xvT-Pz-LIL" firstAttribute="top" secondItem="dLN-nw-THB" secondAttribute="bottom" id="4V9-g5-SJ4"/>
-                <constraint firstItem="xvT-Pz-LIL" firstAttribute="leading" secondItem="V4R-wn-x9s" secondAttribute="leading" id="946-jR-RMU"/>
-                <constraint firstAttribute="trailing" secondItem="xvT-Pz-LIL" secondAttribute="trailing" id="AzA-6n-fys"/>
                 <constraint firstItem="ekz-t2-JYZ" firstAttribute="centerY" secondItem="dLN-nw-THB" secondAttribute="centerY" id="BLG-Ed-op9"/>
-                <constraint firstItem="lIP-Bp-YRz" firstAttribute="top" secondItem="xvT-Pz-LIL" secondAttribute="bottom" constant="1" id="FTi-5n-84D"/>
+                <constraint firstItem="lIP-Bp-YRz" firstAttribute="top" secondItem="xvT-Pz-LIL" secondAttribute="bottom" id="FTi-5n-84D"/>
                 <constraint firstAttribute="bottom" secondItem="lIP-Bp-YRz" secondAttribute="bottom" id="GgX-rB-hUf"/>
                 <constraint firstItem="dLN-nw-THB" firstAttribute="leading" secondItem="V4R-wn-x9s" secondAttribute="leading" id="ROj-iU-Mnl"/>
                 <constraint firstItem="lIP-Bp-YRz" firstAttribute="leading" secondItem="V4R-wn-x9s" secondAttribute="leading" id="Uc1-rg-cuH"/>

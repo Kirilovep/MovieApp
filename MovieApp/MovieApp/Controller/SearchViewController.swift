@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
             searchTableView.tableFooterView = UIView()
             let nib = UINib(nibName: Cells.mainCellNib.rawValue, bundle: nil)
             searchTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
+            searchTableView.rowHeight = 150
         }
     }
     @IBOutlet weak var movieSearchBar: UISearchBar! {

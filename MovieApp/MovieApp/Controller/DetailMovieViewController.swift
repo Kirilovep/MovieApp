@@ -38,6 +38,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             castCollectionView.dataSource = self
             let nib = UINib(nibName: Cells.castCollectionCellNib.rawValue, bundle: nil)
             castCollectionView.register(nib, forCellWithReuseIdentifier: Cells.castCollectionCellIdentefier.rawValue)
+            
         }
     }
     @IBOutlet weak var crewCollectionView: UICollectionView! {
@@ -152,6 +153,7 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
         
     }
     
+   
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
         if collectionView == castCollectionView {

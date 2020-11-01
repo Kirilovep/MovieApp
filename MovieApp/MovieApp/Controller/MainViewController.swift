@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
             
             let nib = UINib(nibName: Cells.mainCellNib.rawValue, bundle: nil)
             mainTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
+            mainTableView.rowHeight = 150
         }
     }
     //MARK:- LifeCycles-
