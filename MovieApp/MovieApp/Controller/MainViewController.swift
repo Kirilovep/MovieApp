@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    
+  
     var movieList: [Result] = []
     var networkManager = NetworkManager()
     //MARK:- IBOutlets-
