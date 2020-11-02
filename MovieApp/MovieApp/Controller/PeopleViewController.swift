@@ -77,13 +77,13 @@ class PeopleViewController: UIViewController {
         }
     }
     private func parseInfo() {
-        networkManager.requestPeople(detailId) { (infoPeople) in
+        networkManager.loadPeople(detailId) { (infoPeople) in
             self.personInfo = infoPeople
             self.updateView()
         }
     }
     private func parseImages() {
-        networkManager.requestPersonImages(detailId) { (images) in
+        networkManager.loadPersonImages(detailId) { (images) in
             self.personImages = images
             DispatchQueue.main.async {
                 self.imagesCollectionView.reloadData()
@@ -91,16 +91,16 @@ class PeopleViewController: UIViewController {
         }
     }
     private func parseMovies() {
-        networkManager.requestMoviesForPeople(detailId) { (moviesСast, moviesCrew) in
+        networkManager.loadMoviesForPeople(detailId) { (moviesСast, moviesCrew) in
                    DispatchQueue.main.async {
                     self.moviesForPeople = moviesСast ?? []
                     self.moviesForPeople.append(contentsOf: moviesCrew ?? [])
                     if let castCount = moviesСast?.count,let crewCount = moviesCrew?.count {
-                         self.tableViewHeight.constant = CGFloat((castCount + crewCount) * 70)
+                    self.tableViewHeight.constant = CGFloat((castCount + crewCount) * 100)
                     self.moviesTableView.reloadData()
                    }
                }
-    }
+        }
     }
     private func updateView() {
         DispatchQueue.main.async {
@@ -108,33 +108,32 @@ class PeopleViewController: UIViewController {
             self.setPersonInformation(hidden: false)
             if let infoPeopleCast = self.detailedInfoCast {
                 self.nameLabel.text = infoPeopleCast.name
-
             } else if let infoPeopleCrew = self.detailedInfoCrew {
                 self.nameLabel.text = infoPeopleCrew.name
             }
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                if let birthday = self.personInfo?.birthday, let date = dateFormatter.date(from: birthday) {
-                    dateFormatter.dateFormat = "MMMM dd, yyyy"
-                    self.birthdayLabel.text = dateFormatter.string(from: date)
-                } else {
-                    self.birthdayLabel.text = "Not available"
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            if let birthday = self.personInfo?.birthday, let date = dateFormatter.date(from: birthday) {
+                dateFormatter.dateFormat = "MMMM dd, yyyy"
+                self.birthdayLabel.text = dateFormatter.string(from: date)
+            } else {
+                self.birthdayLabel.text = "Not available"
             }
-                self.placeOfBirthdayLabel.text = self.personInfo?.placeOfBirth
-                self.knowsForLabel.text = self.personInfo?.knownForDepartment
-                self.biographyLabel.shouldCollapse = true
-                self.biographyLabel.numberOfLines = 4
-                self.biographyLabel.collapsedAttributedLink = NSAttributedString(
-                      string: "Show more", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
-                  )
-                self.biographyLabel.expandedAttributedLink = NSAttributedString(
-                      string: "Show less", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
-                  )
-                self.biographyLabel.text = self.personInfo?.biography
-                self.setImage()
-                //self.parseMovies()
-                self.activityIndicator.stopAnimating()
-              }
+            self.placeOfBirthdayLabel.text = self.personInfo?.placeOfBirth
+            self.knowsForLabel.text = self.personInfo?.knownForDepartment
+            self.biographyLabel.shouldCollapse = true
+            self.biographyLabel.numberOfLines = 4
+            self.biographyLabel.collapsedAttributedLink = NSAttributedString(
+                string: "Show more", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+            )
+            self.biographyLabel.expandedAttributedLink = NSAttributedString(
+                string: "Show less", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
+            )
+            self.biographyLabel.text = self.personInfo?.biography
+            self.setImage()
+            //self.parseMovies()
+            self.activityIndicator.stopAnimating()
+        }
     }
     
     
@@ -147,7 +146,7 @@ class PeopleViewController: UIViewController {
         characterImage.isHidden = isHidden
        }
 }
-//MARK:- Configure collectionView -
+//MARK:- Collection View extension -
 extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return personImages.count
@@ -158,7 +157,7 @@ extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSo
         return cell
     }
 }
-//MARK:- Configure tableView -
+//MARK:- Table View extension -
 extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return moviesForPeople.count
@@ -173,8 +172,7 @@ extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
         let desVC = storyboard?.instantiateViewController(withIdentifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
         desVC.detailId = moviesForPeople[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
-        
-        //performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
+    
          tableView.deselectRow(at: indexPath, animated: true)
     }
 }

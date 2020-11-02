@@ -57,7 +57,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             videoCollectionView.register(videoNib, forCellWithReuseIdentifier: Cells.videoCollectionCellIdentifier.rawValue)
         }
     }
-    //MARK:- lifecycle-
+    //MARK:- LifeCycle-
     override func viewDidLoad() {
                super.viewDidLoad()
          navigationController?.navigationBar.prefersLargeTitles = false
@@ -74,7 +74,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     //MARK:- Private func-
     private func requestCast() {
-        networkManager.requestCast(detailId ?? 0) { (detailedCast) in
+        networkManager.loadCast(detailId ?? 0) { (detailedCast) in
                DispatchQueue.main.async {
                    self.detailCast = detailedCast
                    self.castCollectionView.reloadData()
@@ -82,7 +82,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
            }
        }
     private func requestCrew() {
-        networkManager.requestCrew(detailId ?? 0) { (detailedCrew) in
+        networkManager.loadCrew(detailId ?? 0) { (detailedCrew) in
             DispatchQueue.main.async {
                 self.detailCrew = detailedCrew
                 self.crewCollectionView.reloadData()
@@ -90,13 +90,13 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         }
     }
     private func requestDetail() {
-         networkManager.requestDetailMovie(detailId ?? 0) { (detailedMovie) in
+         networkManager.loadDetailMovie(detailId ?? 0) { (detailedMovie) in
             self.results = detailedMovie
             self.updateView()
          }
     }
     private func requestVideos() {
-              networkManager.requestVideos(detailId ?? 0) { (videos) in
+              networkManager.loadVideos(detailId ?? 0) { (videos) in
                          DispatchQueue.main.async {
                              self.videos = videos
                              self.videoCollectionView.reloadData()
@@ -105,26 +105,23 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func updateView() {
         DispatchQueue.main.async {
-                 self.activityIndicator.startAnimating()
-                self.titleLabel.text = self.results?.title
+            self.activityIndicator.startAnimating()
+            self.titleLabel.text = self.results?.title
             if let voteAverage = self.results?.voteAverage {
                 self.voteAverageLabel.text = "\(voteAverage)"
             }
-                  if self.results?.voteAverage ?? 0 >= 5.0 {
-                      self.voteAverageLabel.textColor = .green
-                  } else {
-                      self.voteAverageLabel.textColor = .orange
-                  }
-            
-                self.dateLabel.text = self.results?.releaseDate
-                self.releasedLabel.text = self.results?.releaseDate
-                self.overviewLabel.text = self.results?.overview
-                guard let runTime = self.results?.runtime  else { return }
-                self.runTimeLabel.text = "\(runTime) minutes"
-                self.languageLabel.text = self.results?.originalLanguage
+            if self.results?.voteAverage ?? 0 >= 5.0 {
+                self.voteAverageLabel.textColor = .green
+            } else {
+                self.voteAverageLabel.textColor = .orange
+            }
+            self.dateLabel.text = self.results?.releaseDate
+            self.releasedLabel.text = self.results?.releaseDate
+            self.overviewLabel.text = self.results?.overview
+            self.languageLabel.text = self.results?.originalLanguage
             if let posterPath = self.results?.backdropPath {
-                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
-                 self.detailImageView.kf.setImage(with: url)
+                let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                self.detailImageView.kf.setImage(with: url)
             } else {
                 self.detailImageView.image = UIImage(named: Images.noPoster.rawValue)
             }
@@ -133,14 +130,14 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             } else {
                 self.budgetLabel.text = "\(self.results!.budget ?? 0)$"
             }
-                   self.activityIndicator.stopAnimating()
-               }
-     
+            guard let runTime = self.results?.runtime  else { return }
+            self.runTimeLabel.text = "\(runTime) minutes"
+            self.activityIndicator.stopAnimating()
+        }
     }
-    
 }
 
-    //MARK:- Configure collection view -
+    //MARK:- Collection View extension -
 extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == castCollectionView {
@@ -150,22 +147,20 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
         } else {
             return videos.count
         }
-        
     }
     
-   
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        
         if collectionView == castCollectionView {
             let castCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.castCollectionCellIdentefier.rawValue, for: indexPath) as! CastCollectionViewCell
             castCell.configure(detailCast[indexPath.row])
-            
             return castCell
             
         } else if collectionView == crewCollectionView {
             let crewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue, for: indexPath) as! CrewCollectionViewCell
            crewCell.configure(detailCrew[indexPath.row])
             return crewCell
+            
         } else {
             let videoCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.videoCollectionCellIdentifier.rawValue, for: indexPath) as! VideoCollectionViewCell
             videoCell.configure(videos[indexPath.row])

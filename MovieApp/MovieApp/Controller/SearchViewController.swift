@@ -46,7 +46,7 @@ class SearchViewController: UIViewController {
         }
     }
 }
-//MARK:- configure tableView-
+//MARK:- Table View extension -
 
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
 

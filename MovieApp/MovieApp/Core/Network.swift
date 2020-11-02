@@ -8,9 +8,9 @@
 
 import Foundation
 
-class NetworkManager {
+final class NetworkManager {
     
-    func getRequest(_ filter: String,_ completionHandler: @escaping ([Result]) -> Void ) {
+    func loadMovies(_ filter: String,_ completionHandler: @escaping ([Result]) -> Void ) {
         if let url = URL(string: Urls.baseUrl.rawValue + filter + Urls.api.rawValue + Urls.language.rawValue) {
         URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                        if error != nil {
@@ -28,7 +28,7 @@ class NetworkManager {
                    }.resume()
                }
     }
-    func requestDetailMovie(_ movieId: Int, _ completionHandler: @escaping (DetailList?) -> Void ) {
+    func loadDetailMovie(_ movieId: Int, _ completionHandler: @escaping (DetailList?) -> Void ) {
         if let url = URL(string: "\(Urls.baseUrl.rawValue)\(movieId)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
                        URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                            if error != nil {
@@ -48,7 +48,7 @@ class NetworkManager {
            }
     
     
-    func requestCast(_ movieId: Int, _ completionHandler: @escaping ([Cast]) -> Void ) {
+    func loadCast(_ movieId: Int, _ completionHandler: @escaping ([Cast]) -> Void ) {
         if let url = URL(string: "\(Urls.baseUrl.rawValue)\(movieId)\(Urls.credits.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
                        URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                            if error != nil {
@@ -68,7 +68,7 @@ class NetworkManager {
                    }
            }
     
-    func requestCrew(_ movieId: Int, _ completionHandler: @escaping ([Crew]) -> Void ) {
+    func loadCrew(_ movieId: Int, _ completionHandler: @escaping ([Crew]) -> Void ) {
           if let url = URL(string: "\(Urls.baseUrl.rawValue)\(movieId)\(Urls.credits.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
                          URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                              if error != nil {
@@ -88,7 +88,7 @@ class NetworkManager {
                      }
              }
     
-    func requestVideos(_ movieId: Int, _ completionHandler: @escaping ([Video]) -> Void ) {
+    func loadVideos(_ movieId: Int, _ completionHandler: @escaping ([Video]) -> Void ) {
            if let url = URL(string: "\(Urls.baseUrl.rawValue)\(movieId)\(Urls.videos.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
                           URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                               if error != nil {
@@ -108,7 +108,7 @@ class NetworkManager {
                       }
               }
     
-    func requestPeople(_ personId: Int, _ completionHandler: @escaping (People?) -> Void ) {
+    func loadPeople(_ personId: Int, _ completionHandler: @escaping (People?) -> Void ) {
           if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.api.rawValue)\(Urls.language.rawValue)" ) {
                          URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                              if error != nil {
@@ -128,7 +128,7 @@ class NetworkManager {
                      }
              }
     
-    func requestPersonImages(_ personId: Int, _ completionHandler: @escaping ([Profile]) -> Void ) {
+    func loadPersonImages(_ personId: Int, _ completionHandler: @escaping ([Profile]) -> Void ) {
         if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.images.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue))" ) {
                    URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                        if error != nil {
@@ -147,7 +147,7 @@ class NetworkManager {
                    }.resume()
                }
        }
-    func requestMoviesForPeople(_ personId: Int, _ completionHandler: @escaping ([PersonMovie]?,[PersonMovie]? ) -> Void ) {
+    func loadMoviesForPeople(_ personId: Int, _ completionHandler: @escaping ([PersonMovie]?,[PersonMovie]? ) -> Void ) {
         if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.movieCredits.rawValue)\(Urls.api.rawValue)" ) {
                    URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                        if error != nil {

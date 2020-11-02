@@ -335,7 +335,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8e-DJ-pDH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="663.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="689.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CbZ-Nz-DS6">
                                                 <rect key="frame" x="8" y="0.0" width="185" height="240"/>
@@ -419,15 +419,16 @@
                                                 <rect key="frame" x="197" y="255" width="20" height="37"/>
                                             </activityIndicatorView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mbd-hn-aZn">
-                                                <rect key="frame" x="5" y="514.5" width="401" height="139"/>
+                                                <rect key="frame" x="5" y="514.5" width="401" height="170"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="139" id="fPP-VY-Ug1"/>
+                                                    <constraint firstAttribute="height" constant="170" id="fPP-VY-Ug1"/>
                                                 </constraints>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90980392160000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="mbd-hn-aZn" secondAttribute="bottom" constant="5" id="06I-7V-XyW"/>
                                             <constraint firstItem="ecx-Hv-jGO" firstAttribute="leading" secondItem="CbZ-Nz-DS6" secondAttribute="trailing" constant="20" id="0bY-jR-DIJ"/>
                                             <constraint firstItem="gsm-UK-F6g" firstAttribute="top" secondItem="Yjo-eB-PJA" secondAttribute="bottom" constant="17" id="0jp-SE-xOy"/>
                                             <constraint firstItem="27M-gi-bru" firstAttribute="top" secondItem="KsX-EM-QUe" secondAttribute="bottom" constant="10" id="1By-wj-iGh"/>
@@ -449,7 +450,6 @@
                                             <constraint firstItem="HWh-dD-CiD" firstAttribute="top" secondItem="WFm-Gl-GK9" secondAttribute="bottom" constant="67.333333333333314" id="Tfd-MF-37u"/>
                                             <constraint firstItem="Yjo-eB-PJA" firstAttribute="top" secondItem="w1f-s2-3Bw" secondAttribute="bottom" constant="8" id="VUd-VK-bs8"/>
                                             <constraint firstAttribute="trailing" secondItem="HWh-dD-CiD" secondAttribute="trailing" constant="8" id="VyI-tk-HVL"/>
-                                            <constraint firstAttribute="bottom" secondItem="mbd-hn-aZn" secondAttribute="bottom" constant="10" id="W9J-Z0-ut7"/>
                                             <constraint firstItem="RNW-mr-v1c" firstAttribute="leading" secondItem="n8e-DJ-pDH" secondAttribute="leading" constant="8" id="YGy-PW-MIh"/>
                                             <constraint firstItem="mCh-1A-zEe" firstAttribute="top" secondItem="CbZ-Nz-DS6" secondAttribute="bottom" constant="31" id="Zbl-vQ-3st"/>
                                             <constraint firstAttribute="trailing" secondItem="ecx-Hv-jGO" secondAttribute="trailing" constant="8" id="eSo-CA-3Hx"/>
