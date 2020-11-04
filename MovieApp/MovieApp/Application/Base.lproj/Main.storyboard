@@ -70,7 +70,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="293"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joker" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-hq-UUy">
-                                                <rect key="frame" x="25" y="301" width="264" height="27.5"/>
+                                                <rect key="frame" x="25" y="301" width="65" height="27.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -248,8 +248,8 @@
                                             <constraint firstItem="zeL-5x-IRh" firstAttribute="top" secondItem="bmQ-NB-f1p" secondAttribute="bottom" constant="8" id="bol-6q-9Lr"/>
                                             <constraint firstItem="M89-cg-76y" firstAttribute="leading" secondItem="qoc-7e-PEI" secondAttribute="leading" id="cTY-6O-ocH"/>
                                             <constraint firstItem="qvy-NZ-D04" firstAttribute="top" secondItem="M89-cg-76y" secondAttribute="bottom" constant="8" id="fP0-Bm-ZG9"/>
-                                            <constraint firstItem="qvy-NZ-D04" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ra7-hq-UUy" secondAttribute="trailing" constant="57" id="fxI-By-Dlp"/>
-                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ra7-hq-UUy" secondAttribute="trailing" constant="125" id="haE-ev-4uZ"/>
+                                            <constraint firstItem="qvy-NZ-D04" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ra7-hq-UUy" secondAttribute="trailing" constant="8" symbolic="YES" id="fxI-By-Dlp"/>
+                                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Ra7-hq-UUy" secondAttribute="trailing" constant="324" id="haE-ev-4uZ"/>
                                             <constraint firstItem="bmQ-NB-f1p" firstAttribute="top" secondItem="JeI-pC-uxS" secondAttribute="bottom" constant="23" id="hcG-64-dow"/>
                                             <constraint firstAttribute="bottom" secondItem="TuV-nf-sVI" secondAttribute="bottom" constant="16" id="i7K-Mj-Nfu"/>
                                             <constraint firstItem="zeL-5x-IRh" firstAttribute="leading" secondItem="qoc-7e-PEI" secondAttribute="leading" constant="19" id="jj4-N9-A98"/>

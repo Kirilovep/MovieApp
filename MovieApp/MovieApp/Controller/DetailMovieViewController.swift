@@ -65,7 +65,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
                 requestCast()
                 requestCrew()
                 requestVideos()
-                
            }
     
     override func viewDidDisappear(_ animated: Bool) {
