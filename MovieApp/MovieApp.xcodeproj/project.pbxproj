@@ -16,6 +16,7 @@
 		BE52F8FF2527B1BA00A65BCE /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */; };
 		BE52F9002527B1BA00A65BCE /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */; };
 		BE52F9022527B2E000A65BCE /* CastList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE52F9012527B2E000A65BCE /* CastList.swift */; };
+		BE57B94B2552C64D007AA077 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BE57B9492552C64D007AA077 /* CoreDataModel.xcdatamodeld */; };
 		BE6789D6252CD85500E89166 /* PersonMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6789D5252CD85500E89166 /* PersonMovies.swift */; };
 		BE6789D9252CDAF300E89166 /* MoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6789D7252CDAF300E89166 /* MoviesTableViewCell.swift */; };
 		BE6789DA252CDAF300E89166 /* MoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE6789D8252CDAF300E89166 /* MoviesTableViewCell.xib */; };
@@ -54,6 +55,7 @@
 		BE52F8FD2527B1BA00A65BCE /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE52F8FE2527B1BA00A65BCE /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE52F9012527B2E000A65BCE /* CastList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastList.swift; sourceTree = "<group>"; };
+		BE57B94A2552C64D007AA077 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		BE6789D5252CD85500E89166 /* PersonMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonMovies.swift; sourceTree = "<group>"; };
 		BE6789D7252CDAF300E89166 /* MoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewCell.swift; sourceTree = "<group>"; };
 		BE6789D8252CDAF300E89166 /* MoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesTableViewCell.xib; sourceTree = "<group>"; };
@@ -114,13 +116,22 @@
 		BE57B9472552C575007AA077 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				BEDA1ADC252645E1007A43AF /* Assets.xcassets */,
+				BEDA1AD9252645E0007A43AF /* Main.storyboard */,
 				BEDA1AD3252645E0007A43AF /* AppDelegate.swift */,
 				BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */,
 				BEDA1ADE252645E1007A43AF /* LaunchScreen.storyboard */,
+				BEDA1ADC252645E1007A43AF /* Assets.xcassets */,
 				BEDA1AE1252645E1007A43AF /* Info.plist */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		BE57B9482552C5F3007AA077 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BE57B9492552C64D007AA077 /* CoreDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		BEDA1AC7252645E0007A43AF = {
@@ -150,7 +161,7 @@
 				BEDA1AEE25264788007A43AF /* Model */,
 				BEDA1AED25264780007A43AF /* View */,
 				BE57B9472552C575007AA077 /* Application */,
-				BEDA1AD9252645E0007A43AF /* Main.storyboard */,
+				BE57B9482552C5F3007AA077 /* CoreData */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";
@@ -352,6 +363,7 @@
 				BE4831242528F4990056766E /* CrewCollectionViewCell.swift in Sources */,
 				BE49C9E4252B3F3300F21686 /* PeopleViewController.swift in Sources */,
 				BE4F88C3253364C100709EBB /* SearchViewController.swift in Sources */,
+				BE57B94B2552C64D007AA077 /* CoreDataModel.xcdatamodeld in Sources */,
 				BEDA1AF2252648AF007A43AF /* Network.swift in Sources */,
 				BEDA1AF725264B0B007A43AF /* Urls.swift in Sources */,
 				BECE7A6E252CAAC500FFDD06 /* PersonImages.swift in Sources */,
@@ -562,6 +574,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BE57B9492552C64D007AA077 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BE57B94A2552C64D007AA077 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = BE57B94A2552C64D007AA077 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BEDA1AC8252645E0007A43AF /* Project object */;
 }
