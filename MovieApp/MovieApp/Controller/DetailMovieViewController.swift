@@ -147,6 +147,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         movieData.title = results?.title
         movieData.image = results?.backdropPath
         movieData.releaseDate = results?.releaseDate
+        movieData.overview = results?.overview
         //movieData.voteAverage = results?.voteAverage as! Double
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
