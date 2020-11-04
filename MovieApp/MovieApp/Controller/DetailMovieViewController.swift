@@ -142,7 +142,14 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     
     @objc
     private func addTapped() {
-        
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let movieData = MovieCoreData(context: context)
+        movieData.title = results?.title
+        movieData.image = results?.backdropPath
+        movieData.releaseDate = results?.releaseDate
+        //movieData.voteAverage = results?.voteAverage as! Double
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
     }
 }
 

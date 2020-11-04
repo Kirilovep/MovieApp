@@ -18,5 +18,5 @@ struct DetailList: Codable {
     let releaseDate: String
     let runtime: Int
     let title: String
-    let voteAverage: Double
+    let voteAverage: Double?
 }
