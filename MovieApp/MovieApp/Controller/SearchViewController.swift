@@ -35,13 +35,11 @@ class SearchViewController: UIViewController {
     //MARK:- lifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-           
-           segment.sizeToFit()
-           segment.selectedSegmentIndex = 0
-           self.navigationItem.titleView = segment
-          
-       
+        segment.sizeToFit()
+        segment.selectedSegmentIndex = 0
+        segment.frame.size.width = 500
+        //segment.frame.size.height = 500
+        self.navigationItem.titleView = segment
     }
     
 
@@ -111,6 +109,7 @@ extension SearchViewController: UISearchBarDelegate {
             guard let searchQuary = searchBar.text else { return }
             quary = searchQuary
             searchMovie(quary)
+            searchTableView.reloadData()
         case 1:
             guard let searchQuary = searchBar.text else { return }
             quary = searchQuary
