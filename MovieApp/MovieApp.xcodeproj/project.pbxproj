@@ -111,6 +111,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE57B9472552C575007AA077 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				BEDA1ADC252645E1007A43AF /* Assets.xcassets */,
+				BEDA1AD3252645E0007A43AF /* AppDelegate.swift */,
+				BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */,
+				BEDA1ADE252645E1007A43AF /* LaunchScreen.storyboard */,
+				BEDA1AE1252645E1007A43AF /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		BEDA1AC7252645E0007A43AF = {
 			isa = PBXGroup;
 			children = (
@@ -137,12 +149,8 @@
 				BEDA1AEF2526478C007A43AF /* Controller */,
 				BEDA1AEE25264788007A43AF /* Model */,
 				BEDA1AED25264780007A43AF /* View */,
-				BEDA1AD3252645E0007A43AF /* AppDelegate.swift */,
-				BEDA1AD5252645E0007A43AF /* SceneDelegate.swift */,
+				BE57B9472552C575007AA077 /* Application */,
 				BEDA1AD9252645E0007A43AF /* Main.storyboard */,
-				BEDA1ADC252645E1007A43AF /* Assets.xcassets */,
-				BEDA1ADE252645E1007A43AF /* LaunchScreen.storyboard */,
-				BEDA1AE1252645E1007A43AF /* Info.plist */,
 			);
 			path = MovieApp;
 			sourceTree = "<group>";

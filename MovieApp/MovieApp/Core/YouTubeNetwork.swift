@@ -15,9 +15,7 @@ final class LinkExtractor {
 
 
     func getUrlFromKey(key: String?, completion: @escaping (URL) -> Void) {
-        guard let key = key else {
-            return
-        }
+        guard let key = key else { return }
         let urlSting = "https://www.youtube.com/watch?v=\(key)"
         youtubeDirectLinkExtractor.extractInfo(for: .urlString(urlSting),
                         success: { (info) in
