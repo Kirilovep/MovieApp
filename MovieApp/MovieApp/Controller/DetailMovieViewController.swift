@@ -149,7 +149,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         movieData.releaseDate = results?.releaseDate
         movieData.overview = results?.overview
         let idMovie = Int64(results!.id)
-        print("Hell \(idMovie)")
         movieData.id = idMovie
         movieData.voteAverage = Double(results?.voteAverage ?? 0.1)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()

@@ -130,6 +130,7 @@ final class NetworkManager {
     
     func loadPersonImages(_ personId: Int, _ completionHandler: @escaping ([Profile]) -> Void ) {
         if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.images.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue))" ) {
+            print(url)
                    URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                        if error != nil {
                            print("error in request")

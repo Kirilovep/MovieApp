@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 class ImageCollectionViewCell: UICollectionViewCell {
 
+     static let size = CGSize(width: 51, height: 77)
     @IBOutlet weak var personImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
