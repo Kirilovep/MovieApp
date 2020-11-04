@@ -624,6 +624,9 @@
                         <viewLayoutGuide key="safeArea" id="qnK-7M-u50"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="SDI-ql-aSS"/>
+                    <connections>
+                        <outlet property="favoritesTableView" destination="hk1-NY-fbV" id="YmK-y4-tVJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbc-bN-bXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
