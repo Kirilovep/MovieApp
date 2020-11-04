@@ -63,6 +63,17 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
+        desVC.detailId = Int(detailMovies[indexPath.row].id)
+        navigationController?.pushViewController(desVC, animated: true)
+        
+         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
           let task = detailMovies[indexPath.row]
