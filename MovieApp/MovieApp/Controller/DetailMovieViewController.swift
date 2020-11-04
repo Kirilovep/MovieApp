@@ -127,7 +127,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             if self.results?.budget == 0 {
                 self.budgetLabel.text = "Information is coming soon"
             } else {
-                self.budgetLabel.text = "\(self.results!.budget ?? 0)$"
+                self.budgetLabel.text = "\(self.results?.budget ?? 0)$"
             }
             guard let runTime = self.results?.runtime  else { return }
             self.runTimeLabel.text = "\(runTime) minutes"
@@ -145,10 +145,10 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let movieData = MovieCoreData(context: context)
         movieData.title = results?.title
-        movieData.image = results?.backdropPath
+        movieData.image = results?.posterPath
         movieData.releaseDate = results?.releaseDate
         movieData.overview = results?.overview
-        //movieData.voteAverage = results?.voteAverage as! Double
+        movieData.voteAverage = Double(results?.voteAverage ?? 0.1)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
     }

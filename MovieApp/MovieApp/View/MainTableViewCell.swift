@@ -22,6 +22,12 @@ class MainTableViewCell: UITableViewCell {
     }
 
  
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        posterImage.image = nil
+    }
+    
     func configure(_ result: Result) {
         DispatchQueue.main.async {
             self.titleLabel.text = result.title

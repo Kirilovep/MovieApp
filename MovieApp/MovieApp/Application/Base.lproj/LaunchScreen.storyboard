@@ -16,15 +16,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="WkW-qg-Se1">
-                                <rect key="frame" x="0.0" y="211" width="414" height="537"/>
+                                <rect key="frame" x="0.0" y="158" width="414" height="590"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="efp-nQ-xAJ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.97343510389999999" green="0.95703512430000004" blue="0.86957389119999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="2Pv-YQ-RIH" firstAttribute="trailing" secondItem="WkW-qg-Se1" secondAttribute="trailing" id="4ZN-LZ-J1L"/>
-                            <constraint firstItem="WkW-qg-Se1" firstAttribute="top" secondItem="2Pv-YQ-RIH" secondAttribute="top" constant="167" id="hc0-ui-RZU"/>
-                            <constraint firstItem="2Pv-YQ-RIH" firstAttribute="bottom" secondItem="WkW-qg-Se1" secondAttribute="bottom" constant="114" id="qOF-H3-OY8"/>
-                            <constraint firstItem="2Pv-YQ-RIH" firstAttribute="leading" secondItem="WkW-qg-Se1" secondAttribute="leading" id="wSi-lq-GWL"/>
+                            <constraint firstItem="WkW-qg-Se1" firstAttribute="centerY" secondItem="2Pv-YQ-RIH" secondAttribute="centerY" id="WH1-RC-Zmt"/>
+                            <constraint firstItem="WkW-qg-Se1" firstAttribute="centerX" secondItem="2Pv-YQ-RIH" secondAttribute="centerX" id="eHY-wr-IAx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2Pv-YQ-RIH"/>
                     </view>

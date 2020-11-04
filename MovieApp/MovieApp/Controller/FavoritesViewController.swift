@@ -23,6 +23,7 @@ class FavoritesViewController: UIViewController {
             let nib = UINib(nibName: Cells.mainCellNib.rawValue, bundle: nil)
             favoritesTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
             favoritesTableView.rowHeight = 150
+            favoritesTableView.tableFooterView = UIView()
         }
     }
     
@@ -31,30 +32,24 @@ class FavoritesViewController: UIViewController {
     //MARK: - LifeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getData()
-        favoritesTableView.reloadData()
     }
 
 
     //MARK: - Private func -
-
     private func getData() {
         do {
             detailMovies = try context.fetch(MovieCoreData.fetchRequest())
+            favoritesTableView.reloadData()
         } catch {
             print("Fetching Failed")
         }
     }
-    
 }
-
 
 extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,6 +59,7 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCellIdentefier.rawValue, for: indexPath) as! MainTableViewCell
         cell.configureFromCoreData(detailMovies[indexPath.row])
+        cell.backgroundColor = .white
         return cell
     }
     
