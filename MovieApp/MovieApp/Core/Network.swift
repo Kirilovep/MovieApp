@@ -130,7 +130,6 @@ final class NetworkManager {
     
     func loadPersonImages(_ personId: Int, _ completionHandler: @escaping ([Profile]) -> Void ) {
         if let url = URL(string: "\(Urls.baseUrlPerson.rawValue)\(personId)\(Urls.images.rawValue)\(Urls.api.rawValue)\(Urls.language.rawValue))" ) {
-            print(url)
                    URLSession.shared.dataTask(with: url) { (data, responce, error ) in
                        if error != nil {
                            print("error in request")
@@ -170,7 +169,7 @@ final class NetworkManager {
                }
        }
     
-    func searchRequest(_ query: String, _ completionHandler: @escaping ([Result]) -> Void ) {
+    func searchMovie(_ query: String, _ completionHandler: @escaping ([Result]) -> Void ) {
       
         if let url = URL(string: Urls.baseSearchUrsl.rawValue + Urls.api.rawValue + Urls.languageSearch.rawValue + Urls.search.rawValue + query + Urls.firstPage.rawValue){
          URLSession.shared.dataTask(with: url) { (data, responce, error ) in
@@ -189,6 +188,26 @@ final class NetworkManager {
                     }.resume()
                 }
      }
+    
+    func searchPeople(_ query: String, _ completionHandler: @escaping ([Result]) -> Void ) {
+     
+       if let url = URL(string: Urls.searchPeople.rawValue + Urls.api.rawValue + Urls.languageSearch.rawValue + Urls.search.rawValue + query + Urls.firstPage.rawValue){
+        URLSession.shared.dataTask(with: url) { (data, responce, error ) in
+                       if error != nil {
+                           print("error in request")
+                       } else {
+                           if let resp = responce as? HTTPURLResponse,
+                           resp.statusCode == 200,
+                               let responceData = data {
+                               let decoder = JSONDecoder()
+                               decoder.keyDecodingStrategy = .convertFromSnakeCase
+                               let movies = try? decoder.decode(MovieList.self, from: responceData)
+                               completionHandler(movies?.results ?? [])
+                           }
+                       }
+                   }.resume()
+               }
+    }
 }
 
 

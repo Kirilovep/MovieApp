@@ -38,7 +38,7 @@ class SearchViewController: UIViewController {
 
   //MARK:- private func-
     private func searchMovie(_ quary: String) {
-        networkManager.searchRequest(quary) { (searchResults) in
+        networkManager.searchMovie(quary) { (searchResults) in
             DispatchQueue.main.async {
                 self.searchResultsMovies = searchResults
                 self.searchTableView.reloadData()

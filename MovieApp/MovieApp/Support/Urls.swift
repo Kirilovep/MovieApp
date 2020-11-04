@@ -24,6 +24,7 @@ enum Urls: String {
     case images = "/images"
     case movieCredits = "/movie_credits"
     case baseSearchUrsl = "https://api.themoviedb.org/3/search/movie"
+    case searchPeople = "https://api.themoviedb.org/3/search/person"
     case languageSearch = "language=en-US&"
     case search = "query="
     case page = "&page=1"
