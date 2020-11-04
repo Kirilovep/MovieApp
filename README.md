@@ -4,6 +4,7 @@
 ## Features:
   - List of Top Rated, Upcoming, Now Playing movies.
   - Search.
+  - Save your favorite movies to bookmarks
   - Detailed screen of the movie with overview, videos, cast and crew.
   - Detailed screen of the person with overview, images, credits.
   
