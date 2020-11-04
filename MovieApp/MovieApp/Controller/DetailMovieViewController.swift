@@ -59,13 +59,13 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     //MARK:- LifeCycle-
     override func viewDidLoad() {
-               super.viewDidLoad()
-         navigationController?.navigationBar.prefersLargeTitles = false
-                requestDetail()
-                requestCast()
-                requestCrew()
-                requestVideos()
-           }
+        super.viewDidLoad()
+        requestDetail()
+        requestCast()
+        requestCrew()
+        requestVideos()
+        addButton()
+    }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -133,6 +133,16 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             self.runTimeLabel.text = "\(runTime) minutes"
             self.activityIndicator.stopAnimating()
         }
+    }
+    private func addButton() {
+        let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = likeTappedButton
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    @objc
+    private func addTapped() {
+        
     }
 }
 
