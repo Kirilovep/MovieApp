@@ -70,4 +70,17 @@ class MainTableViewCell: UITableViewCell {
         }
     }
     
+    func configurePeople(_ results: ResultsSearch) {
+        DispatchQueue.main.async {
+            self.titleLabel.text = results.name
+            self.overviewLabel.text = String(results.gender)
+            if let posterPath = results.profilePath {
+                let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                self.posterImage.kf.setImage(with: url)
+            } else {
+                self.posterImage.image = UIImage(named: Images.noPoster.rawValue)
+            }
+        }
+    }
+    
 }

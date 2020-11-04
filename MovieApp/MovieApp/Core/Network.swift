@@ -7,8 +7,10 @@
 //
 
 import Foundation
-
 final class NetworkManager {
+    
+    
+
     
     func loadMovies(_ filter: String,_ completionHandler: @escaping ([Result]) -> Void ) {
         if let url = URL(string: Urls.baseUrl.rawValue + filter + Urls.api.rawValue + Urls.language.rawValue) {
@@ -189,10 +191,14 @@ final class NetworkManager {
                 }
      }
     
-    func searchPeople(_ query: String, _ completionHandler: @escaping ([Result]) -> Void ) {
+    func searchPeople(_ query: String, _ completionHandler: @escaping ([ResultsSearch]) -> Void ) {
      
-       if let url = URL(string: Urls.searchPeople.rawValue + Urls.api.rawValue + Urls.languageSearch.rawValue + Urls.search.rawValue + query + Urls.firstPage.rawValue){
+        let urlSearch = "\(Urls.searchPeople.rawValue)\(Urls.api.rawValue)\(Urls.languageSearch.rawValue)\(Urls.search.rawValue)\(query) \(Urls.firstPage.rawValue))"
+        let stringUrl = urlSearch.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? " "
+        
+       if let url = URL(string: stringUrl){
         URLSession.shared.dataTask(with: url) { (data, responce, error ) in
+            print(url)
                        if error != nil {
                            print("error in request")
                        } else {
@@ -201,8 +207,8 @@ final class NetworkManager {
                                let responceData = data {
                                let decoder = JSONDecoder()
                                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                               let movies = try? decoder.decode(MovieList.self, from: responceData)
-                               completionHandler(movies?.results ?? [])
+                               let movies = try? decoder.decode(PeopleSearchModel.self, from: responceData)
+                            completionHandler(movies?.results ?? [] )
                            }
                        }
                    }.resume()

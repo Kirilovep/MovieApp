@@ -13,6 +13,8 @@ class SearchViewController: UIViewController {
     private var networkManager = NetworkManager()
     private var quary = ""
     private var searchResultsMovies: [Result] = []
+    private var searchResultsPeople: [ResultsSearch] = []
+    private let segment: UISegmentedControl = UISegmentedControl(items: ["Movies", "People"])
     //MARK:- IBOutlets-
     @IBOutlet weak var searchTableView: UITableView! {
         didSet {
@@ -33,6 +35,13 @@ class SearchViewController: UIViewController {
     //MARK:- lifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+           
+           segment.sizeToFit()
+           segment.selectedSegmentIndex = 0
+           self.navigationItem.titleView = segment
+          
+       
     }
     
 
@@ -45,18 +54,42 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
+    private func searchPeople(_ quary: String) {
+        networkManager.searchPeople(quary) { (searchPeopleResults) in
+            DispatchQueue.main.async {
+                self.searchResultsPeople = searchPeopleResults
+                self.searchTableView.reloadData()
+            }
+        }
+    }
 }
-//MARK:- Table View extension -
+//MARK:- TableView extension -
 
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return searchResultsMovies.count
+        switch segment.selectedSegmentIndex {
+        case 0:
+            return searchResultsMovies.count
+        case 1:
+            return searchResultsPeople.count
+        default:
+            break
+        }
+        return searchResultsMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.mainCellIdentefier.rawValue, for: indexPath) as! MainTableViewCell
-        cell.configure(searchResultsMovies[indexPath.row])
+        switch segment.selectedSegmentIndex {
+        case 0:
+            cell.configure(searchResultsMovies[indexPath.row])
+        case 1:
+            cell.configurePeople(searchResultsPeople[indexPath.row])
+        default:
+            return cell
+        }
         return cell
     }
     
@@ -73,17 +106,27 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let searchQuary = searchBar.text else { return }
-        quary = searchQuary
-        searchMovie(quary)
-        
+        switch segment.selectedSegmentIndex {
+        case 0:
+            guard let searchQuary = searchBar.text else { return }
+            quary = searchQuary
+            searchMovie(quary)
+        case 1:
+            guard let searchQuary = searchBar.text else { return }
+            quary = searchQuary
+            searchPeople(quary)
+        default:
+            break
+        }
         if searchBar.text?.isEmpty == true {
+            searchResultsPeople = []
             searchResultsMovies = []
             searchTableView.reloadData()
         }
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchResultsMovies = []
+        searchResultsPeople = []
         searchTableView.reloadData()
         if searchBar.text?.isEmpty == true {
             view.endEditing(true)

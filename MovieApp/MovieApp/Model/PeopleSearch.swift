@@ -13,7 +13,7 @@ struct PeopleSearchModel: Codable {
     let page: Int
     let totalResults: Int
     let totalPages: Int
-    let results: [Result]
+    let results: [ResultsSearch]
 }
 
 struct ResultsSearch: Codable {
