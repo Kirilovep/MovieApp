@@ -506,7 +506,7 @@
             </objects>
             <point key="canvasLocation" x="5284" y="-116"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search Movies-->
         <scene sceneID="Ibq-ey-03l">
             <objects>
                 <viewController id="cHa-eY-oca" customClass="SearchViewController" customModule="MovieSearcher" customModuleProvider="target" sceneMemberID="viewController">
@@ -533,7 +533,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HEJ-6T-rd2"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="SCs-fK-94i"/>
+                    <navigationItem key="navigationItem" title="Search Movies" id="SCs-fK-94i"/>
                     <connections>
                         <outlet property="movieSearchBar" destination="UFC-y0-vHH" id="e60-dA-aWk"/>
                         <outlet property="searchTableView" destination="BY1-1f-g7a" id="R08-zd-qHc"/>
