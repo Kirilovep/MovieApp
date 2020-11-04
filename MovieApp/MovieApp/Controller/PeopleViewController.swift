@@ -156,7 +156,19 @@ extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.configure(personImages[indexPath.row])
         return cell
     }
+    
 }
+
+extension PeopleViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,layout collectionViewLayout: UICollectionViewLayout,sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == imagesCollectionView {
+            return ImageCollectionViewCell.size
+        } else {
+            return CGSize(width: 0, height: 0)
+        }
+    }
+}
+
 //MARK:- Table View extension -
 extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

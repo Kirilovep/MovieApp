@@ -321,7 +321,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgI-zW-xKa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5407.2463768115949" y="-83.035714285714278"/>
+            <point key="canvasLocation" x="4516" y="-88"/>
         </scene>
         <!--People View Controller-->
         <scene sceneID="JYw-om-DoL">
@@ -401,10 +401,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gsm-UK-F6g">
-                                                <rect key="frame" x="213" y="105.5" width="188" height="97"/>
+                                                <rect key="frame" x="213" y="105.5" width="188" height="115"/>
                                                 <color key="backgroundColor" red="0.90980392156862744" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="97" id="col-Xb-Q28"/>
+                                                    <constraint firstAttribute="height" constant="115" id="col-Xb-Q28"/>
                                                     <constraint firstAttribute="width" constant="188" id="nOQ-2e-VcV"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="NNg-nP-2LL">
@@ -504,7 +504,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uM6-qG-rsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6166.666666666667" y="-116.51785714285714"/>
+            <point key="canvasLocation" x="5284" y="-116"/>
         </scene>
         <!--Search Movies-->
         <scene sceneID="Ibq-ey-03l">
