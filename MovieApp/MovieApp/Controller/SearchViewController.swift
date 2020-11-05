@@ -14,7 +14,7 @@ class SearchViewController: UIViewController {
     private var quary = ""
     private var searchResultsMovies: [Result] = []
     private var searchResultsPeople: [ResultsSearch] = []
-    private let segment: UISegmentedControl = UISegmentedControl(items: ["Movies", "People"])
+    private var segment: UISegmentedControl = UISegmentedControl(items: ["Movies", "People"])
     //MARK:- IBOutlets-
     @IBOutlet weak var searchTableView: UITableView! {
         didSet {
@@ -35,15 +35,27 @@ class SearchViewController: UIViewController {
     //MARK:- lifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSegment()
+    }
+    
+    
+    //MARK:- private func-
+    
+    private func configureSegment() {
+        segment.setTitle("Search Movie", forSegmentAt: 0)
         segment.sizeToFit()
         segment.selectedSegmentIndex = 0
         segment.frame.size.width = 500
-        //segment.frame.size.height = 500
         self.navigationItem.titleView = segment
+        segment.addTarget(self, action: #selector(SearchViewController.indexChanged(_:)), for: .valueChanged)
+        segment.backgroundColor = .clear
+        segment.tintColor = .clear
+        
+        segment.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 20)!, NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
+        
+        segment.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
     }
     
-
-  //MARK:- private func-
     private func searchMovie(_ quary: String) {
         networkManager.searchMovie(quary) { (searchResults) in
             DispatchQueue.main.async {
@@ -61,11 +73,27 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    
+    @objc func indexChanged(_ sender: UISegmentedControl) {
+        if segment.selectedSegmentIndex == 0 {
+            segment.setTitle("SearchMovies", forSegmentAt: 0)
+            segment.setTitle("People", forSegmentAt: 1)
+            searchResultsMovies = []
+            searchResultsPeople = []
+            searchTableView.reloadData()
+        } else if segment.selectedSegmentIndex == 1 {
+            segment.setTitle("SearchPeople", forSegmentAt: 1)
+            segment.setTitle("Movies", forSegmentAt: 0)
+            searchResultsMovies = []
+            searchResultsPeople = []
+            searchTableView.reloadData()
+        }
+    }
 }
 //MARK:- TableView extension -
 
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segment.selectedSegmentIndex {
         case 0:
@@ -95,9 +123,8 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
         desVC.detailId = searchResultsMovies[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
-        
-        //performSegue(withIdentifier: Segue.segueToDetailView.rawValue, sender: indexPath)
-         tableView.deselectRow(at: indexPath, animated: true)
+    
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 //MARK:- configure searchBar -

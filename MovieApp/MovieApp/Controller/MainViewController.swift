@@ -14,7 +14,16 @@ class MainViewController: UIViewController {
    private var movieList: [Result] = []
    private var networkManager = NetworkManager()
     //MARK:- IBOutlets-
-    @IBOutlet weak var mainSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var mainSegmentedControl: UISegmentedControl! {
+        didSet {
+            mainSegmentedControl.backgroundColor = .clear
+            mainSegmentedControl.tintColor = .clear
+            
+            mainSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 20)!, NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
+            
+            mainSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+        }
+    }
     @IBOutlet weak var mainTableView: UITableView! {
         didSet {
             mainTableView.delegate = self
