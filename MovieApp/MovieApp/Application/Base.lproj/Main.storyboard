@@ -623,7 +623,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qnK-7M-u50"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="Aim-wO-Qsb"/>
+                    <navigationItem key="navigationItem" title="Favorites" largeTitleDisplayMode="always" id="Aim-wO-Qsb"/>
                     <connections>
                         <outlet property="favoritesTableView" destination="hk1-NY-fbV" id="YmK-y4-tVJ"/>
                     </connections>
