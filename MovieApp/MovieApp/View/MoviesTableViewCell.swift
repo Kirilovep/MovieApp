@@ -9,24 +9,25 @@
 import UIKit
 import Kingfisher
 class MoviesTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var voteAverageLabel: UILabel!
     @IBOutlet weak var characterLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-   
+    
+    
     
     func configure(_ movies: PersonMovie) {
         DispatchQueue.main.async {
             if let moviesName = movies.title {
-                 self.titleLabel.text = moviesName
+                self.titleLabel.text = moviesName
             }
             if let moviesAverage = movies.voteAverage {
                 self.voteAverageLabel.text = "\(moviesAverage)"
@@ -38,27 +39,28 @@ class MoviesTableViewCell: UITableViewCell {
                     self.voteAverageLabel.textColor = .orange
                 } else if averageVote <= 3.0 {
                     self.voteAverageLabel.textColor = .red
-            }
-            if let characterName = movies.character {
-                self.characterLabel.text = "as \(characterName)"
-            } else if let job = movies.job {
-                self.characterLabel.text = "Job: \(job)"
                 }
-            if let posterPath = movies.posterPath {
-                let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
-                self.movieImage.kf.setImage(with: url)
-            } else {
-                self.movieImage.image = UIImage(named: Images.noPoster.rawValue)
-            }
-            if let releaseData = movies.releaseDate {
-                self.yearLabel.text = releaseData
+                if let characterName = movies.character {
+                    self.characterLabel.text = "as \(characterName)"
+                } else if let job = movies.job {
+                    self.characterLabel.text = "Job: \(job)"
+                }
+                if let posterPath = movies.posterPath {
+                    let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                    self.movieImage.kf.indicatorType = .activity
+                    self.movieImage.kf.setImage(with: url)
+                } else {
+                    self.movieImage.image = UIImage(named: Images.noPoster.rawValue)
+                }
+                if let releaseData = movies.releaseDate {
+                    self.yearLabel.text = releaseData
+                }
+                
             }
             
         }
         
     }
-    
-}
 
 
 

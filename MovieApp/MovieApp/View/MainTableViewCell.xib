@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,17 +26,17 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Plane " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MaC-mu-Sfl">
                         <rect key="frame" x="116" y="10.5" width="252" height="20.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020-09-29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seh-Kw-W5E">
                         <rect key="frame" x="116" y="33" width="61" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eb8-qc-LLf">
-                        <rect key="frame" x="369" y="10" width="27" height="20.5"/>
+                        <rect key="frame" x="376" y="10" width="27" height="20.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +45,7 @@
                         <rect key="frame" x="116" y="50" width="280" height="72"/>
                         <string key="text">A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -59,7 +60,7 @@
                     <constraint firstItem="x11-ch-GOP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ZFg-Dt-oPp"/>
                     <constraint firstAttribute="trailing" secondItem="8ud-uM-kmP" secondAttribute="trailing" constant="30" id="Zlf-hw-OEm"/>
                     <constraint firstAttribute="bottom" secondItem="8ud-uM-kmP" secondAttribute="bottom" constant="10" id="hf1-Uf-YaF"/>
-                    <constraint firstAttribute="trailing" secondItem="Eb8-qc-LLf" secondAttribute="trailing" constant="30" id="iFG-SB-dkH"/>
+                    <constraint firstAttribute="trailing" secondItem="Eb8-qc-LLf" secondAttribute="trailing" constant="23" id="iFG-SB-dkH"/>
                     <constraint firstItem="Eb8-qc-LLf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="otE-Jx-hgT"/>
                     <constraint firstItem="seh-Kw-W5E" firstAttribute="top" secondItem="MaC-mu-Sfl" secondAttribute="bottom" constant="2" id="tmU-XP-Eqn"/>
                     <constraint firstItem="MaC-mu-Sfl" firstAttribute="leading" secondItem="x11-ch-GOP" secondAttribute="trailing" constant="8" id="zq1-BT-Xcl"/>
@@ -70,8 +71,8 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="1" green="1" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="1" green="1" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="overviewLabel" destination="8ud-uM-kmP" id="Unx-J3-ZGx"/>
                 <outlet property="posterImage" destination="x11-ch-GOP" id="8wC-ae-pnM"/>

@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="V4R-wn-x9s" customClass="CastCollectionViewCell" customModule="MovieApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="V4R-wn-x9s" customClass="CastCollectionViewCell" customModule="MovieSearcher" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="90" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -25,24 +26,21 @@
                             <constraint firstAttribute="height" constant="24" id="Wym-GP-mZA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ekz-t2-JYZ">
-                        <rect key="frame" x="26.5" y="39.5" width="37" height="37"/>
-                    </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lIP-Bp-YRz">
                         <rect key="frame" x="0.0" y="140" width="90" height="12"/>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="10"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="V38-xg-LTg"/>
             <constraints>
                 <constraint firstItem="dLN-nw-THB" firstAttribute="top" secondItem="V4R-wn-x9s" secondAttribute="top" id="2Lt-yo-MbV"/>
                 <constraint firstItem="xvT-Pz-LIL" firstAttribute="top" secondItem="dLN-nw-THB" secondAttribute="bottom" id="4V9-g5-SJ4"/>
-                <constraint firstItem="ekz-t2-JYZ" firstAttribute="centerY" secondItem="dLN-nw-THB" secondAttribute="centerY" id="BLG-Ed-op9"/>
                 <constraint firstItem="lIP-Bp-YRz" firstAttribute="top" secondItem="xvT-Pz-LIL" secondAttribute="bottom" id="FTi-5n-84D"/>
                 <constraint firstAttribute="bottom" secondItem="lIP-Bp-YRz" secondAttribute="bottom" id="GgX-rB-hUf"/>
                 <constraint firstItem="dLN-nw-THB" firstAttribute="leading" secondItem="V4R-wn-x9s" secondAttribute="leading" id="ROj-iU-Mnl"/>
@@ -50,15 +48,12 @@
                 <constraint firstAttribute="trailing" secondItem="lIP-Bp-YRz" secondAttribute="trailing" id="WHC-rs-nQG"/>
                 <constraint firstAttribute="trailing" secondItem="dLN-nw-THB" secondAttribute="trailing" id="rAj-1T-FaJ"/>
                 <constraint firstItem="xvT-Pz-LIL" firstAttribute="leading" secondItem="V4R-wn-x9s" secondAttribute="leading" id="rhe-Wl-jhh"/>
-                <constraint firstItem="ekz-t2-JYZ" firstAttribute="centerX" secondItem="dLN-nw-THB" secondAttribute="centerX" id="v1A-Ke-Emt"/>
                 <constraint firstAttribute="trailing" secondItem="xvT-Pz-LIL" secondAttribute="trailing" id="voc-2c-q6L"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="V38-xg-LTg"/>
             <size key="customSize" width="497" height="363"/>
             <connections>
                 <outlet property="characterImage" destination="dLN-nw-THB" id="iA7-bx-XD8"/>
                 <outlet property="fullName" destination="xvT-Pz-LIL" id="MNT-ws-cKI"/>
-                <outlet property="indicatorImage" destination="ekz-t2-JYZ" id="sXR-2D-12l"/>
                 <outlet property="jobLabel" destination="lIP-Bp-YRz" id="Q3Z-Ud-hVs"/>
             </connections>
             <point key="canvasLocation" x="-249" y="106"/>

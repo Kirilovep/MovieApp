@@ -16,17 +16,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var releaseDataLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
- 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-        posterImage.image = nil
-    }
     
     func configure(_ result: Result) {
         DispatchQueue.main.async {
@@ -41,6 +31,7 @@ class MainTableViewCell: UITableViewCell {
             self.releaseDataLabel.text = result.releaseDate
             if let posterPath = result.posterPath {
                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                self.posterImage.kf.indicatorType = .activity
                 self.posterImage.kf.setImage(with: url)
             } else {
                 self.posterImage.image = UIImage(named: Images.noPoster.rawValue)
@@ -63,6 +54,7 @@ class MainTableViewCell: UITableViewCell {
             self.overviewLabel.text = result.overview
             if let posterPath = result.image {
                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                self.posterImage.kf.indicatorType = .activity
                 self.posterImage.kf.setImage(with: url)
             }else {
                 self.posterImage.image = UIImage(named: Images.noPoster.rawValue)
@@ -76,6 +68,7 @@ class MainTableViewCell: UITableViewCell {
             self.overviewLabel.text = String(results.gender)
             if let posterPath = results.profilePath {
                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                self.posterImage.kf.indicatorType = .activity
                 self.posterImage.kf.setImage(with: url)
             } else {
                 self.posterImage.image = UIImage(named: Images.noPoster.rawValue)

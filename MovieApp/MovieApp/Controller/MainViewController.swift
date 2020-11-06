@@ -40,8 +40,8 @@ class MainViewController: UIViewController {
         requestMovies(Urls.nowPlayingMovie.rawValue)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     

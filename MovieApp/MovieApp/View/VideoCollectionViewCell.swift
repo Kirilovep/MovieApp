@@ -24,6 +24,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
             self.trailerName.text = video.name
             if let key = video.key {
                 let url = URL(string: VideoUrls.baseurl.rawValue + key + VideoUrls.lasturl.rawValue )
+                self.videoImage.kf.indicatorType = .activity
                 self.videoImage.kf.setImage(with: url)
             } else {
                 self.videoImage.image = UIImage(named: Images.imageForPeople.rawValue)

@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="Yh0-KA-iD1" customClass="VideoCollectionViewCell" customModule="MovieApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="videoCell" id="Yh0-KA-iD1" customClass="VideoCollectionViewCell" customModule="MovieSearcher" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="179" height="130"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -36,7 +38,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="CFK-Ks-Sqm" secondAttribute="trailing" id="Jae-3d-ZkA"/>
                                     <constraint firstItem="CFK-Ks-Sqm" firstAttribute="leading" secondItem="ffd-Ab-5wr" secondAttribute="leading" id="N3I-I3-Jhh"/>
@@ -69,19 +71,24 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="a8x-W5-mao"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="gZn-8V-7QW" secondAttribute="bottom" id="Dfu-Qm-4iS"/>
                 <constraint firstItem="gZn-8V-7QW" firstAttribute="leading" secondItem="Yh0-KA-iD1" secondAttribute="leading" id="Tx4-I6-bPo"/>
                 <constraint firstItem="gZn-8V-7QW" firstAttribute="top" secondItem="Yh0-KA-iD1" secondAttribute="top" id="YBE-EA-36I"/>
                 <constraint firstAttribute="trailing" secondItem="gZn-8V-7QW" secondAttribute="trailing" id="fB3-0a-wRo"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="a8x-W5-mao"/>
             <size key="customSize" width="179" height="130"/>
             <connections>
                 <outlet property="trailerName" destination="bcS-Uy-W2K" id="yKG-SV-3Qy"/>
                 <outlet property="videoImage" destination="CFK-Ks-Sqm" id="kbd-vg-6yV"/>
             </connections>
-            <point key="canvasLocation" x="-164" y="106"/>
+            <point key="canvasLocation" x="-86" y="78"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

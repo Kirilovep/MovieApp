@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="crewCell" id="d1c-wy-Q3f" customClass="CrewCollectionViewCell" customModule="MovieApp" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="crewCell" id="d1c-wy-Q3f" customClass="CrewCollectionViewCell" customModule="MovieSearcher" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="90" height="152"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -22,16 +23,13 @@
                             <constraint firstAttribute="height" constant="24" id="zGe-rX-KMC"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cQn-g4-WQH">
-                        <rect key="frame" x="26.5" y="39" width="37" height="37"/>
-                    </activityIndicatorView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="job" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8f-OH-u41">
                         <rect key="frame" x="0.0" y="140" width="90" height="12"/>
                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="10"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uKe-Om-ff8">
@@ -39,14 +37,13 @@
                     </imageView>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="wVO-wI-6Ga"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="uKe-Om-ff8" secondAttribute="trailing" id="6gy-p2-UZw"/>
                 <constraint firstItem="uKe-Om-ff8" firstAttribute="leading" secondItem="d1c-wy-Q3f" secondAttribute="leading" id="8ZC-z2-ngG"/>
                 <constraint firstItem="w63-u0-WMu" firstAttribute="top" secondItem="uKe-Om-ff8" secondAttribute="bottom" id="NJE-ex-nep"/>
-                <constraint firstItem="cQn-g4-WQH" firstAttribute="centerX" secondItem="uKe-Om-ff8" secondAttribute="centerX" id="UZU-xC-Qrw"/>
                 <constraint firstItem="uKe-Om-ff8" firstAttribute="top" secondItem="d1c-wy-Q3f" secondAttribute="top" id="YZJ-5x-iyB"/>
                 <constraint firstItem="w63-u0-WMu" firstAttribute="leading" secondItem="d1c-wy-Q3f" secondAttribute="leading" id="df0-kA-iIY"/>
-                <constraint firstItem="cQn-g4-WQH" firstAttribute="centerY" secondItem="uKe-Om-ff8" secondAttribute="centerY" id="eIs-4E-iDN"/>
                 <constraint firstItem="U8f-OH-u41" firstAttribute="leading" secondItem="d1c-wy-Q3f" secondAttribute="leading" id="hD1-2X-H5k"/>
                 <constraint firstItem="w63-u0-WMu" firstAttribute="leading" secondItem="d1c-wy-Q3f" secondAttribute="leading" id="i7F-jv-qdJ"/>
                 <constraint firstAttribute="bottom" secondItem="U8f-OH-u41" secondAttribute="bottom" id="kSr-cV-73k"/>
@@ -55,11 +52,9 @@
                 <constraint firstAttribute="trailing" secondItem="w63-u0-WMu" secondAttribute="trailing" id="vTh-IY-hm0"/>
                 <constraint firstAttribute="trailing" secondItem="w63-u0-WMu" secondAttribute="trailing" id="y3V-zI-Tq6"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="wVO-wI-6Ga"/>
             <size key="customSize" width="497" height="363"/>
             <connections>
                 <outlet property="characterImage" destination="uKe-Om-ff8" id="vSt-7t-jXl"/>
-                <outlet property="indicatorImage" destination="cQn-g4-WQH" id="tYc-Q7-kDf"/>
                 <outlet property="jobLabel" destination="U8f-OH-u41" id="O4F-8H-4mn"/>
                 <outlet property="nameLabel" destination="w63-u0-WMu" id="q9f-F3-Tg9"/>
             </connections>

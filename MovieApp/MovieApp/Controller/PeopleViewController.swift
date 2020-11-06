@@ -23,6 +23,9 @@ class PeopleViewController: UIViewController {
     private let networkManager = NetworkManager()
     
     //MARK:- IBOutlets-
+    @IBOutlet weak var knowForLabel: UILabel!
+    @IBOutlet weak var graphyLabel: UILabel!
+    @IBOutlet weak var moviesLabel: UILabel!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -57,7 +60,7 @@ class PeopleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
-        setPersonInformation(hidden: true)
+        hidePersonInformation(true)
         parseInfo()
         parseImages()
         parseMovies()
@@ -105,7 +108,7 @@ class PeopleViewController: UIViewController {
     private func updateView() {
         DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
-            self.setPersonInformation(hidden: false)
+            self.hidePersonInformation(false)
             if let infoPeopleCast = self.detailedInfoCast {
                 self.nameLabel.text = infoPeopleCast.name
             } else if let infoPeopleCrew = self.detailedInfoCrew {
@@ -131,19 +134,21 @@ class PeopleViewController: UIViewController {
             )
             self.biographyLabel.text = self.personInfo?.biography
             self.setImage()
-            //self.parseMovies()
             self.activityIndicator.stopAnimating()
         }
     }
     
-    
-    private func setPersonInformation(hidden isHidden: Bool) {
+    private func hidePersonInformation(_ isHidden: Bool) {
         nameLabel.isHidden = isHidden
         knowsForLabel.isHidden = isHidden
         placeOfBirthdayLabel.isHidden = isHidden
         biographyLabel.isHidden = isHidden
         birthdayLabel.isHidden = isHidden
         characterImage.isHidden = isHidden
+        moviesTableView.isHidden = isHidden
+        knowForLabel.isHidden = isHidden
+        graphyLabel.isHidden = isHidden
+        moviesLabel.isHidden = isHidden
        }
 }
 //MARK:- Collection View extension -

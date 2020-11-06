@@ -31,6 +31,10 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var budgetLabel: UILabel!
+    @IBOutlet weak var videosLabel: UILabel!
+    @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var crewLabel: UILabel!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var castCollectionView: UICollectionView! {
         didSet {
@@ -57,9 +61,11 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             videoCollectionView.register(videoNib, forCellWithReuseIdentifier: Cells.videoCollectionCellIdentifier.rawValue)
         }
     }
+   
     //MARK:- LifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideMoviesInformation(true)
         requestDetail()
         requestCast()
         requestCrew()
@@ -67,10 +73,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         addButton()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
     //MARK:- Private func-
     private func requestCast() {
         networkManager.loadCast(detailId ?? 0) { (detailedCast) in
@@ -90,8 +92,11 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func requestDetail() {
          networkManager.loadDetailMovie(detailId ?? 0) { (detailedMovie) in
-            self.results = detailedMovie
-            self.updateView()
+            DispatchQueue.main.async {
+                self.hideMoviesInformation(false)
+                self.results = detailedMovie
+                self.updateView()
+            }
          }
     }
     private func requestVideos() {
@@ -120,6 +125,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             self.languageLabel.text = self.results?.originalLanguage
             if let posterPath = self.results?.backdropPath {
                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
+                self.detailImageView.kf.indicatorType = .activity
                 self.detailImageView.kf.setImage(with: url)
             } else {
                 self.detailImageView.image = UIImage(named: Images.noPoster.rawValue)
@@ -132,6 +138,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             guard let runTime = self.results?.runtime  else { return }
             self.runTimeLabel.text = "\(runTime) minutes"
             self.activityIndicator.stopAnimating()
+            
         }
     }
     private func addButton() {
@@ -148,11 +155,26 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         movieData.image = results?.posterPath
         movieData.releaseDate = results?.releaseDate
         movieData.overview = results?.overview
-        let idMovie = Int64(results!.id)
+        let idMovie = Int64(results?.id ?? 0)
         movieData.id = idMovie
         movieData.voteAverage = Double(results?.voteAverage ?? 0.1)
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
+    }
+    
+    private func hideMoviesInformation(_ isHidden: Bool) {
+        titleLabel.isHidden = isHidden
+        voteAverageLabel.isHidden = isHidden
+        dateLabel.isHidden = isHidden
+        releasedLabel.isHidden = isHidden
+        overviewLabel.isHidden = isHidden
+        languageLabel.isHidden = isHidden
+        budgetLabel.isHidden = isHidden
+        runTimeLabel.isHidden = isHidden
+        detailImageView.isHidden = isHidden
+        videosLabel.isHidden = isHidden
+        crewLabel.isHidden = isHidden
+        castLabel.isHidden = isHidden
     }
 }
 

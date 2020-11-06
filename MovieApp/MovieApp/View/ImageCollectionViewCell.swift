@@ -20,9 +20,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
 
     func configure(_ people: Profile) {
-            let url = URL(string: Urls.baseImageUrl.rawValue + people.filePath)
-            personImage.kf.setImage(with: url)
-        }
+        let url = URL(string: Urls.baseImageUrl.rawValue + people.filePath)
+        personImage.kf.indicatorType = .activity
+        personImage.kf.setImage(with: url)
     }
-    
+}
+
 
