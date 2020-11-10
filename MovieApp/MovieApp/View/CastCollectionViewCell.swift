@@ -9,19 +9,14 @@
 import UIKit
 
 class CastCollectionViewCell: UICollectionViewCell {
-    
-    let firstImage = #imageLiteral(resourceName: "defaultuser")
-    
+ 
+    //MARK: - IBOutltets -
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var jobLabel: UILabel!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        //characterImage.clipsToBounds = true
-    }
+
     
-    
+    //MARK: - Functions -
     func configure(_ cast: Cast) {
         DispatchQueue.main.async {
             self.fullName.text = cast.name

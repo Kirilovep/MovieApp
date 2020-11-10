@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 class MoviesTableViewCell: UITableViewCell {
     
+    //MARK:- IBOutlets
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var voteAverageLabel: UILabel!
@@ -17,13 +18,7 @@ class MoviesTableViewCell: UITableViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    
-    
+    //MARK: - Functions
     func configure(_ movies: PersonMovie) {
         DispatchQueue.main.async {
             if let moviesName = movies.title {
@@ -55,14 +50,7 @@ class MoviesTableViewCell: UITableViewCell {
                 if let releaseData = movies.releaseDate {
                     self.yearLabel.text = releaseData
                 }
-                
             }
-            
         }
-        
     }
-
-
-
-
 }

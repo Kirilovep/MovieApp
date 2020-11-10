@@ -21,11 +21,11 @@ struct Result: Codable {
     let posterPath: String?
     let id: Int
     let backdropPath: String?
-    let originalLanguage: String
-    let originalTitle: String
-    let title: String
+    let originalLanguage: String?
+    let originalTitle: String?
+    let title: String?
     let voteAverage: Double
-    let overview: String
-    let releaseDate: String
+    let overview: String?
+    let releaseDate: String?
 
 }

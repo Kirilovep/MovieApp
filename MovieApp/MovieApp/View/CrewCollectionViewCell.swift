@@ -9,12 +9,12 @@
 import UIKit
 
 class CrewCollectionViewCell: UICollectionViewCell {
-
+    //MARK:- IBOutlets -
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var jobLabel: UILabel!
-
     
+    //MARK: - Functions -
     func configure(_ crew: Crew) {
         DispatchQueue.main.async {
             self.nameLabel.text = crew.name

@@ -13,8 +13,12 @@ import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
     
     //MARK:- Properties -
-    
+    var detailTitleMovie: String?
     var detailId: Int?
+    private let networkManager = NetworkManager()
+    private var detailCast: [Cast] = []
+    private var detailCrew: [Crew] = []
+    private var videos: [Video] = []
     private var timer = Timer()
     private let extractor = LinkExtractor()
     private var results: DetailList? {
@@ -25,10 +29,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             })
         }
     }
-    private let networkManager = NetworkManager()
-    private var detailCast: [Cast] = []
-    private var detailCrew: [Crew] = []
-    private var videos: [Video] = []
+    
     //MARK:- IBOutlets-
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -161,7 +162,8 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     private func addTapped() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let movieData = MovieCoreData(context: context)
-        movieData.title = results?.title
+        guard let movieTitle = results?.title else { return }
+        movieData.title = movieTitle
         movieData.image = results?.posterPath
         movieData.releaseDate = results?.releaseDate
         movieData.overview = results?.overview
@@ -171,7 +173,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
     }
-    
     private func hideMoviesInformation(_ isHidden: Bool) {
         titleLabel.isHidden = isHidden
         voteAverageLabel.isHidden = isHidden

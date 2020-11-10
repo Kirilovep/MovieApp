@@ -12,7 +12,6 @@ struct ImageProfile: Codable {
     let profiles: [Profile]
 }
 
-// MARK: - Profile
 struct Profile: Codable {
     let filePath: String
 }

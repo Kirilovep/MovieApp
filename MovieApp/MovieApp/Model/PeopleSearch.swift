@@ -17,12 +17,12 @@ struct PeopleSearchModel: Codable {
 }
 
 struct ResultsSearch: Codable {
-    let popularity: Double
-    let name: String
+    let popularity: Double?
+    let name: String?
     let id: Int
     let profilePath: String?
-    let adult: Bool
-    let gender: Int
+    let adult: Bool?
+    let gender: Int?
     let knownForDepartment: String?
 
 }

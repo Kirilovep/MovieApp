@@ -10,9 +10,7 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
     
-    
     //MARK:- Properties -
-    
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var detailMovies: [MovieCoreData] = []
     
@@ -26,9 +24,9 @@ class FavoritesViewController: UIViewController {
             favoritesTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
             favoritesTableView.rowHeight = 150
             favoritesTableView.tableFooterView = UIView()
-            
         }
     }
+    
     //MARK: - LifeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +36,6 @@ class FavoritesViewController: UIViewController {
         super.viewWillAppear(animated)
         getData()
     }
-    
     
     //MARK: - Private func -
     private func getData() {
@@ -52,10 +49,9 @@ class FavoritesViewController: UIViewController {
 }
 
 //MARK:- TableView extension -
-
 extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-   
+        
         return detailMovies.count
     }
     
@@ -80,7 +76,6 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let task = detailMovies[indexPath.row]
@@ -95,5 +90,4 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
         }
         favoritesTableView.reloadData()
     }
-    
 }
