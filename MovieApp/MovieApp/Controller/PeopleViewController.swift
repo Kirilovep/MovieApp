@@ -12,7 +12,9 @@ import ExpandableLabel
 
 class PeopleViewController: UIViewController {
     
-   
+    
+    //MARK:- Properties -
+    
     var detailedInfoCast: Cast?
     var detailedInfoCrew: Crew?
     var detailId = 0
@@ -64,16 +66,19 @@ class PeopleViewController: UIViewController {
         parseInfo()
         parseImages()
         parseMovies()
-       
+        
     }
     
     //MARK:- Private methods-
-    private func setImage() {
+    private func setImagesForCastAndCrew() {
         if let profilePathCast = self.detailedInfoCast?.profilePath {
             let url = URL(string: Urls.baseImageUrl.rawValue + profilePathCast )
             self.characterImage.kf.setImage(with: url)
         } else if let profilePathCrew = self.detailedInfoCrew?.profilePath {
             let url = URL(string: Urls.baseImageUrl.rawValue + profilePathCrew)
+            self.characterImage.kf.setImage(with: url)
+        } else if let profilePath = personInfo?.profilePath {
+            let url = URL(string: Urls.baseImageUrl.rawValue + profilePath)
             self.characterImage.kf.setImage(with: url)
         } else {
             self.characterImage.image = UIImage(named: Images.imageForPeople.rawValue)
@@ -95,14 +100,14 @@ class PeopleViewController: UIViewController {
     }
     private func parseMovies() {
         networkManager.loadMoviesForPeople(detailId) { (moviesСast, moviesCrew) in
-                   DispatchQueue.main.async {
-                    self.moviesForPeople = moviesСast ?? []
-                    self.moviesForPeople.append(contentsOf: moviesCrew ?? [])
-                    if let castCount = moviesСast?.count,let crewCount = moviesCrew?.count {
+            DispatchQueue.main.async {
+                self.moviesForPeople = moviesСast ?? []
+                self.moviesForPeople.append(contentsOf: moviesCrew ?? [])
+                if let castCount = moviesСast?.count,let crewCount = moviesCrew?.count {
                     self.tableViewHeight.constant = CGFloat((castCount + crewCount) * 100)
                     self.moviesTableView.reloadData()
-                   }
-               }
+                }
+            }
         }
     }
     private func updateView() {
@@ -113,6 +118,8 @@ class PeopleViewController: UIViewController {
                 self.nameLabel.text = infoPeopleCast.name
             } else if let infoPeopleCrew = self.detailedInfoCrew {
                 self.nameLabel.text = infoPeopleCrew.name
+            } else {
+                self.nameLabel.text = self.personInfo?.name
             }
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -133,7 +140,7 @@ class PeopleViewController: UIViewController {
                 string: "Show less", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue]
             )
             self.biographyLabel.text = self.personInfo?.biography
-            self.setImage()
+            self.setImagesForCastAndCrew()
             self.activityIndicator.stopAnimating()
         }
     }
@@ -149,7 +156,7 @@ class PeopleViewController: UIViewController {
         knowForLabel.isHidden = isHidden
         graphyLabel.isHidden = isHidden
         moviesLabel.isHidden = isHidden
-       }
+    }
 }
 //MARK:- Collection View extension -
 extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -189,7 +196,7 @@ extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
         let desVC = storyboard?.instantiateViewController(withIdentifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
         desVC.detailId = moviesForPeople[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
-    
-         tableView.deselectRow(at: indexPath, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

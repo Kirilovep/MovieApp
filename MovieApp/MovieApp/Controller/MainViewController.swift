@@ -10,9 +10,12 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-  
-   private var movieList: [Result] = []
-   private var networkManager = NetworkManager()
+    
+    //MARK:- Properties -
+    
+    private var movieList: [Result] = []
+    private var networkManager = NetworkManager()
+    
     //MARK:- IBOutlets-
     @IBOutlet weak var mainSegmentedControl: UISegmentedControl! {
         didSet {
@@ -59,17 +62,17 @@ class MainViewController: UIViewController {
         }
     }
     //MARK:- Private Func-
-
-private func requestMovies(_ filterForSearch: String) {
-    networkManager.loadMovies(filterForSearch)  { [weak self] (results) in
-        DispatchQueue.main.async {
-            self?.movieList = results
-            self?.mainTableView.reloadData()
+    
+    private func requestMovies(_ filterForSearch: String) {
+        networkManager.loadMovies(filterForSearch)  { [weak self] (results) in
+            DispatchQueue.main.async {
+                self?.movieList = results
+                self?.mainTableView.reloadData()
+            }
         }
     }
-    }
 }
-    //MARK:- UITableView extension -
+//MARK:- UITableView extension -
 extension MainViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movieList.count
@@ -84,7 +87,7 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource {
         desVC.detailId = movieList[indexPath.row].id
         navigationController?.pushViewController(desVC, animated: true)
         
-         tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

@@ -23,6 +23,7 @@ struct ResultsSearch: Codable {
     let profilePath: String?
     let adult: Bool
     let gender: Int
+    let knownForDepartment: String?
 
 }
 

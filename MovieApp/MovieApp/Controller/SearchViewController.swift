@@ -10,6 +10,9 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+    
+    //MARK:- Properties -
+    
     private var networkManager = NetworkManager()
     private var quary = ""
     private var searchResultsMovies: [Result] = []
@@ -120,14 +123,25 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
-        desVC.detailId = searchResultsMovies[indexPath.row].id
-        navigationController?.pushViewController(desVC, animated: true)
-    
+        
+        switch segment.selectedSegmentIndex {
+        case 0:
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
+            desVC.detailId = searchResultsMovies[indexPath.row].id
+            navigationController?.pushViewController(desVC, animated: true)
+        case 1:
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.PeopleVCIdentifier.rawValue) as! PeopleViewController
+            desVC.detailId = searchResultsPeople[indexPath.row].id
+            navigationController?.pushViewController(desVC, animated: true)
+        default:
+            break
+        }
+        
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
-//MARK:- configure searchBar -
+//MARK:- SearchBar extension-
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -141,6 +155,7 @@ extension SearchViewController: UISearchBarDelegate {
             guard let searchQuary = searchBar.text else { return }
             quary = searchQuary
             searchPeople(quary)
+            searchTableView.reloadData()
         default:
             break
         }

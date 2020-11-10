@@ -11,7 +11,9 @@ import AVKit
 import AVFoundation
 import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
-
+    
+    //MARK:- Properties -
+    
     var detailId: Int? 
     private let extractor = LinkExtractor()
     private var results: DetailList?
@@ -61,7 +63,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             videoCollectionView.register(videoNib, forCellWithReuseIdentifier: Cells.videoCollectionCellIdentifier.rawValue)
         }
     }
-   
+    
     //MARK:- LifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,12 +78,12 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     //MARK:- Private func-
     private func requestCast() {
         networkManager.loadCast(detailId ?? 0) { (detailedCast) in
-               DispatchQueue.main.async {
-                   self.detailCast = detailedCast
-                   self.castCollectionView.reloadData()
-               }
-           }
-       }
+            DispatchQueue.main.async {
+                self.detailCast = detailedCast
+                self.castCollectionView.reloadData()
+            }
+        }
+    }
     private func requestCrew() {
         networkManager.loadCrew(detailId ?? 0) { (detailedCrew) in
             DispatchQueue.main.async {
@@ -91,20 +93,20 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         }
     }
     private func requestDetail() {
-         networkManager.loadDetailMovie(detailId ?? 0) { (detailedMovie) in
+        networkManager.loadDetailMovie(detailId ?? 0) { (detailedMovie) in
             DispatchQueue.main.async {
                 self.hideMoviesInformation(false)
                 self.results = detailedMovie
                 self.updateView()
             }
-         }
+        }
     }
     private func requestVideos() {
-              networkManager.loadVideos(detailId ?? 0) { (videos) in
-                         DispatchQueue.main.async {
-                             self.videos = videos
-                             self.videoCollectionView.reloadData()
-                }
+        networkManager.loadVideos(detailId ?? 0) { (videos) in
+            DispatchQueue.main.async {
+                self.videos = videos
+                self.videoCollectionView.reloadData()
+            }
         }
     }
     private func updateView() {
@@ -178,7 +180,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
 }
 
-    //MARK:- Collection View extension -
+//MARK:- Collection View extension -
 extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == castCollectionView {
@@ -191,7 +193,7 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-       
+        
         if collectionView == castCollectionView {
             let castCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.castCollectionCellIdentefier.rawValue, for: indexPath) as! CastCollectionViewCell
             castCell.configure(detailCast[indexPath.row])
@@ -199,7 +201,7 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
             
         } else if collectionView == crewCollectionView {
             let crewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Cells.crewCollectionCellIdentifier.rawValue, for: indexPath) as! CrewCollectionViewCell
-           crewCell.configure(detailCrew[indexPath.row])
+            crewCell.configure(detailCrew[indexPath.row])
             return crewCell
             
         } else {
@@ -207,7 +209,7 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
             videoCell.configure(videos[indexPath.row])
             return videoCell
         }
-}
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == videoCollectionView {
@@ -230,7 +232,7 @@ extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewD
             let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.PeopleVCIdentifier.rawValue) as! PeopleViewController
             desVC.detailedInfoCrew = detailCrew[indexPath.row]
             desVC.detailId = detailCrew[indexPath.row].id
-             desVC.detailPhoto = detailCrew[indexPath.row].profilePath
+            desVC.detailPhoto = detailCrew[indexPath.row].profilePath
             navigationController?.pushViewController(desVC, animated: true)
         }
     }
