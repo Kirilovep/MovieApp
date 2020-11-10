@@ -12,12 +12,12 @@ class SearchViewController: UIViewController {
     
     
     //MARK:- Properties -
-    
     private var networkManager = NetworkManager()
     private var quary = ""
     private var searchResultsMovies: [Result] = []
     private var searchResultsPeople: [ResultsSearch] = []
     private var segment: UISegmentedControl = UISegmentedControl(items: ["Movies", "People"])
+    
     //MARK:- IBOutlets-
     @IBOutlet weak var searchTableView: UITableView! {
         didSet {
@@ -41,9 +41,7 @@ class SearchViewController: UIViewController {
         configureSegment()
     }
     
-    
     //MARK:- private func-
-    
     private func configureSegment() {
         segment.setTitle("Search Movie", forSegmentAt: 0)
         segment.sizeToFit()
@@ -56,9 +54,8 @@ class SearchViewController: UIViewController {
         
         segment.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 20)!, NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
         
-        segment.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor(named: "forSegmentedColor")], for: .selected)
+        segment.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor(named: "forSegmentedColor")!], for: .selected)
     }
-    
     private func searchMovie(_ quary: String) { 
         networkManager.searchMovie(quary) { [weak self] (searchResults) in
             DispatchQueue.main.async {
@@ -67,7 +64,6 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    
     private func searchPeople(_ quary: String) {
         networkManager.searchPeople(quary) { [weak self] (searchPeopleResults) in
             DispatchQueue.main.async {
@@ -93,10 +89,9 @@ class SearchViewController: UIViewController {
         }
     }
 }
-//MARK:- TableView extension -
 
+//MARK:- TableView extension -
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segment.selectedSegmentIndex {
         case 0:
@@ -136,14 +131,12 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
         default:
             break
         }
-        
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
+
 //MARK:- SearchBar extension-
 extension SearchViewController: UISearchBarDelegate {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         switch segment.selectedSegmentIndex {
         case 0:
@@ -176,7 +169,6 @@ extension SearchViewController: UISearchBarDelegate {
             view.endEditing(true)
         }
     }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
     }

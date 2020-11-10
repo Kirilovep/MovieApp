@@ -10,14 +10,15 @@ import UIKit
 import Kingfisher
 
 class MainTableViewCell: UITableViewCell {
+    //MARK: - IBOutlets -
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var voteAverageLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var releaseDataLabel: UILabel!
     
-
     
+    //MARK: - Functions -
     func configure(_ result: Result) {
         DispatchQueue.main.async {
             self.titleLabel.text = result.title
@@ -36,11 +37,8 @@ class MainTableViewCell: UITableViewCell {
             } else {
                 self.posterImage.image = UIImage(named: Images.noPoster.rawValue)
             }
-            
         }
-        
     }
-    
     func configureFromCoreData(_ result: MovieCoreData) {
         DispatchQueue.main.async {
             self.titleLabel.text = result.title
@@ -68,7 +66,6 @@ class MainTableViewCell: UITableViewCell {
             }
         }
     }
-    
     func configurePeople(_ results: ResultsSearch) {
         DispatchQueue.main.async {
             self.titleLabel.text = results.name

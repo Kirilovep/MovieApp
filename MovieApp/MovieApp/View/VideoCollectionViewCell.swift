@@ -10,15 +10,18 @@ import UIKit
 import Kingfisher
 class VideoCollectionViewCell: UICollectionViewCell {
     
-
+    //MARK: - IBOutlets -
     @IBOutlet weak var videoImage: UIImageView!
     @IBOutlet weak var trailerName: UILabel!
+    
+    //MARK: - LifeCycle -
     override func awakeFromNib() {
         super.awakeFromNib()
         videoImage.layer.cornerRadius = 5
         videoImage.clipsToBounds = true
     }
     
+    //MARK: - Functions -
     func configure(_ video: Video) {
         DispatchQueue.main.async {
             self.trailerName.text = video.name

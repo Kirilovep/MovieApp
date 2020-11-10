@@ -9,10 +9,10 @@
 import Foundation
 
 struct People: Codable {
-    let birthday: String
-    let id: Int
-    let name: String
-    let biography: String
+    let birthday: String?
+    let id: Int?
+    let name: String?
+    let biography: String?
     let placeOfBirth: String?
     let profilePath: String?
     let knownForDepartment: String?

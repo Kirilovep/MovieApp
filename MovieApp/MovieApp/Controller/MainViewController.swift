@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    
     //MARK:- Properties -
     private var currentPageUpcoming = 1
     private var currentPageTopRated = 1
@@ -76,7 +75,6 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
     private func requestTopRatedMovies(_ filterForSearch: String) {
         networkManager.loadMovies(filterForSearch, currentPageTopRated)  { [weak self] (results) in
             DispatchQueue.main.async {
@@ -124,12 +122,12 @@ class MainViewController: UIViewController {
         return (indexPath.row) >= nowPlayingMovieList.count - 5
     }
 }
-    //MARK:- UITableView extension -
+
+//MARK:- UITableView extension -
 extension MainViewController: UITableViewDelegate,UITableViewDataSource, UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         prefetchRows(for: indexPaths)
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch mainSegmentedControl.selectedSegmentIndex {
         case 0:
@@ -173,17 +171,15 @@ extension MainViewController: UITableViewDelegate,UITableViewDataSource, UITable
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
-    //MARK:- TabBar extension -
+//MARK:- TabBar extension -
 extension MainViewController: UITabBarControllerDelegate {
-    
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBarIndex = tabBarController.selectedIndex
         
         if tabBarIndex == 0 {
             self.mainTableView.scrollToRow(at: IndexPath.init(row: 0, section: 0), at: UITableView.ScrollPosition(rawValue: 0)!, animated: true)
-            }
+        }
     }
 }
 

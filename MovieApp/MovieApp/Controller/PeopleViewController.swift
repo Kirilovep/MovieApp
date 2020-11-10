@@ -12,9 +12,7 @@ import ExpandableLabel
 
 class PeopleViewController: UIViewController {
     
-    
     //MARK:- Properties -
-    
     var detailedInfoCast: Cast?
     var detailedInfoCrew: Crew?
     var detailId = 0
@@ -56,11 +54,9 @@ class PeopleViewController: UIViewController {
             let nib = UINib(nibName: Cells.moviesTableViewCellNib.rawValue, bundle: nil)
             moviesTableView.register(nib, forCellReuseIdentifier: Cells.moviesCellIdentifier.rawValue)
             moviesTableView.rowHeight = 100
-            
         }
     }
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
     
     //MARK:- Lifecycle
     override func viewDidLoad() {
@@ -70,7 +66,6 @@ class PeopleViewController: UIViewController {
         parseInfo()
         parseImages()
         parseMovies()
-        
     }
     
     //MARK:- Private methods-
@@ -148,7 +143,6 @@ class PeopleViewController: UIViewController {
             self.activityIndicator.stopAnimating()
         }
     }
-    
     private func hidePersonInformation(_ isHidden: Bool) {
         nameLabel.isHidden = isHidden
         knowsForLabel.isHidden = isHidden
@@ -161,7 +155,6 @@ class PeopleViewController: UIViewController {
         graphyLabel.isHidden = isHidden
         moviesLabel.isHidden = isHidden
     }
-    
     private func addButton() {
         let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
         DispatchQueue.main.async {
@@ -182,6 +175,7 @@ class PeopleViewController: UIViewController {
         navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
     }
 }
+
 //MARK:- Collection View extension -
 extension PeopleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -215,7 +209,6 @@ extension PeopleViewController: UITableViewDelegate,UITableViewDataSource {
         cell.configure(moviesForPeople[indexPath.row])
         return cell
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let desVC = storyboard?.instantiateViewController(withIdentifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
         desVC.detailId = moviesForPeople[indexPath.row].id
