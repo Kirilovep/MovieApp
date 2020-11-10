@@ -14,9 +14,14 @@
         </uniquenessConstraints>
     </entity>
     <entity name="PeopleCoreData" representedClassName="PeopleCoreData" syncable="YES" codeGenerationType="class">
-        <attribute name="department" optional="YES"/>
-        <attribute name="id" optional="YES"/>
-        <attribute name="name" optional="YES"/>
+        <attribute name="department" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="MovieCoreData" positionX="-63" positionY="-18" width="128" height="133"/>

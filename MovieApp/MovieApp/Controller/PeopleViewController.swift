@@ -19,7 +19,11 @@ class PeopleViewController: UIViewController {
     var detailedInfoCrew: Crew?
     var detailId = 0
     var detailPhoto:String?
-    private var personInfo: People?
+    private var personInfo: People? {
+        didSet {
+            addButton()
+        }
+    }
     private var personImages: [Profile] = []
     private var moviesForPeople: [PersonMovie] = []
     private let networkManager = NetworkManager()
@@ -156,6 +160,23 @@ class PeopleViewController: UIViewController {
         knowForLabel.isHidden = isHidden
         graphyLabel.isHidden = isHidden
         moviesLabel.isHidden = isHidden
+    }
+    
+    private func addButton() {
+        let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = likeTappedButton
+    }
+    
+    @objc
+    private func addTapped() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let peopleData = PeopleCoreData(context: context)
+        peopleData.name = personInfo?.name
+        peopleData.department = personInfo?.knownForDepartment
+        let idPeople = Int64(personInfo?.id ?? 0)
+        peopleData.id = idPeople
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
     }
 }
 //MARK:- Collection View extension -
