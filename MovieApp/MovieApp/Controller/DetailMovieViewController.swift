@@ -14,18 +14,21 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     
     //MARK:- Properties -
     
-    var detailId: Int? 
+    var detailId: Int?
+    private var timer = Timer()
     private let extractor = LinkExtractor()
     private var results: DetailList? {
         didSet {
-            addButton()
+            timer.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+                self.addButton()
+            })
         }
     }
     private let networkManager = NetworkManager()
     private var detailCast: [Cast] = []
     private var detailCrew: [Crew] = []
     private var videos: [Video] = []
-    
     //MARK:- IBOutlets-
     @IBOutlet weak var detailImageView: UIImageView!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -76,7 +79,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         requestCast()
         requestCrew()
         requestVideos()
-       // addButton()
     }
     
     //MARK:- Private func-

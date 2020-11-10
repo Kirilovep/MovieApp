@@ -9,9 +9,6 @@
 import Foundation
 final class NetworkManager {
     
-    
-    
-    
     func loadMovies(_ filter: String,_ completionHandler: @escaping ([Result]) -> Void ) {
         if let url = URL(string: Urls.baseUrl.rawValue + filter + Urls.api.rawValue + Urls.language.rawValue) {
             URLSession.shared.dataTask(with: url) { (data, responce, error ) in

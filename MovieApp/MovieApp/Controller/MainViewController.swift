@@ -40,6 +40,7 @@ class MainViewController: UIViewController {
     //MARK:- LifeCycles-
     override func viewDidLoad() {
         super.viewDidLoad()
+        movieList = []
         requestMovies(Urls.nowPlayingMovie.rawValue)
         setRefreshControl()
     }
