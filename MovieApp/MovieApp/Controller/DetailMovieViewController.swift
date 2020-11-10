@@ -13,7 +13,6 @@ import YoutubeDirectLinkExtractor
 class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegate {
     
     //MARK:- Properties -
-    var detailTitleMovie: String?
     var detailId: Int?
     private let networkManager = NetworkManager()
     private var detailCast: [Cast] = []
@@ -152,10 +151,7 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func addButton() {
         let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
-        DispatchQueue.main.async {
-            self.navigationItem.rightBarButtonItem = likeTappedButton
-        }
-        
+        navigationItem.rightBarButtonItem = likeTappedButton
     }
     
     @objc
@@ -188,7 +184,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         castLabel.isHidden = isHidden
     }
 }
-
 //MARK:- Collection View extension -
 extension DetailMovieViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
