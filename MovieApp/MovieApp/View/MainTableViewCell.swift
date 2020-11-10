@@ -55,7 +55,6 @@ class MainTableViewCell: UITableViewCell {
             } else {
                 self.releaseDataLabel.text = result.department
             }
-            //self.releaseDataLabel.text = result.releaseDate
             self.overviewLabel.text = result.overview
             if let posterPath = result.image {
                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
