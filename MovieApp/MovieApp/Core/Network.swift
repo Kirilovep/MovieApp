@@ -197,7 +197,6 @@ final class NetworkManager {
         
         if let url = URL(string: stringUrl){
             URLSession.shared.dataTask(with: url) { (data, responce, error ) in
-                print(url)
                 if error != nil {
                     print("error in request")
                 } else {
