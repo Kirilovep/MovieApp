@@ -19,12 +19,12 @@ class PeopleViewController: UIViewController {
     var detailedInfoCrew: Crew?
     var detailId = 0
     var detailPhoto:String?
-    private var personInfo: People? {
+    private var personInfo: People?
+    private var personImages: [Profile] = [] {
         didSet {
             addButton()
         }
     }
-    private var personImages: [Profile] = []
     private var moviesForPeople: [PersonMovie] = []
     private let networkManager = NetworkManager()
     
