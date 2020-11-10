@@ -46,11 +46,18 @@ class MainTableViewCell: UITableViewCell {
             self.titleLabel.text = result.title
             if result.voteAverage >= 5.0 {
                 self.voteAverageLabel.textColor = .green
+            } else if result.voteAverage == 0.0{
+                self.voteAverageLabel.isHidden = true
             } else {
                 self.voteAverageLabel.textColor = .orange
             }
             self.voteAverageLabel.text = String(result.voteAverage)
-            self.releaseDataLabel.text = result.releaseDate
+            if let releaseDate = result.releaseDate {
+                self.releaseDataLabel.text = releaseDate
+            } else {
+                self.releaseDataLabel.text = result.department
+            }
+            //self.releaseDataLabel.text = result.releaseDate
             self.overviewLabel.text = result.overview
             if let posterPath = result.image {
                 let url = URL(string: Urls.baseImageUrl.rawValue + posterPath)
@@ -77,5 +84,4 @@ class MainTableViewCell: UITableViewCell {
             }
         }
     }
-    
 }

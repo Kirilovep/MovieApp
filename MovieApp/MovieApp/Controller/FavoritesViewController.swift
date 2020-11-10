@@ -26,9 +26,9 @@ class FavoritesViewController: UIViewController {
             favoritesTableView.register(nib, forCellReuseIdentifier: Cells.mainCellIdentefier.rawValue)
             favoritesTableView.rowHeight = 150
             favoritesTableView.tableFooterView = UIView()
+            
         }
     }
-    
     //MARK: - LifeCycle -
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +55,7 @@ class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   
         return detailMovies.count
     }
     
@@ -66,10 +67,16 @@ extension FavoritesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
-        desVC.detailId = Int(detailMovies[indexPath.row].id)
-        navigationController?.pushViewController(desVC, animated: true)
-        
+        let department = detailMovies[indexPath.row].department
+        if department != nil {
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.PeopleVCIdentifier.rawValue) as! PeopleViewController
+            desVC.detailId = Int(detailMovies[indexPath.row].id)
+            navigationController?.pushViewController(desVC, animated: true)
+        } else {
+            let desVC = storyboard?.instantiateViewController(identifier: ViewControllers.DetailMovieVCIdentifier.rawValue) as! DetailMovieViewController
+            desVC.detailId = Int(detailMovies[indexPath.row].id)
+            navigationController?.pushViewController(desVC, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

@@ -149,7 +149,10 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     }
     private func addButton() {
         let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = likeTappedButton
+        DispatchQueue.main.async {
+            self.navigationItem.rightBarButtonItem = likeTappedButton
+        }
+        
     }
     
     @objc

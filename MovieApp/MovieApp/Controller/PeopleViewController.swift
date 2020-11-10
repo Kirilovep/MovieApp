@@ -164,17 +164,20 @@ class PeopleViewController: UIViewController {
     
     private func addButton() {
         let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = likeTappedButton
+        DispatchQueue.main.async {
+            self.navigationItem.rightBarButtonItem = likeTappedButton
+        }
     }
     
     @objc
     private func addTapped() {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let peopleData = PeopleCoreData(context: context)
-        peopleData.name = personInfo?.name
-        peopleData.department = personInfo?.knownForDepartment
+        let movieData = MovieCoreData(context: context)
+        movieData.title = personInfo?.name
+        movieData.image = personInfo?.profilePath
+        movieData.department = personInfo?.knownForDepartment
         let idPeople = Int64(personInfo?.id ?? 0)
-        peopleData.id = idPeople
+        movieData.id = idPeople
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationItem.rightBarButtonItem?.image = #imageLiteral(resourceName: "heart")
     }
