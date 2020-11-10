@@ -16,7 +16,11 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     
     var detailId: Int? 
     private let extractor = LinkExtractor()
-    private var results: DetailList?
+    private var results: DetailList? {
+        didSet {
+            addButton()
+        }
+    }
     private let networkManager = NetworkManager()
     private var detailCast: [Cast] = []
     private var detailCrew: [Crew] = []
@@ -36,7 +40,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     @IBOutlet weak var videosLabel: UILabel!
     @IBOutlet weak var castLabel: UILabel!
     @IBOutlet weak var crewLabel: UILabel!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var castCollectionView: UICollectionView! {
         didSet {
@@ -67,12 +70,13 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     //MARK:- LifeCycle-
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
         hideMoviesInformation(true)
         requestDetail()
         requestCast()
         requestCrew()
         requestVideos()
-        addButton()
+       // addButton()
     }
     
     //MARK:- Private func-
@@ -146,7 +150,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     private func addButton() {
         let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = likeTappedButton
-        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     @objc

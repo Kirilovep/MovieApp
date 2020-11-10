@@ -15,7 +15,7 @@ class MainViewController: UIViewController {
     
     private var movieList: [Result] = []
     private var networkManager = NetworkManager()
-    
+    private var refreshControl = UIRefreshControl()
     //MARK:- IBOutlets-
     @IBOutlet weak var mainSegmentedControl: UISegmentedControl! {
         didSet {
@@ -41,6 +41,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestMovies(Urls.nowPlayingMovie.rawValue)
+        setRefreshControl()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +63,29 @@ class MainViewController: UIViewController {
         }
     }
     //MARK:- Private Func-
+    
+    private func setRefreshControl() {
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+           refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+           mainTableView.addSubview(refreshControl) // not required when using UITableViewController
+    }
+    
+   @objc private func refresh(_ sender: AnyObject) {
+    switch sender.selectedSegmentIndex {
+    case 0:
+        requestMovies(Urls.nowPlayingMovie.rawValue)
+        refreshControl.endRefreshing()
+    case 1:
+        requestMovies(Urls.topRatedMovie.rawValue)
+        refreshControl.endRefreshing()
+    case 2:
+        requestMovies(Urls.upcomingMovie.rawValue)
+        refreshControl.endRefreshing()
+    default:
+        break
+    }
+    refreshControl.endRefreshing()
+   }
     
     private func requestMovies(_ filterForSearch: String) {
         networkManager.loadMovies(filterForSearch)  { [weak self] (results) in
