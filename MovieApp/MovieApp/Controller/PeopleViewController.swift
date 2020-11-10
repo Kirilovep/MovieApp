@@ -85,27 +85,27 @@ class PeopleViewController: UIViewController {
         }
     }
     private func parseInfo() {
-        networkManager.loadPeople(detailId) { (infoPeople) in
-            self.personInfo = infoPeople
-            self.updateView()
+        networkManager.loadPeople(detailId) { [weak self] (infoPeople) in
+            self?.personInfo = infoPeople
+            self?.updateView()
         }
     }
     private func parseImages() {
-        networkManager.loadPersonImages(detailId) { (images) in
-            self.personImages = images
+        networkManager.loadPersonImages(detailId) { [weak self] (images) in
             DispatchQueue.main.async {
-                self.imagesCollectionView.reloadData()
+                self?.personImages = images
+                self?.imagesCollectionView.reloadData()
             }
         }
     }
     private func parseMovies() {
-        networkManager.loadMoviesForPeople(detailId) { (moviesСast, moviesCrew) in
+        networkManager.loadMoviesForPeople(detailId) { [weak self] (moviesСast, moviesCrew) in
             DispatchQueue.main.async {
-                self.moviesForPeople = moviesСast ?? []
-                self.moviesForPeople.append(contentsOf: moviesCrew ?? [])
+                self?.moviesForPeople = moviesСast ?? []
+                self?.moviesForPeople.append(contentsOf: moviesCrew ?? [])
                 if let castCount = moviesСast?.count,let crewCount = moviesCrew?.count {
-                    self.tableViewHeight.constant = CGFloat((castCount + crewCount) * 100)
-                    self.moviesTableView.reloadData()
+                    self?.tableViewHeight.constant = CGFloat((castCount + crewCount) * 100)
+                    self?.moviesTableView.reloadData()
                 }
             }
         }

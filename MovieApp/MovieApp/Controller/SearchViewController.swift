@@ -59,20 +59,20 @@ class SearchViewController: UIViewController {
         segment.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Medium", size: 16)!, NSAttributedString.Key.foregroundColor: UIColor(named: "forSegmentedColor")], for: .selected)
     }
     
-    private func searchMovie(_ quary: String) {
-        networkManager.searchMovie(quary) { (searchResults) in
+    private func searchMovie(_ quary: String) { 
+        networkManager.searchMovie(quary) { [weak self] (searchResults) in
             DispatchQueue.main.async {
-                self.searchResultsMovies = searchResults
-                self.searchTableView.reloadData()
+                self?.searchResultsMovies = searchResults
+                self?.searchTableView.reloadData()
             }
         }
     }
     
     private func searchPeople(_ quary: String) {
-        networkManager.searchPeople(quary) { (searchPeopleResults) in
+        networkManager.searchPeople(quary) { [weak self] (searchPeopleResults) in
             DispatchQueue.main.async {
-                self.searchResultsPeople = searchPeopleResults
-                self.searchTableView.reloadData()
+                self?.searchResultsPeople = searchPeopleResults
+                self?.searchTableView.reloadData()
             }
         }
     }

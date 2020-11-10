@@ -77,35 +77,35 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     
     //MARK:- Private func-
     private func requestCast() {
-        networkManager.loadCast(detailId ?? 0) { (detailedCast) in
+        networkManager.loadCast(detailId ?? 0) { [weak self] (detailedCast) in
             DispatchQueue.main.async {
-                self.detailCast = detailedCast
-                self.castCollectionView.reloadData()
+                self?.detailCast = detailedCast
+                self?.castCollectionView.reloadData()
             }
         }
     }
     private func requestCrew() {
-        networkManager.loadCrew(detailId ?? 0) { (detailedCrew) in
+        networkManager.loadCrew(detailId ?? 0) { [weak self] (detailedCrew) in
             DispatchQueue.main.async {
-                self.detailCrew = detailedCrew
-                self.crewCollectionView.reloadData()
+                self?.detailCrew = detailedCrew
+                self?.crewCollectionView.reloadData()
             }
         }
     }
     private func requestDetail() {
-        networkManager.loadDetailMovie(detailId ?? 0) { (detailedMovie) in
+        networkManager.loadDetailMovie(detailId ?? 0) { [weak self] (detailedMovie) in
             DispatchQueue.main.async {
-                self.hideMoviesInformation(false)
-                self.results = detailedMovie
-                self.updateView()
+                self?.hideMoviesInformation(false)
+                self?.results = detailedMovie
+                self?.updateView()
             }
         }
     }
     private func requestVideos() {
-        networkManager.loadVideos(detailId ?? 0) { (videos) in
+        networkManager.loadVideos(detailId ?? 0) { [weak self] (videos) in
             DispatchQueue.main.async {
-                self.videos = videos
-                self.videoCollectionView.reloadData()
+                self?.videos = videos
+                self?.videoCollectionView.reloadData()
             }
         }
     }
