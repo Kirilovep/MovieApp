@@ -16,7 +16,6 @@ class CrewCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Functions -
     func configure(_ crew: Crew) {
-        DispatchQueue.main.async {
             self.nameLabel.text = crew.name
             self.jobLabel.text = crew.job
             if let profilePath = crew.profilePath {
@@ -26,7 +25,6 @@ class CrewCollectionViewCell: UICollectionViewCell {
             } else {
                 self.characterImage.image = UIImage(named: Images.imageForPeople.rawValue)
             }
-        }
     }
 }
 

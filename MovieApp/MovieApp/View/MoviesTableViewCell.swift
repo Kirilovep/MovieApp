@@ -20,7 +20,6 @@ class MoviesTableViewCell: UITableViewCell {
     
     //MARK: - Functions
     func configure(_ movies: PersonMovie) {
-        DispatchQueue.main.async {
             if let moviesName = movies.title {
                 self.titleLabel.text = moviesName
             }
@@ -51,6 +50,5 @@ class MoviesTableViewCell: UITableViewCell {
                     self.yearLabel.text = releaseData
                 }
             }
-        }
     }
 }

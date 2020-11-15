@@ -18,7 +18,6 @@ class CastCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Functions -
     func configure(_ cast: Cast) {
-        DispatchQueue.main.async {
             self.fullName.text = cast.name
             self.jobLabel.text = cast.character
             if let profilePath = cast.profilePath {
@@ -28,6 +27,5 @@ class CastCollectionViewCell: UICollectionViewCell {
             } else {
                 self.characterImage.image = UIImage(named: Images.imageForPeople.rawValue)
             }
-        }
     }
 }

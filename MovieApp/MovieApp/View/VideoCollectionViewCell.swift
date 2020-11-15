@@ -23,7 +23,6 @@ class VideoCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Functions -
     func configure(_ video: Video) {
-        DispatchQueue.main.async {
             self.trailerName.text = video.name
             if let key = video.key {
                 let url = URL(string: VideoUrls.baseurl.rawValue + key + VideoUrls.lasturl.rawValue )
@@ -32,6 +31,5 @@ class VideoCollectionViewCell: UICollectionViewCell {
             } else {
                 self.videoImage.image = UIImage(named: Images.imageForPeople.rawValue)
             }
-        }
     }
 }
