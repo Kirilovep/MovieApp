@@ -85,8 +85,11 @@ class PeopleViewController: UIViewController {
     }
     private func parseInfo() {
         networkManager.loadPeople(detailId) { [weak self] (infoPeople) in
-            self?.personInfo = infoPeople
-            self?.updateView()
+            DispatchQueue.main.async {
+                self?.personInfo = infoPeople
+                self?.updateView()
+            }
+           
         }
     }
     private func parseImages() {
@@ -110,7 +113,6 @@ class PeopleViewController: UIViewController {
         }
     }
     private func updateView() {
-        DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
             self.hidePersonInformation(false)
             if let infoPeopleCast = self.detailedInfoCast {
@@ -141,7 +143,6 @@ class PeopleViewController: UIViewController {
             self.biographyLabel.text = self.personInfo?.biography
             self.setImagesForCastAndCrew()
             self.activityIndicator.stopAnimating()
-        }
     }
     private func hidePersonInformation(_ isHidden: Bool) {
         nameLabel.isHidden = isHidden
@@ -157,9 +158,7 @@ class PeopleViewController: UIViewController {
     }
     private func addButton() {
         let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
-        DispatchQueue.main.async {
             self.navigationItem.rightBarButtonItem = likeTappedButton
-        }
     }
     
     @objc

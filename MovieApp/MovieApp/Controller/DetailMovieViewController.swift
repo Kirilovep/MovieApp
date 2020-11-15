@@ -116,7 +116,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
         }
     }
     private func updateView() {
-        DispatchQueue.main.async {
             self.activityIndicator.startAnimating()
             self.titleLabel.text = self.results?.title
             if let voteAverage = self.results?.voteAverage {
@@ -146,8 +145,6 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
             guard let runTime = self.results?.runtime  else { return }
             self.runTimeLabel.text = "\(runTime) minutes"
             self.activityIndicator.stopAnimating()
-            
-        }
     }
     private func addButton() {
         let likeTappedButton = UIBarButtonItem(image: #imageLiteral(resourceName: "like"), style: .plain, target: self, action: #selector(addTapped))
@@ -156,9 +153,9 @@ class DetailMovieViewController: UIViewController, AVPlayerViewControllerDelegat
     
     @objc
     private func addTapped() {
+        guard let movieTitle = results?.title else { return }
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let movieData = MovieCoreData(context: context)
-        guard let movieTitle = results?.title else { return }
         movieData.title = movieTitle
         movieData.image = results?.posterPath
         movieData.releaseDate = results?.releaseDate
